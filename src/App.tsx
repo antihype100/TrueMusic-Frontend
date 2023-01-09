@@ -1,9 +1,9 @@
 import Home from './pages/Home';
 
 const App = () => (
-  <div>
-    <Home />
-  </div>
+
+    <Home/>
+
 );
 
 export default App;

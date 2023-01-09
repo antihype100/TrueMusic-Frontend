@@ -1,3 +1,6 @@
+@import "global";
+
+
 html,
 body,
 div,
@@ -101,6 +104,8 @@ section {
 }
 body {
   line-height: 1;
+  font-family: 'Exo 2', sans-serif;
+
 }
 ol,
 ul {

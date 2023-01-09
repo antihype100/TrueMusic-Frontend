@@ -1,0 +1,14 @@
+.navMenu {
+  &__list {
+    margin-top: 25px;
+  }
+  &__icon {
+    margin-right: 10px;
+  }
+  &__item {
+    color: #979797;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}
