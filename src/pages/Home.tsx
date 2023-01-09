@@ -1,15 +1,20 @@
-import BaseLayoutNoAuth from "../components/layouts/BaseLayoutNoAuth";
+import BaseLayout from "../components/layouts/BaseLayout";
 import './Home.scss'
 import Player from "../components/player/Player";
+import {SearchPanel} from "../components/searchPanel/SearchPanel";
+import { TrackList } from "../components/trackList/TrackList";
 
 const Home = () => (
-            <BaseLayoutNoAuth>
+            <BaseLayout>
                 <section className='sectionHome'>
+
                   <main className='mainHome'>
-                    <input type="text"/>
+                    <SearchPanel/>
+                    <TrackList amountTracks={12}/>
                     <Player/>
                   </main>
                 </section>
-            </BaseLayoutNoAuth>
+
+            </BaseLayout>
     )
 export default Home;

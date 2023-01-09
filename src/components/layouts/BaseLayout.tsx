@@ -6,7 +6,7 @@ interface IBaseLayoutNoAuth {
     children: any
 }
 
-const BaseLayoutNoAuth = ({children}:  IBaseLayoutNoAuth) => {
+const BaseLayout = ({children}:  IBaseLayoutNoAuth) => {
 
     return (
             <div className='baseLayoutNoAuth'>
@@ -21,5 +21,5 @@ const BaseLayoutNoAuth = ({children}:  IBaseLayoutNoAuth) => {
 
 }
 
-export default BaseLayoutNoAuth
+export default BaseLayout
 

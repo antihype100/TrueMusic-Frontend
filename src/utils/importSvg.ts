@@ -15,6 +15,8 @@ import search from '../assets/svg/search.svg';
 import headphones from '../assets/svg/headphones.svg';
 import repeat from '../assets/svg/repeat.svg';
 import like from '../assets/svg/like.svg';
+import stick from '../assets/svg/stick.svg';
+
 
 export {
   diagram,
@@ -33,5 +35,6 @@ export {
   burger,
   repeat,
   search,
-  headphones
+  headphones,
+  stick
 };
