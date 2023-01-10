@@ -13,15 +13,7 @@ const BaseLayout = ({ children }: IBaseLayoutNoAuth) => {
   return (
     <div className='baseLayoutNoAuth'>
       <LeftSideBar />
-
-      <section className={styles.sectionLayout}>
-        <main className={styles.mainLayout}>
-          <SearchPanel />
           {children}
-          <Player />
-        </main>
-      </section>
-
       <RightSideBar />
     </div>
   );
