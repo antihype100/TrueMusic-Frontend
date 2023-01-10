@@ -1,0 +1,16 @@
+.sectionLayout {
+  padding: 55px 20px 150px 20px;
+  background-image: url('../../assets/bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.mainLayout {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

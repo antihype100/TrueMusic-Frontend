@@ -1,9 +1,10 @@
 import Home from './pages/Home';
+import BaseLayout from './components/layouts/BaseLayout';
 
 const App = () => (
-
-    <Home/>
-
+  <BaseLayout>
+    <Home />
+  </BaseLayout>
 );
 
 export default App;

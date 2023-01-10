@@ -1,0 +1,32 @@
+.wrapper {
+  position: relative;
+  margin-top: auto;
+}
+.links {
+  display: flex;
+  justify-items: center;
+  gap: 20px;
+  a {
+    text-decoration: none;
+    font-size: 30px;
+    letter-spacing: 0.03em;
+    font-weight: 700;
+    line-height: 36px;
+    color: #979797;
+  }
+}
+.title {
+  position: absolute;
+  top: -20vh;
+  left: 20vw;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 96px;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+  text-shadow: 5px 5px 6px rgba(0, 0, 0, 0.65);
+}
+.active {
+  color: #FFFFFF !important;
+  border-bottom: 1px solid #2EEB2A;
+}
