@@ -1,18 +1,13 @@
-import './searchPanel.scss'
-import { stick, search } from "../../utils/importSvg";
+import styles from './searchPanel.module.scss';
+import { stick, search } from '../../utils/importSvg';
 
-const SearchPanel = () => {
+const SearchPanel = () => (
+  <div className={styles.searchPanelWrapper}>
+    <img className={styles.stickIcon} src={stick} alt='' />
+    <img className={styles.searchIcon} src={search} alt='' />
+    <span className={styles.searchHistory}>История поиска</span>
+    <input className={styles.searchPanel} type='text' placeholder='Трек, исполнитель или альбом' />
+  </div>
+);
 
-
-
-    return (
-        <div className='searchPanelWrapper'>
-          <img className='searchPanel__stickIcon' src={stick} alt=""/>
-          <img className='searchPanel__searchIcon' src={search} alt="" />
-          <span className='searchPanel__searchHistory'>История поиска</span>
-          <input className='searchPanel' type="text" placeholder='Трек, исполнитель или альбом'/>
-        </div>
-    )
-}
-
-export {SearchPanel}
+export { SearchPanel };

@@ -1,0 +1,30 @@
+.PlaylistItem {
+  display: flex;
+  margin-bottom: 20px;
+}
+.header {
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.nameWrapper {
+  display: flex;
+  flex-direction: column;
+  padding-left: 8px;
+  justify-content: space-between;
+}
+
+.trackName {
+  color: #979797;
+}
+.authorName {
+  color: white;
+}
+
+.arrow {
+  display: block;
+  margin: 0 auto 10px auto;
+}
