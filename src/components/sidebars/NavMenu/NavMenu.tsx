@@ -1,6 +1,8 @@
 import { main, profile, sound } from '../../../utils/importSvg';
 import nft from '../../../assets/nft.png';
 import styles from './NavMenu.module.scss';
+import { Link } from 'react-router-dom';
+import { HOME, REGISTER } from '../../../utils/routes';
 
 interface INavMenuLink {
   img: any;
@@ -17,8 +19,12 @@ const NavMenuLink = ({ img, linkText }: INavMenuLink) => (
 const NavMenu = () => (
   <nav className={styles.navMenu}>
     <ul className={styles.navMenu__list}>
-      <NavMenuLink img={main} linkText='Главная' />
-      <NavMenuLink img={profile} linkText='Регистрация' />
+      <Link to={HOME}>
+        <NavMenuLink img={main} linkText='Главная' />
+      </Link>
+      <Link to={REGISTER}>
+        <NavMenuLink img={profile} linkText='Регистрация' />
+      </Link>
       <NavMenuLink img={sound} linkText='True-Top' />
       <NavMenuLink img={nft} linkText='NFT-Music' />
     </ul>

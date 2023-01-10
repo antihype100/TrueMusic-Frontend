@@ -1,6 +1,6 @@
-import { useLocation } from 'react-router-dom';
+import { AUTHOR_ABOUT, AUTHOR_ALBUMS, AUTHOR } from '../../../utils/routes';
+import { Link, useLocation } from 'react-router-dom';
 import { TrackList } from '../../../components/trackList/TrackList';
-import { AUTHOR_ABOUT, AUTHOR_ALBUMS, AUTHOR_TRACKS } from '../../../utils/routes';
 import styles from './Tracks.module.scss';
 
 interface ITracks {
@@ -8,7 +8,7 @@ interface ITracks {
 }
 
 const links = [
-  { id: 'tracks', href: AUTHOR_TRACKS, title: 'Треки' },
+  { id: 'tracks', href: AUTHOR, title: 'Треки' },
   { id: 'albums', href: AUTHOR_ALBUMS, title: 'Альбомы' },
   { id: 'about', href: AUTHOR_ABOUT, title: 'Описание' }
 ];
@@ -21,10 +21,11 @@ const Tracks = ({ author }: ITracks) => {
     <section className={styles.wrapper}>
       <h1 className={styles.title}>{author}</h1>
       <div className={styles.links}>
+        x
         {links.map(({ title, href, id }) => (
-          <a key={id} className={path === id ? styles.active : ''} href={href}>
+          <Link key={id} className={path === id ? styles.active : ''} to={href}>
             {title}
-          </a>
+          </Link>
         ))}
       </div>
       <TrackList amountTracks={5} />
