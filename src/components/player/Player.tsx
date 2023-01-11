@@ -5,8 +5,9 @@ import { repeat, like, next, prev, play } from '../../utils/importSvg';
 const Player = () => (
   <div className={styles.player}>
     <div className={styles.contentWrapper}>
+
       <div className={styles.leftContent}>
-        <img className='' src={img} alt='' />
+        <img className={styles.trackImg} src={img} alt='' />
 
         <div className={styles.infoWrapper}>
           <span className={styles.authorName}>Kizaru</span>
@@ -21,15 +22,21 @@ const Player = () => (
       </div>
 
       <div className={styles.playStopWrapper}>
-        <img src={prev} alt='' />
-        <img src={play} alt='' />
-        <img src={next} alt='' />
+
+          <img className={styles.prev} src={prev} alt='' />
+
+
+          <img className={styles.playPause} src={play} alt='' />
+
+
+          <img className={styles.next} src={next} alt='' />
+
       </div>
 
       <span className={styles.playerDuration}>02:32</span>
     </div>
 
-    <input className={`${styles.inputDuration} ${styles.sliderProgress}`} type='range' />
+    <input className={`${styles.inputDuration} ${styles.sliderProgress}`} value="0" type='range' />
   </div>
 );
 

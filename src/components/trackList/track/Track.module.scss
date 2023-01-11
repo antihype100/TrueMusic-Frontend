@@ -3,62 +3,120 @@
 input[type='range'].inputDurationTrack {
   height: 4px;
   -webkit-appearance: none;
-  width: 300px;
+  width: calc(100vw / 4)
 }
 
 .playerTrack {
   display: flex;
   margin-top: 25px;
-  position: relative;
   align-items: center;
 }
-.numberPosition {
-  float: right;
-  font-size: 20px;
-  color: white;
-}
-
 .img {
   margin-right: 20px;
-  margin-left: 20px;
+  height: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 50px);
+  width: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 50px);
+}
+.numberPosition {
+  margin-right: 20px;
+  font-style: italic;
+  font-weight: 500;
+  font-size: calc( (100vw - 180px)/(1280 - 480) * (21 - 16) + 4px);
+  line-height: 18px;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
 }
 
-.leftContent {
+.contentAndInputWrapper {
   display: flex;
+  flex-direction: column
 }
 
-.contentWrapper {
+.rightLeftContentWrapper {
   display: flex;
-  margin-bottom: 3px;
-  justify-content: space-between;
+  justify-content: space-between
 }
 
-.infoWrapper {
+.leftContentWrapper {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  justify-content: space-between;
+
+  .authorName {
+
+    font-weight: 700;
+    font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
+    margin-bottom: 5px;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+  }
+
+  .trackName {
+    font-weight: 400;
+    font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
+    letter-spacing: 0.03em;
+    margin-bottom: 5px;
+  }
+
+  .presentTime {
+    font-style: italic;
+    font-weight: 400;
+    font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
+    letter-spacing: 0.03em;
+    margin-bottom: 5px;
+    color: #979797;
+  }
 }
 
-.authorName {
-  margin-bottom: 3px;
-  color: whitesmoke;
-  font-size: 13px;
+.statisticWrapper {
+  display: flex;
+  align-items: center;
 }
 
-.trackName {
-  color: #979797;
-  margin-bottom: 3px;
-  font-size: 13px;
+.rightContent {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
+
+
+  .likeWrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    .likeAmount {
+      font-style: italic;
+      font-weight: 400;
+      font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
+      line-height: 14px;
+      letter-spacing: 0.03em;
+
+      color: #FFFFFF;
+      margin-right: 10px;
+    }
+  }
+
+  .auditionsAmount {
+    font-style: italic;
+    font-weight: 400;
+    font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
+    line-height: 14px;
+    letter-spacing: 0.03em;
+
+    color: #FFFFFF;
+    margin-right: 10px;
+  }
+
+  .playerTrackDuration {
+    font-style: italic;
+    font-weight: 400;
+    font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
+    letter-spacing: 0.03em;
+    margin-bottom: 5px;
+    color: #979797;
+  }
+
 }
 
-.presentTime {
-  color: white;
-}
-
-.playerTrackDuration {
-  align-self: end;
-  color: white;
-}
 
 /*generated with Input range slider CSS style generator (version 20211225)
 https://toughengineer.github.io/demo/slider-styler*/

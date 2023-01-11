@@ -8,7 +8,7 @@ const LeftSideBar = () => (
     <img className={styles.logo} src={logo} alt='' />
     <NavMenu />
     <hr className='sideBarHr' />
-    <PlaylistSideBar amountTracks={11} header='Уходящая неделя' />
+    <PlaylistSideBar amountTracks={11} header='Ваш плейлист' />
   </aside>
 );
 

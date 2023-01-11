@@ -3,24 +3,25 @@
 input[type='range'].inputDuration {
   height: 4px;
   -webkit-appearance: none;
-  width: 800px;
-  @media screen and (max-width: 1400px) {
-    width: 600px;
-  }
+  width: calc(100vw / 3)
 
-  @media screen and (max-width: 1145px) {
-    width: 400px;
-  }
 }
 
 .player {
   display: flex;
+  align-items: center;
+  width: fit-content;
   flex-direction: column;
-  position: absolute;
-  bottom: 15px;
+  position: relative;
+  margin-top: 150px;
+  margin-bottom: 10px;
 }
+
 .leftContent {
   display: flex;
+  position: absolute;
+  left: 0;
+  bottom: 15px;
 }
 .contentWrapper {
   display: flex;
@@ -30,21 +31,30 @@ input[type='range'].inputDuration {
 
 .infoWrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-direction: column;
   margin-left: 15px;
 }
 
 .authorName {
   color: whitesmoke;
+  margin-bottom: 5px;
+  font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
 }
 
 .trackName {
   color: #979797;
+  margin-bottom: 5px;
+  font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
 }
 
 .presentTime {
   color: white;
+  font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
+}
+.trackImg {
+  width: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 50px);
+  height: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 50px);
 }
 
 .iconsWrapper {
@@ -54,20 +64,40 @@ input[type='range'].inputDuration {
 
 .repeatIcon {
   margin-right: 10px;
+  height: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 8px);
+  width: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 8px);
+}
+
+.likeIcon {
+  height: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 8px);
+  width: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 8px);
 }
 
 .playStopWrapper {
   display: flex;
-  position: absolute;
-  left: 320px;
-  @media screen and (max-width: 1400px) {
-    left: 230px;
+  align-items: center;
+  .playPause {
+    margin-right: 15px;
+    margin-left: 15px;
+    width: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 40px);
+    height: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 40px);
   }
+  .next {
+    width: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 20px);
+    height: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 20px);
+  }
+  .prev {
+    width: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 20px);
+    height: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 20px);
+  }
+
 }
 
 .playerDuration {
   align-self: end;
   color: white;
+  position: absolute;
+  right: 5px;
 }
 
 /*generated with Input range slider CSS style generator (version 20211225)
