@@ -1,0 +1,55 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 70px;
+  position: relative;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nameAlbum {
+  width: 100%;
+  position: absolute;
+  top: -75px;
+  left: 0;
+  font-weight: 700;
+  font-size: 50px;
+  color: #ffffff;
+  line-height: 61px;
+  letter-spacing: 0.03em;
+
+}
+.date {
+  display: inline-block;
+  text-align: center;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+}
+.imgAlbum {
+  max-width: 220px;
+}
+.stats {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  gap: 16px;
+  span {
+    margin-right: 4px;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.03em;
+    color: #979797;
+  }
+  svg {
+    width: 14px;
+    fill: #ffffff;
+  }
+}

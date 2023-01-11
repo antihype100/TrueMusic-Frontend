@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from '../pages/home/Home';
 import {
   AUTHOR,
+  AUTHOR_ALBUM,
   AUTHOR_ALBUMS,
   HOME,
   LOGIN,
@@ -17,14 +18,16 @@ import AlbumsAuthor from '../pages/author/albums/Albums';
 import TracksUsers from '../pages/users/tracks/Tracks';
 import AlbumsUsers from '../pages/users/albums/Albums';
 import Playlist from '../pages/users/playlist/Playlist';
+import AlbumPage from '../pages/author/albumPage/AlbumPage';
 
 const AppRouter = () => (
   <Routes>
     <Route path={HOME} element={<Home />} />
     <Route path={LOGIN} element={<SignIn />} />
     <Route path={REGISTER} element={<SignUp />} />
-    <Route path={AUTHOR} element={<TracksAuthor author='Dora' />} />
+    <Route path={AUTHOR} element={<TracksAuthor />} />
     <Route path={AUTHOR_ALBUMS} element={<AlbumsAuthor />} />
+    <Route path={AUTHOR_ALBUM} element={<AlbumPage />} />
     <Route path={USER_TRACKS} element={<TracksUsers />} />
     <Route path={USER_ALBUMS} element={<AlbumsUsers />} />
     <Route path={USER_PLAYLISTS} element={<Playlist />} />

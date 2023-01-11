@@ -1,4 +1,4 @@
-import BaseLayout from './components/layouts/BaseLayout';
+import BaseLayout from './components/layouts/baseLayout/BaseLayout';
 import AppRouter from './components/AppRouter';
 
 const App = () => (

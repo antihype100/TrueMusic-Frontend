@@ -1,6 +1,5 @@
 import { Track } from './track/Track';
 import styles from './TrackList.module.scss';
-import { Link } from 'react-router-dom';
 
 interface ITrackList {
   amountTracks: number;
@@ -9,8 +8,8 @@ interface ITrackList {
 const TrackList = ({ amountTracks }: ITrackList) => (
   <div className={styles.trackListWrapper}>
     <ul className='trackList'>
-      {Array.from(Array(amountTracks).keys()).map((value) => (
-        <li>
+      {Array.from(Array(amountTracks).keys()).map((value, i) => (
+        <li key={i}>
           <Track index={value + 1} />
         </li>
       ))}
