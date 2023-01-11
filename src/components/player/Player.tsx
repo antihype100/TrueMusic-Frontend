@@ -7,7 +7,7 @@ const Player = () => (
     <div className={styles.contentWrapper}>
 
       <div className={styles.leftContent}>
-        <img className='' src={img} alt='' />
+        <img className={styles.trackImg} src={img} alt='' />
 
         <div className={styles.infoWrapper}>
           <span className={styles.authorName}>Kizaru</span>
@@ -22,15 +22,15 @@ const Player = () => (
       </div>
 
       <div className={styles.playStopWrapper}>
-        <button>
+
           <img className={styles.prev} src={prev} alt='' />
-        </button>
-        <button>
-          <img src={play} alt='' />
-        </button>
-        <button>
+
+
+          <img className={styles.playPause} src={play} alt='' />
+
+
           <img className={styles.next} src={next} alt='' />
-        </button>
+
       </div>
 
       <span className={styles.playerDuration}>02:32</span>

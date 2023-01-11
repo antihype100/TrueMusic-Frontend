@@ -5,6 +5,7 @@
   margin-bottom: 20px;
   position: relative;
 
+
   &:before {
     content: ' ';
     height: 1px;
@@ -19,7 +20,7 @@
   font-style: normal;
   font-weight: 400;
   text-decoration: none;
-  font-size: 25px;
+  font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 15px);
   color: #adadad;
   text-shadow: 5px 5px 6px rgba(0, 0, 0, 0.65);
 
@@ -32,7 +33,7 @@
   color: #FFFFFF;
   text-shadow: 5px 5px 6px rgba(0, 0, 0, 0.65);
   text-decoration: none;
-  font-size: 22px;
+  font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 15px);
   position: relative;
 
   &:before {

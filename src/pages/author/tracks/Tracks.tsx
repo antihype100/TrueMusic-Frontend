@@ -1,13 +1,11 @@
+import { Link } from "react-router-dom";
 import { AUTHOR_ABOUT, AUTHOR_ALBUMS, AUTHOR } from "../../../utils/routes";
-import { Link, useLocation } from "react-router-dom";
 import { TrackList } from "../../../components/trackList/TrackList";
 import styles from "./Tracks.module.scss";
 import AuthorLayout from "../../../components/layouts/authorLayout/AuthorLayout";
 import BaseLayout from "../../../components/layouts/baseLayout/BaseLayout";
 
-interface ITracks {
-  // author: string;
-}
+
 
 const navList = [
   { id: "tracks", href: AUTHOR, title: "Треки" },
@@ -16,8 +14,6 @@ const navList = [
 ];
 
 const Tracks = () => {
-  const { pathname } = useLocation();
-  const path = String(pathname.split("/").splice(-1));
 
   return (
     <BaseLayout>
