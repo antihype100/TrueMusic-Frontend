@@ -11,12 +11,16 @@ const Track = ({ index }: ITrack) => {
   return (
     <div className={styles.playerTrack}>
       <p className={styles.numberPosition}>{index}</p>
-      <img className={styles.img} src={img} alt="" />
+      <img className={styles.img} src={img} alt='' />
       <div className={styles.contentAndInputWrapper}>
         <div className={styles.rightLeftContentWrapper}>
           <div className={styles.leftContentWrapper}>
-            <Link className={styles.authorName} to={`/author/${'dora'}/tracks`}>Kizaru</Link>
-            <Link to='#' className={styles.trackName}>Messege</Link>
+            <Link className={styles.authorName} to={`/author/${'dora'}/tracks`}>
+              Kizaru
+            </Link>
+            <Link to='#' className={styles.trackName}>
+              Messege
+            </Link>
             <span className={styles.presentTime}>00:40</span>
           </div>
           <div className={styles.rightContent}>
@@ -34,7 +38,11 @@ const Track = ({ index }: ITrack) => {
           </div>
         </div>
 
-        <input className={`${styles.inputDurationTrack} ${styles.sliderProgress}`} value="0" type='range' />
+        <input
+          className={`${styles.inputDurationTrack} ${styles.sliderProgress}`}
+          value='0'
+          type='range'
+        />
       </div>
     </div>
   );

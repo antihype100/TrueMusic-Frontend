@@ -3,14 +3,15 @@ import Home from '../pages/home/Home';
 import {
   AUTHOR,
   AUTHOR_ALBUM,
-  AUTHOR_ALBUMS, AUTHOR_TRACK,
+  AUTHOR_ALBUMS,
+  AUTHOR_TRACK,
   HOME,
   LOGIN,
   REGISTER,
   USER_ALBUMS,
   USER_PLAYLISTS,
   USER_TRACKS
-} from "../utils/routes";
+} from '../utils/routes';
 import TracksAuthor from '../pages/author/tracks/Tracks';
 import SignIn from '../pages/signin/SignIn';
 import SignUp from '../pages/signup/SignUp';
@@ -19,7 +20,7 @@ import TracksUsers from '../pages/users/tracks/Tracks';
 import AlbumsUsers from '../pages/users/albums/Albums';
 import Playlist from '../pages/users/playlist/Playlist';
 import AlbumPage from '../pages/author/albumPage/AlbumPage';
-import TrackPage from "../pages/author/trackPage/TrackPage";
+import TrackPage from '../pages/author/trackPage/TrackPage';
 
 const AppRouter = () => (
   <Routes>

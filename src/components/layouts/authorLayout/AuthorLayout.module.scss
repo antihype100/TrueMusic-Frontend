@@ -1,14 +1,13 @@
 .wrapper {
   position: relative;
   margin-top: auto;
-
 }
 .title {
   position: absolute;
   top: -150px;
   right: -100px;
   font-weight: 700;
-  font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 70px);
+  font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 70px);
   line-height: 96px;
   letter-spacing: 0.03em;
   color: #ffffff;

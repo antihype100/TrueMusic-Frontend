@@ -8,14 +8,14 @@
 
 .searchPanel {
   width: calc(100vw / 4);
-  height: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 30px);
+  height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 30px);
   background: #dcdcdc;
   border-radius: 31px;
   border: none;
   padding-left: 55px;
   &::placeholder {
     font-style: italic;
-    font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 3px);
+    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 3px);
     font-weight: 400;
   }
 }
@@ -34,6 +34,6 @@
 .searchHistory {
   position: absolute;
   right: 20px;
-  font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 5px);
+  font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 5px);
   color: #888888;
 }

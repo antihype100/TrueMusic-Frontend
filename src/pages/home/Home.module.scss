@@ -22,27 +22,25 @@
   font-style: italic;
   font-weight: 400;
   text-decoration: none;
-  font-size: calc( (100vw - 480px)/(1280 - 480) * (24 - 16) + 10px);
+  font-size: calc((100vw - 480px) / (1280 - 480) * (24 - 16) + 10px);
   color: #adadad;
   text-shadow: 5px 5px 6px rgba(0, 0, 0, 0.65);
-
 }
 .navLinkActive {
-
   font-style: italic;
   font-weight: 500;
   margin: 0 60px 0 60px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-shadow: 5px 5px 6px rgba(0, 0, 0, 0.65);
   text-decoration: none;
-  font-size: calc( (100vw - 480px)/(1280 - 480) * (24 - 16) + 10px);
+  font-size: calc((100vw - 480px) / (1280 - 480) * (24 - 16) + 10px);
   position: relative;
   &:before {
     content: ' ';
     height: 3px;
     width: 100%;
     bottom: -10px;
-    background: #2EEB2A;
+    background: #2eeb2a;
     position: absolute;
   }
 }
@@ -51,5 +49,3 @@
   display: flex;
   align-items: center;
 }
-
-

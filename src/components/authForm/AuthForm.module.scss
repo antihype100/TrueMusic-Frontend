@@ -1,5 +1,3 @@
-
-
 .modalSignUp {
   width: 732px;
   height: 786px;
@@ -9,11 +7,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("../../assets/png/bgSignInUp.png");
+  background-image: url('../../assets/png/bgSignInUp.png');
   box-shadow: -4px 4px 87px 20px rgba(245, 245, 245, 0.15);
   border-radius: 40px;
   @media screen and (max-width: 1400px) {
-    background-image: url("../../assets/png/bgSignInUpMedium.png");
+    background-image: url('../../assets/png/bgSignInUpMedium.png');
     width: 470px;
     height: 786px;
     background-position: center;
@@ -42,12 +40,12 @@
 
       .inputForm {
         border: none;
-        width: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 300px);
+        width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 300px);
         border-bottom: 1px solid #979797;
         padding: 10px 0 10px 50px;
 
         &::placeholder {
-          font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 5px);
+          font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 5px);
           color: #979797;
           font-style: italic;
           font-weight: 600;
@@ -57,9 +55,7 @@
 
       img {
         position: absolute;
-
       }
-
     }
 
     .questionSignUp {
@@ -67,11 +63,11 @@
       font-weight: 600;
       font-size: 14px;
       letter-spacing: 0.03em;
-      color: #36435C;
+      color: #36435c;
 
       a {
         text-decoration: none;
-        color: #699CFF;
+        color: #699cff;
         margin-left: 5px;
       }
     }
@@ -81,7 +77,7 @@
       font-weight: 600;
       font-size: 18px;
       letter-spacing: 0.03em;
-      color: #FFFFFF;
+      color: #ffffff;
       background: #610084;
       border-radius: 49px;
       border: none;

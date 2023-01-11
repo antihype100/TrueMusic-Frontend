@@ -35,5 +35,5 @@ export {
   repeat,
   search,
   headphones,
-  stick,
+  stick
 };
