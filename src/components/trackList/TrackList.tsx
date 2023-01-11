@@ -7,7 +7,7 @@ interface ITrackList {
 
 const TrackList = ({ amountTracks }: ITrackList) => (
   <div className={styles.trackListWrapper}>
-    <ul className='trackList'>
+    <ul className={styles.trackList}>
       {Array.from(Array(amountTracks).keys()).map((value, i) => (
         <li key={i}>
           <Track index={value + 1} />

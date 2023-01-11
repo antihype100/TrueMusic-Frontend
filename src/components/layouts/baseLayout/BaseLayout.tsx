@@ -6,12 +6,12 @@ import styles from './BaseLayout.module.scss';
 import { SearchPanel } from '../../searchPanel/SearchPanel';
 import Player from '../../player/Player';
 
-interface IBaseLayoutNoAuth {
+interface IBaseLayout {
   children: any;
 }
 
-const BaseLayout = ({ children }: IBaseLayoutNoAuth) => (
-  <div className='baseLayoutNoAuth'>
+const BaseLayout = ({ children }: IBaseLayout) => (
+  <div className={styles.baseLayout}>
     <LeftSideBar />
     <section className={styles.sectionLayout}>
       <main className={styles.mainLayout}>

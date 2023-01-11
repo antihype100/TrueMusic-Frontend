@@ -1,0 +1,92 @@
+
+.modalWrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalSignUp {
+  width: 732px;
+  height: 786px;
+  z-index: 10;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../../assets/png/bgSignInUp.png");
+  box-shadow: -4px 4px 87px 20px rgba(245, 245, 245, 0.15);
+  border-radius: 40px;
+
+
+}
+
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 7px;
+  background-color: #fff;
+  padding: 20px 35px 40px 35px;
+
+  .headerForm {
+    font-size: 35px;
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 70px;
+  }
+
+  .inputWrapper {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .inputForm {
+      border: none;
+      width: 360px;
+      border-bottom: 1px solid #979797;
+      padding: 10px 0 10px 50px;
+
+      &::placeholder {
+        font-size: 18px;
+        color: #979797;
+        font-style: italic;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+      }
+    }
+
+    img {
+      position: absolute;
+
+    }
+
+  }
+  .questionSignUp {
+    font-style: italic;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    color: #36435C;
+    a {
+      text-decoration: none;
+      color: #699CFF;
+      margin-left: 5px;
+    }
+  }
+  .signUpButton {
+    font-style: italic;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    background: #610084;
+    border-radius: 49px;
+    border: none;
+    padding: 15px 30px;
+    margin-top: 50px;
+  }
+}
+

@@ -1,16 +1,28 @@
 .sectionLayout {
-  padding: 55px 20px 130px 20px;
-  background-image: url('../../../assets/bg.png');
+  height: 100vh;
+  width: 85%;
+  //background-image: url('../../../assets/bg.png');
+  background-image: url('../../../assets/png/bgArtist.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   display: flex;
+  position: relative;
   justify-content: center;
-  width: 100%;
+
 }
 
 .mainLayout {
+
   display: flex;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
 }
+
+.baseLayout {
+  display: flex;
+  justify-content: space-between;
+}
+
+

@@ -3,24 +3,24 @@
 input[type='range'].inputDuration {
   height: 4px;
   -webkit-appearance: none;
-  width: 800px;
-  @media screen and (max-width: 1400px) {
-    width: 600px;
-  }
+  width: calc(100vw / 3)
 
-  @media screen and (max-width: 1145px) {
-    width: 400px;
-  }
 }
 
 .player {
   display: flex;
+  align-items: center;
+  width: fit-content;
   flex-direction: column;
-  position: absolute;
-  bottom: 15px;
+  position: relative;
+  margin-top: 150px;
+  margin-bottom: 10px;
 }
+
 .leftContent {
   display: flex;
+  position: absolute;
+  left: 0;
 }
 .contentWrapper {
   display: flex;
@@ -58,16 +58,24 @@ input[type='range'].inputDuration {
 
 .playStopWrapper {
   display: flex;
-  position: absolute;
-  left: 320px;
-  @media screen and (max-width: 1400px) {
-    left: 230px;
+  button {
+    background: none;
+    border: none;
   }
+  .next {
+    width: 50px;
+  }
+  .prev {
+    width: 50px;
+  }
+
 }
 
 .playerDuration {
   align-self: end;
   color: white;
+  position: absolute;
+  right: 5px;
 }
 
 /*generated with Input range slider CSS style generator (version 20211225)
