@@ -1,6 +1,6 @@
-import styles from "./Comments.module.scss";
-import img from "../../assets/png/forPlayer.png";
-import LikeIcon from "../icon/LikeIcon";
+import styles from './Comments.module.scss';
+import img from '../../assets/png/forPlayer.png';
+import LikeIcon from '../icon/LikeIcon';
 
 const Comment = () => {
   return (
@@ -15,7 +15,7 @@ const Comment = () => {
           вот этого вот почаще?
         </p>
         <span>3 ч.</span>
-        <LikeIcon className={styles.svg}/>
+        <LikeIcon className={styles.svg} />
       </div>
     </div>
   );

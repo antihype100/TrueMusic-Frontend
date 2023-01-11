@@ -1,10 +1,10 @@
 import { TrackList } from '../../../components/trackList/TrackList';
 import AuthorLayout from '../../../components/layouts/authorLayout/AuthorLayout';
 import img from '../../../assets/album.png';
-import { headphones, like } from '../../../utils/importSvg';
+import { headphones } from '../../../utils/importSvg';
 import styles from './AlbumPage.module.scss';
 import Comments from '../../../components/comments/Comments';
-import LikeIcon from "../../../components/icon/LikeIcon";
+import LikeIcon from '../../../components/icon/LikeIcon';
 
 const AlbumPage = () => {
   return (
@@ -12,12 +12,12 @@ const AlbumPage = () => {
       <div className={styles.wrapper}>
         <h2 className={styles.nameAlbum}>Mas Fuerte</h2>
         <div className={styles.body}>
-          <span className={styles.date}>16 декабря 2016</span>
           <img src={img} className={styles.imgAlbum} alt='album' />
           <div className={styles.stats}>
+            <span className={styles.date}>16 декабря 2016</span>
             <div>
               <span>10</span>
-              <LikeIcon/>
+              <LikeIcon />
             </div>
             <div>
               <span>129</span>

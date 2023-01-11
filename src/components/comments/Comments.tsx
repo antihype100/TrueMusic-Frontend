@@ -1,5 +1,5 @@
 import styles from './Comments.module.scss';
-import Comment from "./Comment";
+import Comment from './Comment';
 
 const Comments = () => {
   return (
@@ -9,7 +9,7 @@ const Comments = () => {
         {Array.from(Array(10).keys()).map((_, i) => (
           <li key={i}>
             <Comment />
-            <hr className={styles.hr}/>
+            <hr className={styles.hr} />
           </li>
         ))}
       </ul>
