@@ -1,21 +1,34 @@
 import { useParams } from "react-router-dom";
-import styles from './TrackPage.module.scss';
-import { arrow } from '../../../utils/importSvg';
-import img from '../../../assets/album.png';
-import PageCover from '../../../components/pageCover/PageCover';
+import React from "react";
+import styles from "./TrackPage.module.scss";
+import { arrow } from "../../../utils/importSvg";
+import img from "../../../assets/album.png";
+import TrackAlbumPlaylistCover from "../../../components/trackAlbumPlaylistCover/TrackAlbumPlaylistCover";
+import BaseLayout from "../../../components/layouts/baseLayout/BaseLayout";
+import AuthorLayout from "../../../components/layouts/authorLayout/AuthorLayout";
+import Comments from "../../../components/comments/Comments";
 
 const TrackPage = () => {
 
-  const {name, trackName} = useParams()
+  const { name, trackName } = useParams();
   return (
-    <PageCover
-      img={img}
-      author={name}
-      likes={'241'}
-      listening={'124001'}
-      name={trackName}
-      release={'16 декабря 2016'}
-    >
+
+    <BaseLayout>
+      <AuthorLayout author={name}>
+        <div className={styles.trackPageContentWrapper}>
+          <TrackAlbumPlaylistCover img={img} likes={'234324'} listening={'23423'} trackName={trackName}/>
+          {/* eslint-disable-next-line @typescript-eslint/no-use-before-define */}
+          <TrackText/>
+          <Comments />
+        </div>
+      </AuthorLayout>
+    </BaseLayout>
+
+  );
+};
+
+const TrackText = () => {
+    return (
       <div className={styles.textBody}>
         <div className={styles.text}>
           {Array.from(Array(5).keys()).map((_, i) => (
@@ -26,12 +39,8 @@ const TrackPage = () => {
             </p>
           ))}
         </div>
-        <button type='button' className={styles.arrow}>
-          <img src={arrow} alt='arrow' />
-        </button>
       </div>
-    </PageCover>
-  );
-};
+    )
+}
 
 export default TrackPage;

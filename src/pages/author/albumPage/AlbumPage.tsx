@@ -1,11 +1,11 @@
 import img from '../../../assets/album.png';
-import PageCover from '../../../components/pageCover/PageCover';
+import TrackAlbumPlaylistCover from '../../../components/trackAlbumPlaylistCover/TrackAlbumPlaylistCover';
 import { TrackList } from '../../../components/trackList/TrackList';
 import React from 'react';
 
 const AlbumPage = () => {
   return (
-    <PageCover
+    <TrackAlbumPlaylistCover
       img={img}
       author={'Kizaru'}
       likes={'241'}
@@ -14,7 +14,7 @@ const AlbumPage = () => {
       release={'16 декабря 2016'}
     >
       <TrackList amountTracks={5} />
-    </PageCover>
+    </TrackAlbumPlaylistCover>
   );
 };
 
