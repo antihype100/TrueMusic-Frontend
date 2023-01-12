@@ -43,7 +43,7 @@ input[type='range'].inputDurationTrack {
 
   .authorName {
     font-weight: 700;
-    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 4px);
+    font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 11px);
     margin-bottom: 5px;
     letter-spacing: 0.03em;
     color: #ffffff;
@@ -51,7 +51,7 @@ input[type='range'].inputDurationTrack {
 
   .trackName {
     font-weight: 400;
-    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 4px);
+    font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 9px);
     letter-spacing: 0.03em;
     margin-bottom: 5px;
   }

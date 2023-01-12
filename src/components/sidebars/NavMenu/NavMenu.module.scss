@@ -3,14 +3,14 @@
     margin-top: 25px;
   }
   &__icon {
-    width: calc((100vw - 480px) / (900 - 480) * (19 - 16) + 7px);
+    width: calc((100vw - 480px) / (1280 - 480) * (19 - 16) + 11px);
     margin-right: 10px;
   }
   &__item {
     text-decoration: none;
     color: #979797;
     font-weight: 500;
-    font-size: calc((100vw - 480px) / (900 - 480) * (19 - 16) + 7px);
+    font-size: calc((100vw - 480px) / (1280 - 480) * (19 - 16) + 11px);
     margin-bottom: 20px;
 
   }

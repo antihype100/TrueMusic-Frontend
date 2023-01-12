@@ -30,6 +30,9 @@
       font-style: italic;
       font-weight: 600;
       margin-bottom: 70px;
+      @media screen and (max-width: 1400px) {
+        font-size: 30px;
+      }
     }
 
     .inputWrapper {
@@ -40,12 +43,16 @@
 
       .inputForm {
         border: none;
-        width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 300px);
+        width: calc(100vw / 8);
         border-bottom: 1px solid #979797;
         padding: 10px 0 10px 50px;
+        @media screen and (max-width: 1400px) {
+          width: calc(100vw / 5);
+          padding-left: 30px;
+        }
 
         &::placeholder {
-          font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 5px);
+          font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 7px);
           color: #979797;
           font-style: italic;
           font-weight: 600;
@@ -59,11 +66,15 @@
     }
 
     .questionSignUp {
+      display: flex;
       font-style: italic;
       font-weight: 600;
       font-size: 14px;
       letter-spacing: 0.03em;
       color: #36435c;
+      @media screen and (max-width: 1400px) {
+        font-size: 12px;
+      }
 
       a {
         text-decoration: none;
@@ -83,6 +94,9 @@
       border: none;
       padding: 15px 30px;
       margin-top: 50px;
+      @media screen and (max-width: 1400px) {
+        font-size: 14px;
+      }
     }
   }
 }

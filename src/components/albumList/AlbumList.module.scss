@@ -10,7 +10,7 @@
   margin-bottom: 15px;
   h2 {
     font-weight: 700;
-    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 5px);
+    font-size: calc((100vw - 80px) / (1280 - 480) * (20 - 16) + 12px);
     letter-spacing: 0.03em;
     color: #ffffff;
   }
@@ -32,8 +32,8 @@
 }
 .albumBlock {
   display: flex;
-  width: calc(100vw / 19);
-  max-width: 135px;
+  width: calc(100vw / 12);
+  max-width: 250px;
   flex-direction: column;
 }
 .img {
@@ -46,7 +46,7 @@
 .nameAuthor {
   font-weight: 700;
   margin-top: 5px;
-  font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 2px);
+  font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 5px);
   color: #ffffff;
 }
 .nameTrack {

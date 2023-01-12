@@ -1,9 +1,11 @@
 .albums {
   display: flex;
+  margin-left: 20px;
   flex-direction: column;
 
 }
 .albumList {
+
   margin-top: 30px;
   overflow: auto;
 }

@@ -37,6 +37,7 @@ const AuthForm = ({ title }: IAuthForm) => {
 
         <span className={styles.questionSignUp}>
           {title === 'Регистрация' ? 'У вас уж есть аккаунт?' : 'Еще не зарегистрированы?'}
+          <br/>
           <Link to={title === 'Регистрация' ? LOGIN : REGISTER}>
             {title === 'Регистрация' ? 'Войти' : 'Зарегистрироваться'}
           </Link>
