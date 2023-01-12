@@ -16,6 +16,12 @@ import headphones from '../assets/svg/headphones.svg';
 import repeat from '../assets/svg/repeat.svg';
 import like from '../assets/svg/like.svg';
 import stick from '../assets/svg/stick.svg';
+import list from '../assets/svg/list.svg';
+import music from '../assets/svg/music.svg';
+import settings from '../assets/svg/settings.svg';
+import upload from '../assets/svg/upload.svg';
+import control from '../assets/svg/control.svg';
+import stats from '../assets/svg/stats.svg';
 
 export {
   diagram,
@@ -36,4 +42,10 @@ export {
   search,
   headphones,
   stick,
+  list,
+  music,
+  settings,
+  upload,
+  control,
+  stats,
 };

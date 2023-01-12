@@ -1,0 +1,35 @@
+.sectionLayout {
+  height: 100vh;
+  width: 85%;
+  background-image: url('../../../assets/bg.png');
+  //background-image: url('../../../assets/png/bgArtist.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  position: relative;
+  justify-content: center;
+
+}
+
+.mainLayout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.baseLayout {
+  display: flex;
+  justify-content: space-between;
+}
+.body {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+

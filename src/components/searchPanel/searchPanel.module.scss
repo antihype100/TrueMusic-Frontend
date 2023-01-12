@@ -3,16 +3,19 @@
   align-items: center;
   position: relative;
   margin-top: 50px;
-  width: fit-content;
+  //width: fit-content;
+  width: 100%;
 }
 
 .searchPanel {
-  width: calc(100vw / 4);
+  //width: calc(100vw / 4);
+  width: 100%;
   height: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 30px);
   background: #dcdcdc;
   border-radius: 31px;
   border: none;
   padding-left: 55px;
+  padding-right: 145px;
   &::placeholder {
     font-style: italic;
     font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 3px);

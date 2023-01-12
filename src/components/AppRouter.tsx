@@ -3,7 +3,7 @@ import Home from '../pages/home/Home';
 import {
   AUTHOR,
   AUTHOR_ALBUM,
-  AUTHOR_ALBUMS, AUTHOR_TRACK,
+  AUTHOR_ALBUMS, AUTHOR_CABINET, AUTHOR_TRACK,
   HOME,
   LOGIN,
   REGISTER,
@@ -20,6 +20,7 @@ import AlbumsUsers from '../pages/users/albums/Albums';
 import Playlist from '../pages/users/playlist/Playlist';
 import AlbumPage from '../pages/author/albumPage/AlbumPage';
 import TrackPage from "../pages/author/trackPage/TrackPage";
+import Profile from "../pages/author/profile/Profile";
 
 const AppRouter = () => (
   <Routes>
@@ -29,6 +30,7 @@ const AppRouter = () => (
     <Route path={AUTHOR} element={<TracksAuthor />} />
     <Route path={AUTHOR_ALBUMS} element={<AlbumsAuthor />} />
     <Route path={AUTHOR_ALBUM} element={<AlbumPage />} />
+    <Route path={AUTHOR_CABINET} element={<Profile />} />
     <Route path={AUTHOR_TRACK} element={<TrackPage />} />
     <Route path={USER_TRACKS} element={<TracksUsers />} />
     <Route path={USER_ALBUMS} element={<AlbumsUsers />} />
