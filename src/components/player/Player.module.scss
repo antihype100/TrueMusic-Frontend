@@ -3,8 +3,7 @@
 input[type='range'].inputDuration {
   height: 4px;
   -webkit-appearance: none;
-  width: calc(100vw / 3)
-
+  width: calc(100vw / 3);
 }
 
 .player {
@@ -39,22 +38,22 @@ input[type='range'].inputDuration {
 .authorName {
   color: whitesmoke;
   margin-bottom: 5px;
-  font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
+  font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 4px);
 }
 
 .trackName {
   color: #979797;
   margin-bottom: 5px;
-  font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
+  font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 4px);
 }
 
 .presentTime {
   color: white;
-  font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
+  font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 4px);
 }
 .trackImg {
-  width: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 50px);
-  height: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 50px);
+  width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 50px);
+  height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 50px);
 }
 
 .iconsWrapper {
@@ -64,13 +63,13 @@ input[type='range'].inputDuration {
 
 .repeatIcon {
   margin-right: 10px;
-  height: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 8px);
-  width: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 8px);
+  height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 8px);
+  width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 8px);
 }
 
 .likeIcon {
-  height: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 8px);
-  width: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 8px);
+  height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 8px);
+  width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 8px);
 }
 
 .playStopWrapper {
@@ -79,18 +78,17 @@ input[type='range'].inputDuration {
   .playPause {
     margin-right: 15px;
     margin-left: 15px;
-    width: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 40px);
-    height: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 40px);
+    width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 40px);
+    height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 40px);
   }
   .next {
-    width: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 20px);
-    height: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 20px);
+    width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 20px);
+    height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 20px);
   }
   .prev {
-    width: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 20px);
-    height: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 20px);
+    width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 20px);
+    height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 20px);
   }
-
 }
 
 .playerDuration {

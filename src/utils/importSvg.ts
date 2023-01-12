@@ -47,5 +47,5 @@ export {
   settings,
   upload,
   control,
-  stats,
+  stats
 };

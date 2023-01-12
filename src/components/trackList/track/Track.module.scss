@@ -3,7 +3,7 @@
 input[type='range'].inputDurationTrack {
   height: 4px;
   -webkit-appearance: none;
-  width: calc(100vw / 4)
+  width: calc(100vw / 4);
 }
 
 .playerTrack {
@@ -13,27 +13,27 @@ input[type='range'].inputDurationTrack {
 }
 .img {
   margin-right: 20px;
-  height: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 50px);
-  width: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 50px);
+  height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 50px);
+  width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 50px);
 }
 .numberPosition {
   margin-right: 20px;
   font-style: italic;
   font-weight: 500;
-  font-size: calc( (100vw - 180px)/(1280 - 480) * (21 - 16) + 4px);
+  font-size: calc((100vw - 180px) / (1280 - 480) * (21 - 16) + 4px);
   line-height: 18px;
   letter-spacing: 0.03em;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .contentAndInputWrapper {
   display: flex;
-  flex-direction: column
+  flex-direction: column;
 }
 
 .rightLeftContentWrapper {
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 .leftContentWrapper {
@@ -42,17 +42,16 @@ input[type='range'].inputDurationTrack {
   justify-content: space-between;
 
   .authorName {
-
     font-weight: 700;
-    font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
+    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 4px);
     margin-bottom: 5px;
     letter-spacing: 0.03em;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
   .trackName {
     font-weight: 400;
-    font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
+    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 4px);
     letter-spacing: 0.03em;
     margin-bottom: 5px;
   }
@@ -60,7 +59,7 @@ input[type='range'].inputDurationTrack {
   .presentTime {
     font-style: italic;
     font-weight: 400;
-    font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
+    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 4px);
     letter-spacing: 0.03em;
     margin-bottom: 5px;
     color: #979797;
@@ -78,7 +77,6 @@ input[type='range'].inputDurationTrack {
   align-items: end;
   justify-content: space-between;
 
-
   .likeWrapper {
     display: flex;
     align-items: center;
@@ -86,11 +84,11 @@ input[type='range'].inputDurationTrack {
     .likeAmount {
       font-style: italic;
       font-weight: 400;
-      font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
+      font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 4px);
       line-height: 14px;
       letter-spacing: 0.03em;
 
-      color: #FFFFFF;
+      color: #ffffff;
       margin-right: 10px;
     }
   }
@@ -98,25 +96,23 @@ input[type='range'].inputDurationTrack {
   .auditionsAmount {
     font-style: italic;
     font-weight: 400;
-    font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
+    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 4px);
     line-height: 14px;
     letter-spacing: 0.03em;
 
-    color: #FFFFFF;
+    color: #ffffff;
     margin-right: 10px;
   }
 
   .playerTrackDuration {
     font-style: italic;
     font-weight: 400;
-    font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 4px);
+    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 4px);
     letter-spacing: 0.03em;
     margin-bottom: 5px;
     color: #979797;
   }
-
 }
-
 
 /*generated with Input range slider CSS style generator (version 20211225)
 https://toughengineer.github.io/demo/slider-styler*/

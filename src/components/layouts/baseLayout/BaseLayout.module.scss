@@ -1,6 +1,7 @@
 .sectionLayout {
   height: 100vh;
   width: 85%;
+  padding: 0 20px;
   //background-image: url('../../../assets/bg.png');
   background-image: url('../../../assets/png/bgArtist.png');
   background-repeat: no-repeat;
@@ -9,11 +10,9 @@
   display: flex;
   position: relative;
   justify-content: center;
-
 }
 
 .mainLayout {
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,5 +23,3 @@
   display: flex;
   justify-content: space-between;
 }
-
-

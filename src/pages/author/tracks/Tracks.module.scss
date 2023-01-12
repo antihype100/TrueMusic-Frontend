@@ -5,7 +5,6 @@
   margin-bottom: 20px;
   position: relative;
 
-
   &:before {
     content: ' ';
     height: 1px;
@@ -20,20 +19,19 @@
   font-style: normal;
   font-weight: 400;
   text-decoration: none;
-  font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 15px);
+  font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 15px);
   color: #adadad;
   text-shadow: 5px 5px 6px rgba(0, 0, 0, 0.65);
-
 }
 
 .navLinkActive {
   font-style: normal;
   font-weight: 500;
   margin: 0 60px 0 60px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-shadow: 5px 5px 6px rgba(0, 0, 0, 0.65);
   text-decoration: none;
-  font-size: calc( (100vw - 80px)/(900 - 480) * (18 - 16) + 15px);
+  font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 15px);
   position: relative;
 
   &:before {
@@ -41,7 +39,7 @@
     height: 3px;
     width: 100%;
     bottom: -10px;
-    background: #2EEB2A;
+    background: #2eeb2a;
     position: absolute;
   }
 }

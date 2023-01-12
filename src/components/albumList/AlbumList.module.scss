@@ -14,14 +14,14 @@
     font-size: 21px;
     line-height: 25px;
     letter-spacing: 0.03em;
-    color: #FFFFFF;
+    color: #ffffff;
   }
   button {
     font-weight: 700;
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.03em;
-    color: #009CF3;
+    color: #009cf3;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -30,7 +30,7 @@
 .list {
   display: grid;
   gap: 40px;
-  grid-template-columns: repeat(auto-fit ,minmax(auto, 150px));
+  grid-template-columns: repeat(auto-fit, minmax(auto, 150px));
 }
 .albumBlock {
   display: flex;
@@ -48,19 +48,19 @@
   font-weight: 700;
   font-size: 12px;
   line-height: 14px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .nameTrack {
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
-  color: #AFAFAF;
+  color: #afafaf;
 }
 .nameAlbum {
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .stats {
   display: flex;
