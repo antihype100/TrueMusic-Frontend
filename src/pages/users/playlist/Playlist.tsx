@@ -1,6 +1,9 @@
+import React from "react";
 import TrackAlbumPlaylistCover from '../../../components/trackAlbumPlaylistCover/TrackAlbumPlaylistCover';
 import img from '../../../assets/album.png';
 import { TrackList } from '../../../components/trackList/TrackList';
+import BaseLayout from "../../../components/layouts/baseLayout/BaseLayout";
+import AuthorLayout from "../../../components/layouts/authorLayout/AuthorLayout";
 
 
 const tracksList = [
@@ -14,16 +17,16 @@ const tracksList = [
 
 const Playlist = () => {
   return (
-    <TrackAlbumPlaylistCover
-      img={img}
-      author={'User'}
-      likes={'241'}
-      listening={'124001'}
-      name={'Relax'}
-      release={'16 декабря 2016'}
-    >
-      <TrackList amountTracks={5} tracksList={tracksList}/>
-    </TrackAlbumPlaylistCover>
+    <BaseLayout>
+      <AuthorLayout>
+        <TrackAlbumPlaylistCover
+          img={img}
+          likes={"241"}
+          listening={"124001"}
+          trackName={"Relax"} />
+        <TrackList amountTracks={5} tracksList={tracksList} />
+      </AuthorLayout>
+    </BaseLayout>
   );
 };
 
