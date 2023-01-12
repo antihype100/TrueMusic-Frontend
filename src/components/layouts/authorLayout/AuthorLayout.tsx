@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './AuthorLayout.module.scss';
 
 interface IAuthorLayoutProps {
-  author: string;
+  author?: string;
   children: React.ReactNode;
 }
 

@@ -1,11 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
+
 
 .sideBarHr {
-  width: 180px;
+  width: calc(100vw / 15);
   border: 1px solid #979797;
+  @media screen and (max-width: 1900px) {
+    width: calc(100vw / 12);
+  }
+  @media screen and (max-width: 1400px) {
+    width: calc(100vw / 10);
+  }
 }
 
 a {
   text-decoration: none;
   color: #979797;
+}
+
+/* W3C standard
+   сейчас только для Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
+}
+
+/* для Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  margin-left: 50px;
+  width: 1px;
+}
+*::-webkit-scrollbar-track {
+  background: #8A4EA7;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: blue;
+  border: 3px solid white;
 }

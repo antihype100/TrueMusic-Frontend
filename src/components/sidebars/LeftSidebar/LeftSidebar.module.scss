@@ -1,12 +1,14 @@
 .leftSideBar {
   background: #000;
-  width: 220px;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 0 40px 0 40px;
+  padding: 0 30px 0 30px;
 }
 .logo {
   width: 180px;
   margin: 20px auto 0 auto;
+  @media screen and (max-width: 1900px) {
+    width: calc(100vw / 12);
+  }
 }

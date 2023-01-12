@@ -3,9 +3,9 @@ import Comment from './Comment';
 
 const Comments = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.commentsWrapper}>
       <h2 className={styles.title}>Комментарии</h2>
-      <ul className={styles.commentBody}>
+      <ul className={styles.commentsBody}>
         {Array.from(Array(10).keys()).map((_, i) => (
           <li key={i}>
             <Comment />

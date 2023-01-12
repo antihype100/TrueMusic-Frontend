@@ -3,14 +3,16 @@
     margin-top: 25px;
   }
   &__icon {
+    width: calc((100vw - 480px) / (900 - 480) * (19 - 16) + 7px);
     margin-right: 10px;
   }
   &__item {
     text-decoration: none;
     color: #979797;
     font-weight: 500;
-    font-size: 18px;
+    font-size: calc((100vw - 480px) / (900 - 480) * (19 - 16) + 7px);
     margin-bottom: 20px;
+
   }
   &__link {
     text-decoration: none;

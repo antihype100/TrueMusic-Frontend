@@ -4,7 +4,7 @@
   position: relative;
   margin-top: 50px;
   //width: fit-content;
-  width: 100%;
+
 }
 
 .searchPanel {
@@ -15,10 +15,9 @@
   border-radius: 31px;
   border: none;
   padding-left: 55px;
-  padding-right: 145px;
   &::placeholder {
     font-style: italic;
-    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 3px);
+    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 2px);
     font-weight: 400;
   }
 }

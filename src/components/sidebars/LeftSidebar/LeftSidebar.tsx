@@ -3,13 +3,18 @@ import styles from './LeftSidebar.module.scss';
 import { PlaylistSideBar } from '../PlaylistSideBar/PlaylistSideBar';
 import NavMenu from '../NavMenu/NavMenu';
 
-const LeftSideBar = () => (
-  <aside className={styles.leftSideBar}>
-    <img className={styles.logo} src={logo} alt='' />
-    <NavMenu />
-    <hr className='sideBarHr' />
-    <PlaylistSideBar amountTracks={11} header='Ваш плейлист' />
-  </aside>
-);
+const LeftSideBar = () => {
+
+  const amountTracks = window.screen.height > 1100 ? 8 : 6
+
+  return (
+    <aside className={styles.leftSideBar}>
+      <img className={styles.logo} src={logo} alt='' />
+      <NavMenu />
+      <hr className='sideBarHr' />
+      <PlaylistSideBar amountTracks={amountTracks} header='Ваш плейлист' />
+    </aside>
+  )
+}
 
 export default LeftSideBar;
