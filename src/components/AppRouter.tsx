@@ -3,8 +3,7 @@ import Home from '../pages/home/Home';
 import {
   AUTHOR,
   AUTHOR_ALBUM,
-  AUTHOR_ALBUMS,
-  AUTHOR_CABINET,
+  AUTHOR_PROFILE,
   AUTHOR_TRACK,
   HOME,
   LOGIN,
@@ -12,11 +11,10 @@ import {
   USER_ALBUMS,
   USER_PLAYLIST,
   USER_TRACKS
-} from '../utils/routes';
-import TracksAuthor from '../pages/author/tracks/Tracks';
+} from "../utils/routes";
+import TracksAuthor from '../pages/author/main/Main';
 import SignIn from '../pages/signin/SignIn';
 import SignUp from '../pages/signup/SignUp';
-import AlbumsAuthor from '../pages/author/albums/Albums';
 import TracksUsers from '../pages/users/tracks/Tracks';
 import AlbumsUsers from '../pages/users/albums/Albums';
 import Playlist from '../pages/users/playlist/Playlist';
@@ -27,13 +25,19 @@ import Profile from '../pages/author/profile/Profile';
 const AppRouter = () => (
   <Routes>
     <Route path={HOME} element={<Home />} />
+
     <Route path={LOGIN} element={<SignIn />} />
     <Route path={REGISTER} element={<SignUp />} />
+
     <Route path={AUTHOR} element={<TracksAuthor />} />
-    <Route path={AUTHOR_ALBUMS} element={<AlbumsAuthor />} />
-    <Route path={AUTHOR_ALBUM} element={<AlbumPage />} />
-    <Route path={AUTHOR_CABINET} element={<Profile />} />
     <Route path={AUTHOR_TRACK} element={<TrackPage />} />
+    <Route path={AUTHOR_ALBUM} element={<AlbumPage />} />
+
+
+    {/* Страницы указаны некоректно */}
+    {/* <Route path={AUTHOR_CABINET} element={<Profile />} /> */}
+    <Route path={AUTHOR_PROFILE} element={<Profile />} />
+
     <Route path={USER_TRACKS} element={<TracksUsers />} />
     <Route path={USER_ALBUMS} element={<AlbumsUsers />} />
     <Route path={USER_PLAYLIST} element={<Playlist />} />

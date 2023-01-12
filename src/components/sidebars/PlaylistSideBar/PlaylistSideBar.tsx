@@ -12,7 +12,7 @@ const PlaylistSideBar = ({ amountTracks, header }: IPlaylistSideBar) => (
   <ul className={styles.playlist}>
     <h1 className={styles.header}>{header}</h1>
     {Array.from(Array(amountTracks).keys()).map(() => (
-      <PlaylistTrack img={trackLogo} authorName='Kizaru' trackName='Message' />
+      <PlaylistTrack img={trackLogo} author='Kizaru' trackName='Message' />
     ))}
     <img className={styles.arrow} src={arrow} alt='' />
     <hr className='sideBarHr' />

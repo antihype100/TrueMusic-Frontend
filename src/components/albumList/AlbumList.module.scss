@@ -5,21 +5,20 @@
 }
 .titleBlock {
   display: flex;
-  gap: 15px;
   justify-content: space-between;
   align-items: end;
   margin-bottom: 15px;
   h2 {
     font-weight: 700;
-    font-size: 21px;
-    line-height: 25px;
+    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 5px);
     letter-spacing: 0.03em;
     color: #ffffff;
   }
   button {
     font-weight: 700;
-    font-size: 14px;
-    line-height: 17px;
+    display: flex;
+    align-items:end ;
+    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 2px);
     letter-spacing: 0.03em;
     color: #009cf3;
     background: transparent;
@@ -28,16 +27,16 @@
   }
 }
 .list {
-  display: grid;
-  gap: 40px;
-  grid-template-columns: repeat(auto-fit, minmax(auto, 150px));
+  display: flex;
+  justify-content: space-between;
 }
 .albumBlock {
   display: flex;
+  width: calc(100vw / 20);
+  max-width: 150px;
   flex-direction: column;
 }
 .img {
-  max-width: 150px;
   border-radius: 6px;
 }
 .nameBlock {
@@ -46,42 +45,18 @@
 }
 .nameAuthor {
   font-weight: 700;
-  font-size: 12px;
-  line-height: 14px;
+  margin-top: 5px;
+  font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 2px);
   color: #ffffff;
 }
 .nameTrack {
   font-weight: 400;
   font-size: 12px;
-  line-height: 14px;
   color: #afafaf;
 }
 .nameAlbum {
   font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
+  margin-top: 10px;
+  font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 3px);
   color: #ffffff;
-}
-.stats {
-  display: flex;
-  justify-content: end;
-  align-items: end;
-  gap: 16px;
-  margin-top: 7px;
-  margin-bottom: 5px;
-  img {
-    width: 11px;
-  }
-  span {
-    margin-right: 4px;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 12px;
-    color: #979797;
-  }
-  svg {
-    width: 12px;
-    fill: #ffffff;
-  }
 }

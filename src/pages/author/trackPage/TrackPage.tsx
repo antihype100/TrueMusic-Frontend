@@ -1,16 +1,19 @@
+import { useParams } from "react-router-dom";
 import styles from './TrackPage.module.scss';
 import { arrow } from '../../../utils/importSvg';
 import img from '../../../assets/album.png';
 import PageCover from '../../../components/pageCover/PageCover';
 
 const TrackPage = () => {
+
+  const {name, trackName} = useParams()
   return (
     <PageCover
       img={img}
-      author={'Kizaru'}
+      author={name}
       likes={'241'}
       listening={'124001'}
-      name={'Relax'}
+      name={trackName}
       release={'16 декабря 2016'}
     >
       <div className={styles.textBody}>
