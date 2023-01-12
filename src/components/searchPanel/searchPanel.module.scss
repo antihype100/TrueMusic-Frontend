@@ -3,24 +3,30 @@
   align-items: center;
   position: relative;
   margin-top: 50px;
-  //width: fit-content;
+  margin-bottom: 50px;
+
 
 }
 
 .searchPanel {
-  //width: calc(100vw / 4);
-  width: 100%;
+  width: calc(100vw / 4);
   height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 30px);
   background: #dcdcdc;
   border-radius: 31px;
   border: none;
+  display: flex;
+  align-items: center;
   padding-left: 55px;
+
+
+
   &::placeholder {
     font-style: italic;
     font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 2px);
     font-weight: 400;
   }
 }
+
 .stickIcon {
   width: 2px;
   height: 20px;
@@ -34,8 +40,9 @@
 }
 
 .searchHistory {
+  font-style: italic;
   position: absolute;
   right: 20px;
-  font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 5px);
+  font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 2px);
   color: #888888;
 }
