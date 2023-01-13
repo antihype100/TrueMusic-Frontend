@@ -1,6 +1,6 @@
 .navBar {
   display: flex;
-  margin-top: 60px;
+  margin-top: 50px;
   margin-bottom: 20px;
   position: relative;
   &:before {
@@ -16,6 +16,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.48));
+  padding: 0 30px 30px 30px;
+  border-radius: 10px;
 }
 
 .navLink {

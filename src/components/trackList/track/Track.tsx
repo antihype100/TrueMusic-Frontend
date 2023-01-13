@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import img from '../../../assets/png/forPlayer.png';
+import img from '../../../assets/sidebar/playlist/cover7.png'
 import styles from './Track.module.scss';
 import { headphones, like } from '../../../utils/importSvg';
 import type { ITrack } from "../TrackList";

@@ -1,9 +1,10 @@
 import React from "react";
-import img from "../../../assets/album.png";
+import img from '../../../assets/sidebar/playlist/cover7.png'
 import TrackAlbumPlaylistCover from "../../../components/trackAlbumPlaylistCover/TrackAlbumPlaylistCover";
 import { TrackList } from "../../../components/trackList/TrackList";
 import BaseLayout from "../../../components/layouts/baseLayout/BaseLayout";
 import AuthorLayout from "../../../components/layouts/authorLayout/AuthorLayout";
+import { useParams } from "react-router-dom";
 
 const tracksList = [
   { author: "Kizaru", trackName: "Messege", duration: 534, likes: 234234, audition: 846532 },
@@ -15,6 +16,9 @@ const tracksList = [
 ];
 
 const AlbumPage = () => {
+
+  const {albumName} = useParams()
+
   return (
     <BaseLayout>
       <AuthorLayout>
@@ -22,7 +26,7 @@ const AlbumPage = () => {
         img={img}
         likes={"241"}
         listening={"124001"}
-        trackName={"Relax"} />
+        title={albumName}/>
       <TrackList amountTracks={5} tracksList={tracksList} />
     </AuthorLayout>
 </BaseLayout>

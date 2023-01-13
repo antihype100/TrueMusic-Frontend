@@ -3,29 +3,33 @@
 input[type='range'].inputDuration {
   height: 4px;
   -webkit-appearance: none;
-  width: calc(100vw / 3);
+  width: calc(100vw / 2);
 }
 
 .player {
   display: flex;
   align-items: center;
+
   width: fit-content;
   flex-direction: column;
   position: relative;
   margin-top: 70px;
-  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.48));
+}
+
+.contentWrapper {
+  display: flex;
+  width: 100%;
+  margin-bottom: 5px;
+  justify-content: space-between;
 }
 
 .leftContent {
   display: flex;
-  position: absolute;
-  left: 0;
-  bottom: 15px;
-}
-.contentWrapper {
-  display: flex;
-  margin-bottom: 5px;
-  justify-content: space-between;
+  align-items: end;
+  width: calc(100vw / 10);
 }
 
 .infoWrapper {
@@ -52,8 +56,8 @@ input[type='range'].inputDuration {
   font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 4px);
 }
 .trackImg {
-  width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 50px);
-  height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 50px);
+  width: calc((100vw - 480px) / (1280 - 480) * (20 - 16) + 45px);
+  height: calc((100vw - 480px) / (1280 - 480) * (20 - 16) + 45px);
 }
 
 .iconsWrapper {
@@ -75,6 +79,7 @@ input[type='range'].inputDuration {
 .playStopWrapper {
   display: flex;
   align-items: center;
+  align-self: center;
   .playPause {
     margin-right: 15px;
     margin-left: 15px;
@@ -92,10 +97,11 @@ input[type='range'].inputDuration {
 }
 
 .playerDuration {
+  display: block;
+  text-align: right;
+  width: calc(100vw / 10);
   align-self: end;
   color: white;
-  position: absolute;
-  right: 5px;
 }
 
 /*generated with Input range slider CSS style generator (version 20211225)

@@ -5,7 +5,7 @@ import NavMenu from '../NavMenu/NavMenu';
 
 const LeftSideBar = () => {
 
-  const amountTracks = window.screen.height > 1100 ? 10 : 7
+  const amountTracks = window.screen.height > 1100 ? 11 : 7
 
   return (
     <aside className={styles.leftSideBar}>

@@ -1,7 +1,7 @@
-import { main, profile, sound } from '../../../utils/importSvg';
-import nft from '../../../assets/nft.png';
-import styles from './NavMenu.module.scss';
 import { Link } from 'react-router-dom';
+import { main, profile, sound } from '../../../utils/importSvg';
+import nft from '../../../assets/sidebar/navmenu/nft.png';
+import styles from './NavMenu.module.scss';
 import { HOME, REGISTER } from '../../../utils/routes';
 
 interface INavMenuLink {

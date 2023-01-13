@@ -1,8 +1,16 @@
+.authorMainPageWrapper {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.48));
+  padding: 30px;
+  border-radius: 10px;
+}
+
+
 .navBar {
   display: flex;
   justify-content: center;
-  margin-top: 60px;
+  margin-top: 20px;
   margin-bottom: 20px;
+
   position: relative;
 
   &:before {

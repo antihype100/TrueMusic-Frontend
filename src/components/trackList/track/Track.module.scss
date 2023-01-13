@@ -13,8 +13,8 @@ input[type='range'].inputDurationTrack {
 }
 .img {
   margin-right: 20px;
-  height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 50px);
-  width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 50px);
+  height: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 50px);
+  width: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 50px);
 }
 .numberPosition {
   margin-right: 20px;
@@ -44,7 +44,7 @@ input[type='range'].inputDurationTrack {
   .authorName {
     font-weight: 700;
     font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 11px);
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     letter-spacing: 0.03em;
     color: #ffffff;
   }
@@ -53,7 +53,7 @@ input[type='range'].inputDurationTrack {
     font-weight: 400;
     font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 9px);
     letter-spacing: 0.03em;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
   }
 
   .presentTime {
@@ -97,7 +97,6 @@ input[type='range'].inputDurationTrack {
     font-style: italic;
     font-weight: 400;
     font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 4px);
-    line-height: 14px;
     letter-spacing: 0.03em;
 
     color: #ffffff;

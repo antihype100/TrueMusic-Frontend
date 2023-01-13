@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
-  background: #000;
+  background: rgba(0, 0, 0, 0.51);
   border-radius: 7px;
   overflow-y: hidden;
 }
@@ -36,12 +36,19 @@
 
 .commentAuthorWrapper {
   margin-bottom: 20px;
+  display: flex;
+  align-items: end;
+
   .author {
     color: white;
+    display: block;
     font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 5px);
+    transform: translateY(-3px);
   }
   .imgAuthor {
     width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 30px);
+    margin-right: 5px;
+    border-radius: 50px;
   }
 }
 

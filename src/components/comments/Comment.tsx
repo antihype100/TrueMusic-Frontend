@@ -1,5 +1,5 @@
 import styles from './Comments.module.scss';
-import img from '../../assets/png/forPlayer.png';
+import img from '../../assets/sidebar/playlist/cover7.png'
 import like from '../../assets/svg/like.svg'
 
 interface IComment {

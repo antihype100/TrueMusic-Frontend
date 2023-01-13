@@ -1,5 +1,5 @@
 import styles from "./Player.module.scss";
-import img from "../../assets/png/forPlayer.png";
+import img from '../../assets/sidebar/playlist/cover7.png'
 import { repeat, like, next, prev, play } from "../../utils/importSvg";
 
 const Player = () => {

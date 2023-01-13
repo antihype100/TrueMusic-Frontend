@@ -4,21 +4,20 @@ import like from '../../assets/svg/like.svg'
 import { headphones } from "../../utils/importSvg";
 
 interface IPageCover {
-  trackName?: string,
+  title?: string,
   img: string;
   likes: string;
   listening: string;
 }
 
-const TrackAlbumPlaylistCover = ({ img, likes, listening, trackName }: IPageCover) => {
+const TrackAlbumPlaylistCover = ({ img, likes, listening, title }: IPageCover) => {
 
-  // @ts-ignore
-  const resultName = trackName.charAt(0).toUpperCase() + trackName.slice(1);
+
 
   return (
     <div className={styles.coverWrapper}>
 
-      <h2 className={styles.nameAlbum}>{resultName}</h2>
+      <h2 className={styles.nameAlbum}>{title}</h2>
       <img src={img} className={styles.imgAlbum} alt="album" />
       <div className={styles.stats}>
         <div>

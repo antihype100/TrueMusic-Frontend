@@ -1,8 +1,7 @@
 import { useParams } from "react-router-dom";
 import React from "react";
 import styles from "./TrackPage.module.scss";
-import { arrow } from "../../../utils/importSvg";
-import img from "../../../assets/album.png";
+import img from '../../../assets/sidebar/playlist/cover7.png'
 import TrackAlbumPlaylistCover from "../../../components/trackAlbumPlaylistCover/TrackAlbumPlaylistCover";
 import BaseLayout from "../../../components/layouts/baseLayout/BaseLayout";
 import AuthorLayout from "../../../components/layouts/authorLayout/AuthorLayout";

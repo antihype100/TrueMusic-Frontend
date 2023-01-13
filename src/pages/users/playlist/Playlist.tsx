@@ -1,6 +1,6 @@
 import React from "react";
 import TrackAlbumPlaylistCover from '../../../components/trackAlbumPlaylistCover/TrackAlbumPlaylistCover';
-import img from '../../../assets/album.png';
+import img from '../../../assets/sidebar/playlist/cover7.png'
 import { TrackList } from '../../../components/trackList/TrackList';
 import BaseLayout from "../../../components/layouts/baseLayout/BaseLayout";
 import AuthorLayout from "../../../components/layouts/authorLayout/AuthorLayout";

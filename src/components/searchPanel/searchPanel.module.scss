@@ -9,7 +9,7 @@
 }
 
 .searchPanel {
-  width: calc(100vw / 4);
+  width: calc(100vw / 4 + 55px);
   height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 30px);
   background: #dcdcdc;
   border-radius: 31px;
