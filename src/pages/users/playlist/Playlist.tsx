@@ -23,7 +23,7 @@ const Playlist = () => {
           img={img}
           likes={"241"}
           listening={"124001"}
-          trackName={"Relax"} />
+          title={"Relax"} />
         <TrackList amountTracks={5} tracksList={tracksList} />
       </AuthorLayout>
     </BaseLayout>

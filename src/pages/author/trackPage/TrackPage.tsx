@@ -15,7 +15,7 @@ const TrackPage = () => {
     <BaseLayout>
       <AuthorLayout author={name}>
         <div className={styles.trackPageContentWrapper}>
-          <TrackAlbumPlaylistCover img={img} likes={'234324'} listening={'23423'} trackName={trackName}/>
+          <TrackAlbumPlaylistCover img={img} likes={'234324'} listening={'23423'} title={trackName}/>
           {/* eslint-disable-next-line @typescript-eslint/no-use-before-define */}
           <TrackText/>
           <Comments />
