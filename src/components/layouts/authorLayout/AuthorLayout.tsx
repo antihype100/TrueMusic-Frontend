@@ -8,10 +8,12 @@ interface IAuthorLayoutProps {
 
 const AuthorLayout = ({ author, children }: IAuthorLayoutProps) => {
   return (
-    <section className={styles.wrapper}>
+    <>
       <h1 className={styles.title}>{author}</h1>
-      {children}
-    </section>
+      <section className={styles.wrapper}>
+        {children}
+      </section>
+    </>
   );
 };
 

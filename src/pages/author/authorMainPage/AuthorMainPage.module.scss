@@ -1,6 +1,4 @@
 .authorMainPageWrapper {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.48));
-  padding: 30px;
   border-radius: 10px;
 }
 
@@ -16,7 +14,7 @@
   &:before {
     content: ' ';
     height: 1px;
-    width: 100%;
+    width: calc(100% - 60px);
     bottom: -10px;
     background: #979797;
     position: absolute;

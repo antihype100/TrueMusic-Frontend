@@ -1,10 +1,12 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import img from '../../../assets/sidebar/playlist/cover7.png'
 import TrackAlbumPlaylistCover from "../../../components/trackAlbumPlaylistCover/TrackAlbumPlaylistCover";
 import { TrackList } from "../../../components/trackList/TrackList";
 import BaseLayout from "../../../components/layouts/baseLayout/BaseLayout";
 import AuthorLayout from "../../../components/layouts/authorLayout/AuthorLayout";
-import { useParams } from "react-router-dom";
+import styles from './AlbumPage.module.scss'
+import Comments from "../../../components/comments/Comments";
 
 const tracksList = [
   { author: "Kizaru", trackName: "Messege", duration: 534, likes: 234234, audition: 846532 },
@@ -17,17 +19,16 @@ const tracksList = [
 
 const AlbumPage = () => {
 
-  const {albumName} = useParams()
+  const {albumName, name} = useParams()
 
   return (
     <BaseLayout>
-      <AuthorLayout>
-        <TrackAlbumPlaylistCover
-        img={img}
-        likes={"241"}
-        listening={"124001"}
-        title={albumName}/>
-      <TrackList amountTracks={5} tracksList={tracksList} />
+      <AuthorLayout author={name}>
+        <div className={styles.albumPageContentWrapper}>
+          <TrackAlbumPlaylistCover img={img} likes={"241"} listening={"124001"} title={albumName}/>
+          <TrackList amountTracks={5} tracksList={tracksList} />
+          <Comments/>
+        </div>
     </AuthorLayout>
 </BaseLayout>
 )
