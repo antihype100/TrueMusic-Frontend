@@ -59,7 +59,7 @@ input[type='range'].inputDurationTrack {
   .presentTime {
     font-style: italic;
     font-weight: 400;
-    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 4px);
+    font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 10px);
     letter-spacing: 0.03em;
     margin-bottom: 5px;
     color: #979797;
@@ -106,7 +106,7 @@ input[type='range'].inputDurationTrack {
   .playerTrackDuration {
     font-style: italic;
     font-weight: 400;
-    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 4px);
+    font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 8px);
     letter-spacing: 0.03em;
     margin-bottom: 5px;
     color: #979797;

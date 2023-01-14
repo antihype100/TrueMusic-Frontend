@@ -1,7 +1,7 @@
 import React from 'react';
 import { UseFormReturn } from 'react-hook-form/dist/types/form';
-import styles from '../../pages/author/release/ReleaseDesign/ReleaseDesign.module.scss';
 import { Controller, useFormContext } from 'react-hook-form';
+import styles from '../../pages/author/release/ReleaseDesign/ReleaseDesign.module.scss';
 import { ParseTextarea } from './TextArea';
 
 type UploadFormName = 'nameTrack' | 'aboutTrack' | 'musician' | 'text' | 'cover' | 'track';

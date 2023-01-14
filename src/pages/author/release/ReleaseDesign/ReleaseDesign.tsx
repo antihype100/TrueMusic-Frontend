@@ -110,7 +110,7 @@ const ReleaseDesign = () => {
                   <span className={styles.inputError}>{errors.totalTracks?.message}</span>
                 )}
               </div>
-              <button type='submit' disabled={!isValid} className={styles.formButton}>
+              <button type='submit' className={styles.formButton}>
                 Далее
               </button>
             </div>

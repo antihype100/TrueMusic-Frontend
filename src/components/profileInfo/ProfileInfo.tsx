@@ -20,8 +20,8 @@ interface IAuthorInfo {
 }
 
 const ProfileInfo = ({ authorName }: IAuthorInfo) => {
-  const user = true;
-  const author = false;
+  const user = false;
+  const author = true;
 
   return (
     <section className={styles.wrapper}>
@@ -42,7 +42,7 @@ const ProfileInfo = ({ authorName }: IAuthorInfo) => {
         <hr />
       </div>
       {author ? (
-        <Setting />
+        <Setting authorName={authorName}/>
       ) : (
         <Link to={`/author/${authorName}/authorMainPage`} className={styles.linkMainPage}>
           Перейти на главную страницу автора
@@ -66,7 +66,12 @@ const Info = () => {
   );
 };
 
-const Setting = () => {
+
+interface ISetting {
+  authorName?: string
+}
+
+const Setting = ({authorName}: ISetting) => {
   return (
     <div className={styles.settingBlock}>
       <h2 className={styles.title}>Настройки</h2>
@@ -97,8 +102,10 @@ const Setting = () => {
             <button type='button'>Статистика публикаций</button>
           </li>
           <li className={styles.setting}>
-            <img src={upload} alt='icon' />
-            <button type='button'>Сделать релиз</button>
+            <Link to={`/${authorName}/release-design`}>
+              <img src={upload} alt='icon' />
+              <button type='button'>Сделать релиз</button>
+            </Link>
           </li>
         </ul>
       </div>

@@ -7,7 +7,7 @@
 }
 .modalRelease {
   width: 732px;
-  height: 786px;
+  padding: 30px 0;
   z-index: 10;
   margin: 0 10px;
   position: relative;
@@ -20,7 +20,6 @@
   @media screen and (max-width: 1400px) {
     background-image: url('../../../../assets/png/bgSignInUpMedium.png');
     width: 470px;
-    height: 786px;
     background-position: center;
   }
 }
@@ -42,9 +41,12 @@
   }
 }
 .form {
-  width: 100%;
+  width: calc(100vw / 8);
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: 2000px) {
+    width: calc(100vw / 5);
+  }
 }
 .inputCover {
   position: relative;
@@ -61,10 +63,19 @@
   border: none;
   padding: 7px 0 7px 5px;
   border-bottom: 1px solid #979797;
+  font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 11px);
+  color: #000;
   font-style: italic;
-  font-weight: 500;
-  font-size: 18px;
-  color: #979797;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+
+  &::placeholder {
+    font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 11px);
+    color: #979797;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
 }
 .formText {
   width: 100%;
@@ -85,7 +96,7 @@
   span {
     font-style: italic;
     font-weight: 500;
-    font-size: 18px;
+    font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 9px);
     color: #979797;
   }
   input {
@@ -98,14 +109,14 @@
     border-radius: 6px;
     font-style: italic;
     font-weight: 600;
-    font-size: 16px;
+    font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 9px);
     color: #ffffff;
     border: none;
   }
 }
 .formButton {
   cursor: pointer;
-  margin-top: 80px;
+  margin-top: 60px;
   font-style: italic;
   font-weight: 600;
   font-size: 18px;
@@ -146,9 +157,10 @@
   background: #fff;
 
   font-style: italic;
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 600;
+  font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 11px);
   color: #979797;
+
 }
 .arrow {
   position: relative;

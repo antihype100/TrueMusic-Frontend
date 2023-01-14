@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import styles from '../ReleaseDesign/ReleaseDesign.module.scss';
 import { SearchPanel } from '../../../../components/searchPanel/SearchPanel';
 import Player from '../../../../components/player/Player';
 import ModalLayout from '../../../../components/layouts/modalLayout/ModalLayout';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import NestedInputContainer from '../../../../components/inputForm/Input';
 
 export interface IFormUploadTrack {
