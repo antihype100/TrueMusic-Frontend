@@ -1,7 +1,10 @@
 import styles from './Comments.module.scss';
 import Comment from './Comment';
+import { useState } from 'react';
 
 const Comments = () => {
+  const [value, setValue] = useState<string>();
+
   return (
     <div className={styles.commentsWrapper}>
       <h2 className={styles.title}>Комментарии</h2>
@@ -14,8 +17,14 @@ const Comments = () => {
         ))}
       </ul>
       <form className={styles.form}>
-        <input type='text' className={styles.input} placeholder={'Оставьте коментарий'} />
-        <button type='button'>
+        <input
+          type='text'
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          className={styles.input}
+          placeholder={'Оставьте коментарий'}
+        />
+        <button type='submit'>
           <SendIcon />
         </button>
       </form>

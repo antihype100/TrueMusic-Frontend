@@ -1,43 +1,81 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './AuthForm.module.scss';
 import { message } from '../../utils/importSvg';
 import { LOGIN, REGISTER } from '../../utils/routes';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
-interface IAuthForm {
+interface IAuthFormProps {
   title: string;
 }
 
-const AuthForm = ({ title }: IAuthForm) => {
+interface IFormValues {
+  email?: string;
+  login: string;
+  password: string;
+  repeatPassword?: string;
+}
+
+const AuthForm = ({ title }: IAuthFormProps) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid }
+  } = useForm<IFormValues>({ mode: 'onChange' });
+
+  const onSubmit: SubmitHandler<IFormValues> = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className={styles.modalSignUp}>
-      <form action='' className={styles.signUpForm}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.signUpForm}>
         <h1 className={styles.headerForm}>{title}</h1>
 
         {title === 'Регистрация' && (
           <div className={styles.inputWrapper}>
-            <img src={message} alt='' />
-            <input className={styles.inputForm} type='text' placeholder='Почта' />
+            <img src={message} alt='message' />
+            <input
+              type='text'
+              {...register('email', { required: true })}
+              placeholder='Почта'
+              className={styles.inputForm}
+            />
           </div>
         )}
         <div className={styles.inputWrapper}>
           <img src={message} alt='' />
-          <input className={styles.inputForm} type='text' placeholder='Логин' />
+          <input
+            type='text'
+            {...register('login', { required: true })}
+            placeholder='Логин'
+            className={styles.inputForm}
+          />
         </div>
         <div className={styles.inputWrapper}>
           <img src={message} alt='' />
-          <input className={styles.inputForm} type='text' placeholder='Пароль' />
+          <input
+            type='text'
+            {...register('password', { required: true })}
+            placeholder='Пароль'
+            className={styles.inputForm}
+          />
         </div>
         {title === 'Регистрация' && (
           <div className={styles.inputWrapper}>
             <img src={message} alt='' />
-            <input className={styles.inputForm} type='text' placeholder='Повторите пароль' />
+            <input
+              type='text'
+              {...register('repeatPassword', { required: true })}
+              placeholder='Повторите пароль'
+              className={styles.inputForm}
+            />
           </div>
         )}
 
         <span className={styles.questionSignUp}>
           {title === 'Регистрация' ? 'У вас уж есть аккаунт?' : 'Еще не зарегистрированы?'}
-          <br/>
+          <br />
           <Link to={title === 'Регистрация' ? LOGIN : REGISTER}>
             {title === 'Регистрация' ? 'Войти' : 'Зарегистрироваться'}
           </Link>

@@ -15,11 +15,9 @@
   @media screen and (min-width: 2000px) {
     padding: 35px;
   }
-
 }
 
 .name {
-
   font-weight: 700;
   font-size: calc((100vw - 80px) / (900 - 480) * (22 - 16) + 40px);
   color: #ffffff;
@@ -99,7 +97,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-right: 1px solid #8A4EA7;
+  border-right: 1px solid #8a4ea7;
 }
 
 .setting {

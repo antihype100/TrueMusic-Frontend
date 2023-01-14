@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom';
-import img from '../../../assets/sidebar/playlist/cover7.png'
+import img from '../../../assets/sidebar/playlist/cover7.png';
 import styles from './Track.module.scss';
 import { headphones, like } from '../../../utils/importSvg';
-import type { ITrack } from "../TrackList";
-
-
+import type { ITrack } from '../TrackList';
 
 const Track = ({ index, author, trackName, audition, duration, likes }: ITrack) => {
   return (
@@ -17,7 +15,10 @@ const Track = ({ index, author, trackName, audition, duration, likes }: ITrack) 
             <Link className={styles.authorName} to={`/author/${author.toLowerCase()}/profile`}>
               {author}
             </Link>
-            <Link to={`/author/${author.toLowerCase()}/tracks/${trackName.toLowerCase()}`} className={styles.trackName}>
+            <Link
+              to={`/author/${author.toLowerCase()}/tracks/${trackName.toLowerCase()}`}
+              className={styles.trackName}
+            >
               {trackName}
             </Link>
             <span className={styles.presentTime}>00:00</span>
@@ -33,13 +34,15 @@ const Track = ({ index, author, trackName, audition, duration, likes }: ITrack) 
                 <img src={headphones} alt='' />
               </div>
             </div>
-            <span className={styles.playerTrackDuration}>{Math.floor(duration / 60)}:{duration % 60}</span>
+            <span className={styles.playerTrackDuration}>
+              {Math.floor(duration / 60)}:{duration % 60}
+            </span>
           </div>
         </div>
 
         <input
           className={`${styles.inputDurationTrack} ${styles.sliderProgress}`}
-          value='0'
+          defaultValue='0'
           type='range'
         />
       </div>

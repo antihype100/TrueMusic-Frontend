@@ -11,6 +11,7 @@ export const AUTHOR_ALBUM = '/author/:name/albums/:albumName';
 export const AUTHOR_CABINET = '/:name';
 
 export const RELEASE = '/:name/release-design';
+export const RELEASE_UPLOAD_TRACK = '/:name/upload-track';
 
 export const USER_SETTING = '/:name';
 export const USER_TRACKS = '/:name/tracks';

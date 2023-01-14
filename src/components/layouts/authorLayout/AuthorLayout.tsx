@@ -10,9 +10,7 @@ const AuthorLayout = ({ author, children }: IAuthorLayoutProps) => {
   return (
     <>
       <h1 className={styles.title}>{author}</h1>
-      <section className={styles.wrapper}>
-        {children}
-      </section>
+      <section className={styles.wrapper}>{children}</section>
     </>
   );
 };
