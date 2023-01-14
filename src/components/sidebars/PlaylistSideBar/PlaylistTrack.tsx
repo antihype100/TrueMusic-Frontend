@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import styles from './PlaylistSideBar.module.scss';
 
 interface ITrack {
@@ -15,7 +15,10 @@ const PlaylistTrack = ({ img, trackName, author }: ITrack) => (
       <Link className={styles.authorName} to={`/author/${author.toLowerCase()}/profile`}>
         {author}
       </Link>
-      <Link to={`/author/${author.toLowerCase()}/tracks/${trackName.toLowerCase()}`} className={styles.trackName}>
+      <Link
+        to={`/author/${author.toLowerCase()}/tracks/${trackName.toLowerCase()}`}
+        className={styles.trackName}
+      >
         {trackName}
       </Link>
     </div>

@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from 'react-router-dom';
 import styles from './SelectionList.module.scss';
-import { IItemForSelection } from "../Selections";
+import { IItemForSelection } from '../Selections';
 import SelectionItem from './SelectionItem';
 
 interface ISelectionList {
   category: string;
-  selection: IItemForSelection[]
+  selection: IItemForSelection[];
 }
 
-const SelectionList = ({ category, selection}: ISelectionList) => {
-
-  const {name} = useParams()
+const SelectionList = ({ category, selection }: ISelectionList) => {
+  const navigate = useNavigate();
+  const { name } = useParams();
 
   const [arrLength, setArrLength] = useState(3);
   const [more, setMore] = useState(false);
-
 
   const showMore = () => {
     setArrLength(selection.length);
@@ -26,7 +25,6 @@ const SelectionList = ({ category, selection}: ISelectionList) => {
     setArrLength(3);
     setMore(false);
   };
-
 
   return (
     <section className={styles.wrapper}>
@@ -43,19 +41,27 @@ const SelectionList = ({ category, selection}: ISelectionList) => {
         )}
       </div>
       <ul className={styles.list}>
-        {selection.map((item: IItemForSelection) => (
-          <li key={item.cover}>
-            <Link to={item.trackName
-              ? `/author/${name}/tracks/${item.trackName.toLowerCase()}`
-              : `/author/${name}/albums/${item.albumName.toLowerCase()}`}>
-              <SelectionItem cover={item.cover}
-                             albumName={item.albumName}
-                             trackName={item.trackName}
-                             author={item.author}
+        {selection
+          .map((item: IItemForSelection) => (
+            <li
+              key={item.cover}
+              onClick={() =>
+                navigate(
+                  item.trackName
+                    ? `/author/${name}/tracks/${item.trackName.toLowerCase()}`
+                    : `/author/${name}/albums/${item.albumName.toLowerCase()}`
+                )
+              }
+            >
+              <SelectionItem
+                cover={item.cover}
+                albumName={item.albumName}
+                trackName={item.trackName}
+                author={item.author}
               />
-            </Link>
-          </li>
-        )).slice(0, arrLength)}
+            </li>
+          ))
+          .slice(0, arrLength)}
       </ul>
     </section>
   );

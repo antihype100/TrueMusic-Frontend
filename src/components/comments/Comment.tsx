@@ -1,14 +1,12 @@
 import styles from './Comments.module.scss';
-import img from '../../assets/sidebar/playlist/cover7.png'
-import like from '../../assets/svg/like.svg'
+import img from '../../assets/sidebar/playlist/cover7.png';
+import like from '../../assets/svg/like.svg';
 
 interface IComment {
   author: string;
   commentText: string;
   timeAgo: number;
-
 }
-
 
 const Comment = () => {
   return (
@@ -24,7 +22,7 @@ const Comment = () => {
         </p>
         <div className={styles.likeWrapper}>
           <span className={styles.time}>3 ч.</span>
-          <img src={like} className={styles.likeIcon} alt=''/>
+          <img src={like} className={styles.likeIcon} alt='' />
         </div>
       </div>
     </div>
