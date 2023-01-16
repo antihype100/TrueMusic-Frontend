@@ -12,6 +12,6 @@ export const ParseTextarea = ({ value = [], onChange }: any) => {
   };
 
   return (
-    <textarea className={styles.formText} onChange={handleChange} cols={60} rows={8} value={text} />
+    <textarea className={styles.formText} onChange={handleChange} cols={60} rows={5} value={text} />
   );
 };

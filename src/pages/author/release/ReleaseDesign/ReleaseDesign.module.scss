@@ -29,15 +29,15 @@
   align-items: center;
   border-radius: 7px;
   background-color: #fff;
-  padding: 20px 35px 40px 35px;
+  padding: 20px 35px 20px 35px;
 }
 .titleForm {
-  font-size: 35px;
+  font-size: 30px;
   font-style: italic;
   font-weight: 600;
-  margin-bottom: 45px;
-  @media screen and (max-width: 1400px) {
-    font-size: 30px;
+  margin-bottom: 15px;
+  @media screen and (max-width: 1500px) {
+    font-size: 25px;
   }
 }
 .form {
@@ -45,18 +45,19 @@
   display: flex;
   flex-direction: column;
   @media screen and (max-width: 2000px) {
-    width: calc(100vw / 5);
+    width: calc(100vw / 4);
   }
 }
 .inputCover {
   position: relative;
+  max-width: 100%;
   margin-top: 20px;
 }
 .inputError {
   position: absolute;
   bottom: -15px;
   color: red;
-  font-size: 14px;
+  font-size: 13px;
 }
 .formInput {
   width: 100%;
@@ -67,7 +68,6 @@
   color: #000;
   font-style: italic;
   font-weight: 600;
-  letter-spacing: 0.03em;
 
   &::placeholder {
     font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 11px);
@@ -104,7 +104,7 @@
   }
   button {
     cursor: pointer;
-    padding: 15px 8px;
+    padding: 10px 8px;
     background: #610084;
     border-radius: 6px;
     font-style: italic;
@@ -116,16 +116,16 @@
 }
 .formButton {
   cursor: pointer;
-  margin-top: 60px;
+  margin-top: 30px;
   font-style: italic;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0.03em;
   color: #ffffff;
   background: #610084;
   border-radius: 49px;
   border: none;
-  padding: 15px 30px;
+  padding: 10px 30px;
   &:hover {
     background: #8801b9;
   }
@@ -160,7 +160,6 @@
   font-weight: 600;
   font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 11px);
   color: #979797;
-
 }
 .arrow {
   position: relative;

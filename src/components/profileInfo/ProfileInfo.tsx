@@ -42,7 +42,7 @@ const ProfileInfo = ({ authorName }: IAuthorInfo) => {
         <hr />
       </div>
       {author ? (
-        <Setting authorName={authorName}/>
+        <Setting authorName={authorName} />
       ) : (
         <Link to={`/author/${authorName}/authorMainPage`} className={styles.linkMainPage}>
           Перейти на главную страницу автора
@@ -66,12 +66,11 @@ const Info = () => {
   );
 };
 
-
 interface ISetting {
-  authorName?: string
+  authorName?: string;
 }
 
-const Setting = ({authorName}: ISetting) => {
+const Setting = ({ authorName }: ISetting) => {
   return (
     <div className={styles.settingBlock}>
       <h2 className={styles.title}>Настройки</h2>

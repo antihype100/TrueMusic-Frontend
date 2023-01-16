@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { ChangeEvent, useRef, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import styles from '../ReleaseDesign/ReleaseDesign.module.scss';
 import { SearchPanel } from '../../../../components/searchPanel/SearchPanel';
@@ -18,6 +18,12 @@ export interface IFormUploadTrack {
 const UploadTrack = () => {
   const methods = useForm<IFormUploadTrack>({ mode: 'onBlur' });
   const inputRef = useRef<HTMLInputElement>(null);
+  const [picture, setPicture] = useState<File[] | null>([]);
+
+  const onChangePicture = (e: React.ChangeEvent) => {
+    const target = e.target as HTMLInputElement;
+    setPicture([...target.files!, ...picture!]);
+  };
 
   const onSubmit: SubmitHandler<IFormUploadTrack> = (data) => {
     console.log(data);
@@ -37,38 +43,45 @@ const UploadTrack = () => {
                   errorText={'Поле обязательно к заполнению'}
                   placeholder={'Название трека'}
                   error={methods.formState.errors.nameTrack?.message!}
+                  styleInput={styles.formInput}
                 />
                 <NestedInputContainer
                   inputName={'aboutTrack'}
                   errorText={'Поле обязательно к заполнению'}
                   placeholder={'Описание трека'}
                   error={methods.formState.errors.aboutTrack?.message!}
+                  styleInput={styles.formInput}
                 />
                 <NestedInputContainer
                   inputName={'musician'}
                   errorText={'Поле обязательно к заполнению'}
                   placeholder={'Композитор'}
                   error={methods.formState.errors.musician?.message!}
+                  styleInput={styles.formInput}
                 />
                 <NestedInputContainer
                   textarea={true}
                   inputName={'text'}
                   placeholder={'Текст'}
                   error={methods.formState.errors.text?.message!}
+                  styleInput={styles.formInput}
                 />
               </FormProvider>
-              <label className={styles.uploadFile}>
+              <div className={styles.uploadFile}>
                 <span>Выберите обложку</span>
-                <input ref={inputRef} type='file' onChange={(e) => console.log(e.target.name)} />
+                <input type='file' ref={inputRef} onChange={onChangePicture} />
                 <button onClick={() => inputRef.current?.click()} type={'button'}>
                   Выбрать файл
                 </button>
-              </label>
-              <button
-                type='submit'
-                disabled={!methods.formState.isValid}
-                className={styles.formButton}
-              >
+              </div>
+              <div className={styles.uploadFile}>
+                <span>Выберите трек</span>
+                <input type='file' ref={inputRef} onChange={onChangePicture} />
+                <button onClick={() => inputRef.current?.click()} type={'button'}>
+                  Выбрать файл
+                </button>
+              </div>
+              <button type='submit' className={styles.formButton}>
                 Загрузить
               </button>
             </div>

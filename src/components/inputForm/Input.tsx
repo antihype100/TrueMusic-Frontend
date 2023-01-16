@@ -1,30 +1,34 @@
-import React from 'react';
+import React, { ClassType } from 'react';
 import { UseFormReturn } from 'react-hook-form/dist/types/form';
 import { Controller, useFormContext } from 'react-hook-form';
 import styles from '../../pages/author/release/ReleaseDesign/ReleaseDesign.module.scss';
 import { ParseTextarea } from './TextArea';
 
-type UploadFormName = 'nameTrack' | 'aboutTrack' | 'musician' | 'text' | 'cover' | 'track';
-type ReleaseFormName = 'title' | 'format' | 'genre' | 'about' | 'copyright' | 'totalTracks';
+type UploadFormValue = 'nameTrack' | 'aboutTrack' | 'musician' | 'text' | 'cover' | 'track';
+type ReleaseFormValue = 'title' | 'format' | 'genre' | 'about' | 'copyright' | 'totalTracks';
+type SignInFormValue = 'email' | 'login' | 'password' | 'repeatPassword';
 
 interface IInputProps extends UseFormReturn {
-  inputName: UploadFormName | ReleaseFormName;
+  inputName: UploadFormValue | ReleaseFormValue | SignInFormValue;
   placeholder: string;
   errorText?: string | boolean;
   error: string;
   textarea?: boolean;
+  styleInput: string;
 }
 
-interface InputForm {
-  inputName: UploadFormName | ReleaseFormName;
+interface InputContainer {
+  inputName: UploadFormValue | ReleaseFormValue | SignInFormValue;
   placeholder: string;
   errorText?: string | boolean;
   error: string;
   textarea?: boolean;
+  styleInput: string;
 }
 
 const Input = React.memo((props: IInputProps) => {
-  const { register, control, inputName, placeholder, errorText, error, textarea } = props;
+  const { register, control, inputName, placeholder, errorText, error, textarea, styleInput } =
+    props;
 
   return (
     <div className={styles.inputCover}>
@@ -38,7 +42,7 @@ const Input = React.memo((props: IInputProps) => {
         <input
           type='text'
           {...register(inputName!, { required: errorText })}
-          className={styles.formInput}
+          className={styleInput}
           placeholder={placeholder}
         />
       )}
@@ -47,7 +51,7 @@ const Input = React.memo((props: IInputProps) => {
   );
 });
 
-const NestedInputContainer = (props: InputForm) => {
+const NestedInputContainer = (props: InputContainer) => {
   const methods = useFormContext();
 
   return <Input {...props} {...methods} />;

@@ -3,7 +3,9 @@ import ModalLayout from '../../../../components/layouts/modalLayout/ModalLayout'
 import styles from './ReleaseDesign.module.scss';
 import { SearchPanel } from '../../../../components/searchPanel/SearchPanel';
 import Player from '../../../../components/player/Player';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import NestedInputContainer from '../../../../components/inputForm/Input';
+import { useNavigate } from 'react-router-dom';
 
 const formatRelease = [
   { format: 'Album' },
@@ -32,11 +34,9 @@ interface IFormRelease {
 }
 
 const ReleaseDesign = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isValid }
-  } = useForm<IFormRelease>({ mode: 'onBlur' });
+  const navigate = useNavigate();
+  const name = 'dora';
+  const methods = useForm<IFormRelease>({ mode: 'onBlur' });
 
   const onSubmit: SubmitHandler<IFormRelease> = (data) => {
     console.log(data);
@@ -47,70 +47,58 @@ const ReleaseDesign = () => {
       <div className={styles.modalWrapper}>
         <SearchPanel />
         <div className={styles.modalRelease}>
-          <form onSubmit={handleSubmit(onSubmit)} className={styles.releaseForm}>
+          <form onSubmit={methods.handleSubmit(onSubmit)} className={styles.releaseForm}>
             <h1 className={styles.titleForm}>Оформление релиза</h1>
             <div className={styles.form}>
-              <div className={styles.selectBlock}>
-                <label className={styles.arrow}>
-                  <select {...register('format')} className={styles.select}>
-                    {formatRelease.map(({ format }, i) => (
-                      <option key={i} value={format}>
-                        {format}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-              </div>
-              <div className={styles.selectBlock}>
-                <label className={styles.arrow}>
-                  <select {...register('genre')} className={styles.select}>
-                    <option defaultValue='Option 1'>Option 1</option>
-                    <option value='Option 2'>Option 2</option>
-                    <option value='Option 3'>Option 3</option>
-                  </select>
-                </label>
-              </div>
-              <div className={styles.inputCover}>
-                <input
-                  type='text'
-                  {...register('title', { required: 'Поле обязательно к заполнению' })}
-                  className={styles.formInput}
-                  placeholder={'Название альбома'}
+              <FormProvider {...methods}>
+                <div className={styles.selectBlock}>
+                  <label className={styles.arrow}>
+                    <select {...methods.register('format')} className={styles.select}>
+                      {formatRelease.map(({ format }, i) => (
+                        <option key={i} value={format}>
+                          {format}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
+                <div className={styles.selectBlock}>
+                  <label className={styles.arrow}>
+                    <select {...methods.register('genre')} className={styles.select}>
+                      <option defaultValue='Option 1'>Option 1</option>
+                      <option value='Option 2'>Option 2</option>
+                      <option value='Option 3'>Option 3</option>
+                    </select>
+                  </label>
+                </div>
+                <NestedInputContainer
+                  inputName={'title'}
+                  errorText={'Название альбома'}
+                  placeholder={'Название трека'}
+                  error={methods.formState.errors.title?.message!}
+                  styleInput={styles.formInput}
                 />
-                {errors.title && <span className={styles.inputError}>{errors.title?.message}</span>}
-              </div>
-              <div className={styles.inputCover}>
-                <input
-                  type='text'
-                  {...register('about', { required: 'Поле обязательно к заполнению' })}
-                  className={styles.formInput}
+                <NestedInputContainer
+                  inputName={'about'}
+                  errorText={'Поле обязательно к заполнению'}
                   placeholder={'Описание альбома'}
+                  error={methods.formState.errors.about?.message!}
+                  styleInput={styles.formInput}
                 />
-                {errors.about && <span className={styles.inputError}>{errors.about?.message}</span>}
-              </div>
-              <div className={styles.inputCover}>
-                <input
-                  type='text'
-                  {...register('copyright', { required: 'Поле обязательно к заполнению' })}
-                  className={styles.formInput}
-                  placeholder={'Копирайт'}
+                <NestedInputContainer
+                  inputName={'copyright'}
+                  errorText={'Поле обязательно к заполнению'}
+                  placeholder={'Copyright'}
+                  error={methods.formState.errors.copyright?.message!}
+                  styleInput={styles.formInput}
                 />
-                {errors.copyright && (
-                  <span className={styles.inputError}>{errors.copyright?.message}</span>
-                )}
-              </div>
-              <div className={styles.inputCover}>
-                <input
-                  type='text'
-                  {...register('totalTracks', { required: 'Поле обязательно к заполнению' })}
-                  className={styles.formInput}
-                  placeholder={'Количество треков в альбоме'}
-                />
-                {errors.totalTracks && (
-                  <span className={styles.inputError}>{errors.totalTracks?.message}</span>
-                )}
-              </div>
-              <button type='submit' className={styles.formButton}>
+              </FormProvider>
+              <button
+                type='submit'
+                disabled={!methods.formState.isValid}
+                onClick={() => setTimeout(() => navigate(`/${name}/upload-track`), 50)}
+                className={styles.formButton}
+              >
                 Далее
               </button>
             </div>

@@ -25,7 +25,7 @@ const trackListSideBar = [
   { author: 'Kizaru', trackName: 'Никто не нужен', img: cover1 },
   { author: 'Yanix', trackName: 'Хайпим', img: cover2 },
   { author: 'Snoop Dog', trackName: 'Smoke Weed', img: cover3 },
-  { author: 'Хаски', trackName: 'Панелька', img: cover4 },
+  { author: 'Хаски', trackName: 'Панелька', img: cover4 }
 ];
 
 interface IPlaylistSideBar {
