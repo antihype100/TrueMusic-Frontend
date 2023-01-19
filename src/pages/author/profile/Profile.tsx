@@ -1,4 +1,3 @@
-import { useParams } from 'react-router-dom';
 import ProfileLayout from '../../../components/layouts/profileLayout/ProfileLayout';
 import { SearchPanel } from '../../../components/searchPanel/SearchPanel';
 import styles from './Profile.module.scss';
@@ -11,7 +10,6 @@ import cover4 from '../../../assets/sidebar/playlist/cover4].png';
 import cover5 from '../../../assets/sidebar/playlist/cover5.png';
 import cover6 from '../../../assets/sidebar/playlist/cover6.png';
 import cover7 from '../../../assets/sidebar/playlist/cover7.png';
-import authors from '../../users/authors/Authors';
 
 const selectionList = [
   {
@@ -56,7 +54,6 @@ const selectionList = [
 ];
 
 const Profile = () => {
-  const { name } = useParams();
 
   return (
     <ProfileLayout>
@@ -64,7 +61,7 @@ const Profile = () => {
         <SearchPanel />
         <Selections selectionList={selectionList} />
       </section>
-      <ProfileInfo authorName={name} />
+      <ProfileInfo />
     </ProfileLayout>
   );
 };
