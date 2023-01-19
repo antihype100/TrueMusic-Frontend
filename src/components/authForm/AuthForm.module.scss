@@ -56,7 +56,11 @@
           color: #979797;
           font-style: italic;
           font-weight: 600;
+
           letter-spacing: 0.03em;
+        }
+        &:focus {
+          outline: none;
         }
       }
 

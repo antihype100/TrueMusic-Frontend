@@ -3,6 +3,7 @@ import styles from './ProfileInfo.module.scss';
 import { control, list, music, settings, stats, upload } from '../../utils/importSvg';
 import img from '../../assets/sidebar/playlist/cover7.png';
 import { Link } from 'react-router-dom';
+import { useUserInfoStore } from '../../store/UserInfoStore';
 
 const infoAuthor = [
   { text: 'Дата рождения:', value: '06.10.1987' },
@@ -16,17 +17,16 @@ const infoAuthor = [
 ];
 
 interface IAuthorInfo {
-  authorName?: string;
+  authorOrUserName?: string;
 }
 
-const ProfileInfo = ({ authorName }: IAuthorInfo) => {
-  const user = false;
-  const author = true;
+const ProfileInfo = () => {
 
+  const { userName } = useUserInfoStore(state => state);
   return (
     <section className={styles.wrapper}>
       <div>
-        <h1 className={styles.name}>{authorName}</h1>
+        <h1 className={styles.name}>{userName}</h1>
         <div className={styles.infoBlock}>
           <img src={img} alt='author' />
           <Info />
@@ -41,13 +41,7 @@ const ProfileInfo = ({ authorName }: IAuthorInfo) => {
         </div>
         <hr />
       </div>
-      {author ? (
-        <Setting authorName={authorName} />
-      ) : (
-        <Link to={`/author/${authorName}/authorMainPage`} className={styles.linkMainPage}>
-          Перейти на главную страницу автора
-        </Link>
-      )}
+      <Setting/>
     </section>
   );
 };
@@ -66,42 +60,38 @@ const Info = () => {
   );
 };
 
-interface ISetting {
-  authorName?: string;
-}
+const userSetting = [
+  {img: settings, buttonText: 'Сменить пароль'},
+  {img: settings, buttonText: 'Получить трек лист'},
+  {img: settings, buttonText: 'Управление интерфейсом'},
+  {img: settings, buttonText: 'Стать исполнителем'},
+]
 
-const Setting = ({ authorName }: ISetting) => {
+const authorSetting = [
+  {img: settings, buttonText: 'Получить трек лист'},
+  {img: settings, buttonText: 'Получить трек лист'},
+  {img: settings, buttonText: 'Получить трек лист'},
+  {img: settings, buttonText: 'Получить трек лист'},
+]
+
+const Setting = () => {
+  const { userName, role } = useUserInfoStore(state => state);
+  const settingList = role === 'AUTHOR' ? authorSetting : userSetting
   return (
     <div className={styles.settingBlock}>
       <h2 className={styles.title}>Настройки</h2>
       <div className={styles.settings}>
         <ul className={styles.settingList}>
+          {settingList.map(setting => {
+            return (
+                <li className={styles.setting}>
+                  <img src={setting.img} alt='' />
+                  <button>{setting.buttonText}</button>
+                </li>
+            )
+          })}
           <li className={styles.setting}>
-            <img src={settings} alt='icon' />
-            <button type='button'>Сменить пароль</button>
-          </li>
-          <li className={styles.setting}>
-            <img src={list} alt='icon' />
-            <button type='button'>Получить треклист</button>
-          </li>
-          <li className={styles.setting}>
-            <img src={control} alt='icon' />
-            <button type='button'>Управление интерфейсом</button>
-          </li>
-          <li className={styles.setting}>
-            <img src={music} alt='icon' />
-            <button type='button'>Стать исполнителем</button>
-          </li>
-          <li className={styles.setting}>
-            <img src={stats} alt='icon' />
-            <button type='button'>Статистика треков</button>
-          </li>
-          <li className={styles.setting}>
-            <img src={stats} alt='icon' />
-            <button type='button'>Статистика публикаций</button>
-          </li>
-          <li className={styles.setting}>
-            <Link to={`/${authorName}/release-design`}>
+            <Link to={`/${userName}/release-design`}>
               <img src={upload} alt='icon' />
               <button type='button'>Сделать релиз</button>
             </Link>

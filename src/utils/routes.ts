@@ -13,11 +13,11 @@ export const AUTHOR_CABINET = '/:name';
 export const RELEASE = '/:name/release-design';
 export const RELEASE_UPLOAD_TRACK = '/:name/upload-track';
 
-export const USER_SETTING = '/:name';
-export const USER_TRACKS = '/:name/tracks';
-export const USER_ALBUMS = '/:name/albums';
-export const USER_PLAYLISTS = '/:name/playlists';
-export const USER_PLAYLIST = '/:name/playlists/:playlistName';
+export const USER_SETTING = '/user/:name';
+export const USER_TRACKS = '/user/:name/tracks';
+export const USER_ALBUMS = '/user/:name/albums';
+export const USER_PLAYLISTS = '/user/:name/playlists';
+export const USER_PLAYLIST = '/user/:name/playlists/:playlistName';
 
 // export const PUBLIC_ROUTES = [
 //   { path: LOGIN, Component: SignIn },
