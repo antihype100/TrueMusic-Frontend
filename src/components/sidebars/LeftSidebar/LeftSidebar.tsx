@@ -8,10 +8,10 @@ const LeftSideBar = () => {
 
   return (
     <aside className={styles.leftSideBar}>
-      <img className={styles.logo} src={logo} alt='' />
+      <img className={styles.logo} src={logo} alt="" />
       <NavMenu />
-      <hr className='sideBarHr' />
-      <PlaylistSideBar amountTracks={amountTracks} header='Ваш плейлист' />
+      <hr className="sideBarHr" />
+      <PlaylistSideBar amountTracks={amountTracks} header="Ваш плейлист" />
     </aside>
   );
 };

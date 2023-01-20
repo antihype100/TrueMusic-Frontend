@@ -6,6 +6,7 @@ import Player from '../../../../components/player/Player';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import NestedInputContainer from '../../../../components/inputForm/Input';
 import { useNavigate } from 'react-router-dom';
+import { useReleaseStore } from "../../../../store/ReleaseStore";
 
 const formatRelease = [
   { format: 'Album' },
@@ -21,25 +22,27 @@ const formatRelease = [
   { format: 'Vinyl' },
   { format: 'WEB' },
   { format: 'Tribute' },
-  { format: 'Demo' }
+  { format: 'Demo' },
 ];
 
-interface IFormRelease {
-  title: string;
-  format: string;
+interface IFormReleaseAlbum {
+  albumName: string;
+  descriptionAlbum: string;
   genre: string;
-  about: string;
-  copyright: string;
-  totalTracks?: number;
+  formatRelease: string;
+  coverPath: string;
 }
 
 const ReleaseDesign = () => {
   const navigate = useNavigate();
-  const name = 'dora';
-  const methods = useForm<IFormRelease>({ mode: 'onBlur' });
+  const { setRelease } = useReleaseStore((state) => state);
 
-  const onSubmit: SubmitHandler<IFormRelease> = (data) => {
+  const name = 'dora';
+  const methods = useForm<IFormReleaseAlbum>({ mode: 'onBlur' });
+
+  const onSubmit: SubmitHandler<IFormReleaseAlbum> = (data) => {
     console.log(data);
+    setRelease(data)
   };
 
   return (
@@ -53,7 +56,7 @@ const ReleaseDesign = () => {
               <FormProvider {...methods}>
                 <div className={styles.selectBlock}>
                   <label className={styles.arrow}>
-                    <select {...methods.register('format')} className={styles.select}>
+                    <select {...methods.register('formatRelease')} className={styles.select}>
                       {formatRelease.map(({ format }, i) => (
                         <option key={i} value={format}>
                           {format}
@@ -65,36 +68,36 @@ const ReleaseDesign = () => {
                 <div className={styles.selectBlock}>
                   <label className={styles.arrow}>
                     <select {...methods.register('genre')} className={styles.select}>
-                      <option defaultValue='Option 1'>Option 1</option>
-                      <option value='Option 2'>Option 2</option>
-                      <option value='Option 3'>Option 3</option>
+                      <option defaultValue="Option 1">Option 1</option>
+                      <option value="Option 2">Option 2</option>
+                      <option value="Option 3">Option 3</option>
                     </select>
                   </label>
                 </div>
                 <NestedInputContainer
-                  inputName={'title'}
+                  inputName={'albumName'}
                   errorText={'Название альбома'}
                   placeholder={'Название трека'}
-                  error={methods.formState.errors.title?.message!}
+                  error={methods.formState.errors.albumName?.message!}
                   styleInput={styles.formInput}
                 />
                 <NestedInputContainer
-                  inputName={'about'}
+                  inputName={'descriptionAlbum'}
                   errorText={'Поле обязательно к заполнению'}
                   placeholder={'Описание альбома'}
-                  error={methods.formState.errors.about?.message!}
+                  error={methods.formState.errors.descriptionAlbum?.message!}
                   styleInput={styles.formInput}
                 />
-                <NestedInputContainer
-                  inputName={'copyright'}
-                  errorText={'Поле обязательно к заполнению'}
-                  placeholder={'Copyright'}
-                  error={methods.formState.errors.copyright?.message!}
-                  styleInput={styles.formInput}
-                />
+                {/*<NestedInputContainer*/}
+                {/*  inputName={'albumName'}*/}
+                {/*  errorText={'Поле обязательно к заполнению'}*/}
+                {/*  placeholder={'Copyright'}*/}
+                {/*  error={methods.formState.errors.albumName?.message!}*/}
+                {/*  styleInput={styles.formInput}*/}
+                {/*/>*/}
               </FormProvider>
               <button
-                type='submit'
+                type="submit"
                 disabled={!methods.formState.isValid}
                 onClick={() => setTimeout(() => navigate(`/${name}/upload-track`), 50)}
                 className={styles.formButton}

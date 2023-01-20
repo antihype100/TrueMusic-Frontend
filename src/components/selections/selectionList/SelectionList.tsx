@@ -31,11 +31,11 @@ const SelectionList = ({ category, selection }: ISelectionList) => {
       <div className={styles.titleBlock}>
         <h2>{category}</h2>
         {!more ? (
-          <button type='button' onClick={showMore}>
+          <button type="button" onClick={showMore}>
             Показать все
           </button>
         ) : (
-          <button type='button' onClick={showLess}>
+          <button type="button" onClick={showLess}>
             Скрыть
           </button>
         )}
@@ -49,7 +49,7 @@ const SelectionList = ({ category, selection }: ISelectionList) => {
                 navigate(
                   item.trackName
                     ? `/author/${name}/tracks/${item.trackName.toLowerCase()}`
-                    : `/author/${name}/albums/${item.albumName.toLowerCase()}`
+                    : `/author/${name}/albums/${item.albumName.toLowerCase()}`,
                 )
               }
             >

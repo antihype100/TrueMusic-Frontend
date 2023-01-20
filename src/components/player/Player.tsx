@@ -7,7 +7,7 @@ const Player = () => {
     <div className={styles.player}>
       <div className={styles.contentWrapper}>
         <div className={styles.leftContent}>
-          <img className={styles.trackImg} src={img} alt='' />
+          <img className={styles.trackImg} src={img} alt="" />
 
           <div className={styles.infoWrapper}>
             <span className={styles.authorName}>Kizaru</span>
@@ -16,27 +16,23 @@ const Player = () => {
           </div>
 
           <div className={styles.iconsWrapper}>
-            <img className={styles.repeatIcon} src={repeat} alt='' />
-            <img className={styles.likeIcon} src={like} alt='' />
+            <img className={styles.repeatIcon} src={repeat} alt="" />
+            <img className={styles.likeIcon} src={like} alt="" />
           </div>
         </div>
 
         <div className={styles.playStopWrapper}>
-          <img className={styles.prev} src={prev} alt='' />
+          <img className={styles.prev} src={prev} alt="" />
 
-          <img className={styles.playPause} src={play} alt='' />
+          <img className={styles.playPause} src={play} alt="" />
 
-          <img className={styles.next} src={next} alt='' />
+          <img className={styles.next} src={next} alt="" />
         </div>
 
         <span className={styles.playerDuration}>02:32</span>
       </div>
 
-      <input
-        className={`${styles.inputDuration} ${styles.sliderProgress}`}
-        defaultValue={'0'}
-        type='range'
-      />
+      <input className={`${styles.inputDuration} ${styles.sliderProgress}`} defaultValue={'0'} type="range" />
     </div>
   );
 };

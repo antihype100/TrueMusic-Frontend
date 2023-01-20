@@ -9,24 +9,23 @@ import { useUserInfoStore } from '../../store/UserInfoStore';
 import { HOME } from '../../utils/routes';
 
 const SignIn = () => {
+  const isAuth = useUserInfoStore((state) => state.auth);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isAuth) {
+      navigate(HOME);
+    }
+  }, [isAuth]);
 
-    const isAuth = useUserInfoStore((state) => state.auth);
-    const navigate = useNavigate();
-    useEffect(() => {
-        if (isAuth) {
-            navigate(HOME)
-        }
-    }, [isAuth])
-
-    return (
-        <ModalLayout>
-            <div className={styles.modalWrapper}>
-                <SearchPanel />
-                <AuthForm title='Вход' />
-                <Player />
-            </div>
-        </ModalLayout>
-    );
+  return (
+    <ModalLayout>
+      <div className={styles.modalWrapper}>
+        <SearchPanel />
+        <AuthForm title="Вход" />
+        <Player />
+      </div>
+    </ModalLayout>
+  );
 };
 
 export default SignIn;

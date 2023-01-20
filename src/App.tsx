@@ -1,8 +1,7 @@
 import AppRouter from './components/AppRouter';
 
 const App = () => {
-
-    return <AppRouter />;
+  return <AppRouter />;
 };
 
 export default App;

@@ -7,14 +7,14 @@ const SearchPanel = () => {
 
   return (
     <div className={styles.searchPanelWrapper}>
-      <img className={styles.stickIcon} src={stick} alt='' />
-      <img className={styles.searchIcon} src={search} alt='' />
+      <img className={styles.stickIcon} src={stick} alt="" />
+      <img className={styles.searchIcon} src={search} alt="" />
       <span className={styles.searchHistory}>История поиска</span>
       <input
-        type='text'
+        type="text"
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        placeholder='Трек, исполнитель или альбом'
+        placeholder="Трек, исполнитель или альбом"
         className={styles.searchPanel}
       />
     </div>

@@ -25,7 +25,7 @@ const trackListSideBar = [
   { author: 'Kizaru', trackName: 'Никто не нужен', img: cover1 },
   { author: 'Yanix', trackName: 'Хайпим', img: cover2 },
   { author: 'Snoop Dog', trackName: 'Smoke Weed', img: cover3 },
-  { author: 'Хаски', trackName: 'Панелька', img: cover4 }
+  { author: 'Хаски', trackName: 'Панелька', img: cover4 },
 ];
 
 interface IPlaylistSideBar {
@@ -37,12 +37,10 @@ const PlaylistSideBar = ({ amountTracks, header }: IPlaylistSideBar) => (
   <ul className={styles.playlist}>
     <h1 className={styles.header}>{header}</h1>
     {trackListSideBar
-      .map((track, i) => (
-        <PlaylistTrack key={i} img={track.img} author={track.author} trackName={track.trackName} />
-      ))
+      .map((track, i) => <PlaylistTrack key={i} img={track.img} author={track.author} trackName={track.trackName} />)
       .slice(0, amountTracks)}
-    <img className={styles.arrow} src={arrow} alt='' />
-    <hr className='sideBarHr' />
+    <img className={styles.arrow} src={arrow} alt="" />
+    <hr className="sideBarHr" />
   </ul>
 );
 

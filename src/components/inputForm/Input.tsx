@@ -4,8 +4,8 @@ import { Controller, useFormContext } from 'react-hook-form';
 import styles from '../../pages/author/release/ReleaseDesign/ReleaseDesign.module.scss';
 import { ParseTextarea } from './TextArea';
 
-type UploadFormValue = 'nameTrack' | 'aboutTrack' | 'musician' | 'text' | 'cover' | 'track';
-type ReleaseFormValue = 'title' | 'format' | 'genre' | 'about' | 'copyright' | 'totalTracks';
+type UploadFormValue = 'trackName' | 'descriptionTrack' | 'production' | 'trackText' | 'trackPath';
+type ReleaseFormValue = 'albumName' | 'descriptionAlbum' | 'genre' | 'formatRelease' | 'coverPath';
 type SignInFormValue = 'email' | 'login' | 'password' | 'repeatPassword';
 
 interface IInputProps extends UseFormReturn {
@@ -27,8 +27,7 @@ interface InputContainer {
 }
 
 const Input = React.memo((props: IInputProps) => {
-  const { register, control, inputName, placeholder, errorText, error, textarea, styleInput } =
-    props;
+  const { register, control, inputName, placeholder, errorText, error, textarea, styleInput } = props;
 
   return (
     <div className={styles.inputCover}>
@@ -40,7 +39,7 @@ const Input = React.memo((props: IInputProps) => {
         />
       ) : (
         <input
-          type='text'
+          type="text"
           {...register(inputName!, { required: errorText })}
           className={styleInput}
           placeholder={placeholder}

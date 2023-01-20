@@ -11,7 +11,7 @@ const tracksList = [
   { author: 'Instasamka', trackName: 'Pop star', duration: 349, likes: 243674, audition: 35325 },
   { author: 'Cold carti', trackName: 'ILY', duration: 434, likes: 234234, audition: 324679 },
   { author: 'DJ Snake', trackName: 'Middle', duration: 134, likes: 34324, audition: 65332 },
-  { author: 'Kizaru', trackName: 'Мне это не нужно', duration: 224, likes: 8709, audition: 2167976 }
+  { author: 'Kizaru', trackName: 'Мне это не нужно', duration: 224, likes: 8709, audition: 2167976 },
 ];
 
 const Playlist = () => {

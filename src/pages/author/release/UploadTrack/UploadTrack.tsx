@@ -1,32 +1,58 @@
-import React, { ChangeEvent, useRef, useState } from 'react';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import React, { useRef, useState } from 'react';
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import styles from '../ReleaseDesign/ReleaseDesign.module.scss';
 import { SearchPanel } from '../../../../components/searchPanel/SearchPanel';
 import Player from '../../../../components/player/Player';
 import ModalLayout from '../../../../components/layouts/modalLayout/ModalLayout';
 import NestedInputContainer from '../../../../components/inputForm/Input';
+import { useReleaseStore } from "../../../../store/ReleaseStore";
+import axios from "../../../../utils/axios";
 
 export interface IFormUploadTrack {
-  nameTrack: string;
-  aboutTrack: string;
-  musician: string;
-  text: string;
-  cover: ImageData;
-  track: string;
+  trackName: string;
+  descriptionTrack: string;
+  production: string;
+  trackText: string;
+  trackPath: string;
+  coverPath: string;
 }
 
 const UploadTrack = () => {
   const methods = useForm<IFormUploadTrack>({ mode: 'onBlur' });
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [picture, setPicture] = useState<File[] | null>([]);
+  const imgRef = useRef<HTMLInputElement>(null);
+  const audioRef = useRef<HTMLInputElement>(null);
+  const { release } = useReleaseStore((state) => state);
 
-  const onChangePicture = (e: React.ChangeEvent) => {
-    const target = e.target as HTMLInputElement;
-    setPicture([...target.files!, ...picture!]);
-  };
+  const [fields, setFields] = useState({
+    image: '',
+    audio: ''
+  })
 
-  const onSubmit: SubmitHandler<IFormUploadTrack> = (data) => {
-    console.log(data);
+  const onChangeFile = async (e: any, type: string) => {
+    try {
+      const formData = new FormData()
+      const file = e.target.files[0]
+      formData.append('trackFiles', file)
+      await axios.post('/upload', formData)
+        .then(({data}) => {
+          type === 'image'
+            ? setFields({...fields, image: data.url})
+            : setFields({...fields, audio: data.url})
+        })
+    } catch (err) {
+      console.warn(err)
+    }
+  }
+
+  const onSubmit: SubmitHandler<IFormUploadTrack> = async (data) => {
+    await axios.post('/album/create', release).then(({ data }) => console.log(data))
+    const res = await axios.post('/track/create', { ...data, trackPath: fields.audio, coverPath: fields.image })
+    console.log(res);
+    setFields({
+      audio: '',
+      image: ''
+    })
+    methods.reset()
   };
 
   return (
@@ -39,49 +65,49 @@ const UploadTrack = () => {
             <div className={styles.form}>
               <FormProvider {...methods}>
                 <NestedInputContainer
-                  inputName={'nameTrack'}
+                  inputName={'trackName'}
                   errorText={'Поле обязательно к заполнению'}
                   placeholder={'Название трека'}
-                  error={methods.formState.errors.nameTrack?.message!}
+                  error={methods.formState.errors.trackName?.message!}
                   styleInput={styles.formInput}
                 />
                 <NestedInputContainer
-                  inputName={'aboutTrack'}
+                  inputName={'descriptionTrack'}
                   errorText={'Поле обязательно к заполнению'}
                   placeholder={'Описание трека'}
-                  error={methods.formState.errors.aboutTrack?.message!}
+                  error={methods.formState.errors.descriptionTrack?.message!}
                   styleInput={styles.formInput}
                 />
                 <NestedInputContainer
-                  inputName={'musician'}
+                  inputName={'production'}
                   errorText={'Поле обязательно к заполнению'}
                   placeholder={'Композитор'}
-                  error={methods.formState.errors.musician?.message!}
+                  error={methods.formState.errors.production?.message!}
                   styleInput={styles.formInput}
                 />
                 <NestedInputContainer
                   textarea={true}
-                  inputName={'text'}
+                  inputName={'trackText'}
                   placeholder={'Текст'}
-                  error={methods.formState.errors.text?.message!}
+                  error={methods.formState.errors.trackText?.message!}
                   styleInput={styles.formInput}
                 />
               </FormProvider>
               <div className={styles.uploadFile}>
                 <span>Выберите обложку</span>
-                <input type='file' ref={inputRef} onChange={onChangePicture} />
-                <button onClick={() => inputRef.current?.click()} type={'button'}>
+                <input type="file" ref={imgRef} onChange={(e) => onChangeFile(e, 'image')} />
+                <button onClick={() => imgRef.current?.click()} type={'button'}>
                   Выбрать файл
                 </button>
               </div>
               <div className={styles.uploadFile}>
                 <span>Выберите трек</span>
-                <input type='file' ref={inputRef} onChange={onChangePicture} />
-                <button onClick={() => inputRef.current?.click()} type={'button'}>
+                <input type="file" ref={audioRef} onChange={(e) => onChangeFile(e, 'audio')} />
+                <button onClick={() => audioRef.current?.click()} type={'button'}>
                   Выбрать файл
                 </button>
               </div>
-              <button type='submit' className={styles.formButton}>
+              <button type="submit" className={styles.formButton}>
                 Загрузить
               </button>
             </div>

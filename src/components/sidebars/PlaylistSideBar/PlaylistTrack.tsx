@@ -10,15 +10,12 @@ interface ITrack {
 
 const PlaylistTrack = ({ img, trackName, author }: ITrack) => (
   <li className={styles.PlaylistItem}>
-    <img className={styles.img} src={img} alt='img' />
+    <img className={styles.img} src={img} alt="img" />
     <div className={styles.nameWrapper}>
       <Link className={styles.authorName} to={`/author/${author.toLowerCase()}/profile`}>
         {author}
       </Link>
-      <Link
-        to={`/author/${author.toLowerCase()}/tracks/${trackName.toLowerCase()}`}
-        className={styles.trackName}
-      >
+      <Link to={`/author/${author.toLowerCase()}/tracks/${trackName.toLowerCase()}`} className={styles.trackName}>
         {trackName}
       </Link>
     </div>

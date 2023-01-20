@@ -22,8 +22,8 @@ const selectionList = [
       { author: 'Kizaru', albumName: '6Black', cover: cover4 },
       { author: 'Kizaru', albumName: 'Yanix', cover: cover5 },
       { author: 'Kizaru', albumName: 'Kiilo', cover: cover6 },
-      { author: 'Kizaru', albumName: 'Kiilo', cover: cover7 }
-    ]
+      { author: 'Kizaru', albumName: 'Kiilo', cover: cover7 },
+    ],
   },
   {
     header: 'Самые залайканные альбомы',
@@ -35,8 +35,8 @@ const selectionList = [
       { author: 'Cold', albumName: '6Black', cover: cover4 },
       { author: 'Kizaru', albumName: 'Yanix', cover: cover5 },
       { author: 'Kizaru', albumName: 'Kiilo', cover: cover6 },
-      { author: 'Kizaru', albumName: 'Kiilo', cover: cover7 }
-    ]
+      { author: 'Kizaru', albumName: 'Kiilo', cover: cover7 },
+    ],
   },
   {
     header: 'Самые прослушиваемые треки',
@@ -48,13 +48,12 @@ const selectionList = [
       { author: 'Kizaru', trackName: '6Black', albumName: '6Black', cover: cover4 },
       { author: 'Kizaru', trackName: 'Yanix', albumName: 'Yanix', cover: cover5 },
       { author: 'Kizaru', trackName: 'Kiilo', albumName: 'Kiilo', cover: cover6 },
-      { author: 'Kizaru', trackName: 'Kiilo', albumName: 'Kiilo', cover: cover7 }
-    ]
-  }
+      { author: 'Kizaru', trackName: 'Kiilo', albumName: 'Kiilo', cover: cover7 },
+    ],
+  },
 ];
 
 const Profile = () => {
-
   return (
     <ProfileLayout>
       <section className={styles.albums}>

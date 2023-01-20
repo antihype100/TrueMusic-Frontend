@@ -11,7 +11,7 @@ const SignUp = () => {
     <ModalLayout>
       <div className={styles.modalWrapper}>
         <SearchPanel />
-        <AuthForm title='Регистрация' />
+        <AuthForm title="Регистрация" />
         <Player />
       </div>
     </ModalLayout>

@@ -13,7 +13,7 @@ const infoAuthor = [
   { text: 'Добавлений в избранное:', value: '325423' },
   { text: 'Прослушиваний:', value: '325423' },
   { text: 'Количество треков на площадке:', value: '124' },
-  { text: 'Количество треков на площадке:', value: '325423' }
+  { text: 'Количество треков на площадке:', value: '325423' },
 ];
 
 interface IAuthorInfo {
@@ -21,27 +21,26 @@ interface IAuthorInfo {
 }
 
 const ProfileInfo = () => {
-
-  const { userName } = useUserInfoStore(state => state);
+  const { userName } = useUserInfoStore((state) => state);
   return (
     <section className={styles.wrapper}>
       <div>
         <h1 className={styles.name}>{userName}</h1>
         <div className={styles.infoBlock}>
-          <img src={img} alt='author' />
+          <img src={img} alt="author" />
           <Info />
         </div>
         <hr />
         <div className={styles.about}>
           <h2 className={styles.title}>Описание</h2>
           <p>
-            Братан, хорош, давай, давай, вперёд! Контент в кайф, можно ещё? Вообще красавчик! Можно
-            вот этого вот почаще?
+            Братан, хорош, давай, давай, вперёд! Контент в кайф, можно ещё? Вообще красавчик! Можно вот этого вот
+            почаще?
           </p>
         </div>
         <hr />
       </div>
-      <Setting/>
+      <Setting />
     </section>
   );
 };
@@ -61,39 +60,39 @@ const Info = () => {
 };
 
 const userSetting = [
-  {img: settings, buttonText: 'Сменить пароль'},
-  {img: settings, buttonText: 'Получить трек лист'},
-  {img: settings, buttonText: 'Управление интерфейсом'},
-  {img: settings, buttonText: 'Стать исполнителем'},
-]
+  { img: settings, buttonText: 'Сменить пароль' },
+  { img: settings, buttonText: 'Получить трек лист' },
+  { img: settings, buttonText: 'Управление интерфейсом' },
+  { img: settings, buttonText: 'Стать исполнителем' },
+];
 
 const authorSetting = [
-  {img: settings, buttonText: 'Получить трек лист'},
-  {img: settings, buttonText: 'Получить трек лист'},
-  {img: settings, buttonText: 'Получить трек лист'},
-  {img: settings, buttonText: 'Получить трек лист'},
-]
+  { img: settings, buttonText: 'Получить трек лист' },
+  { img: settings, buttonText: 'Получить трек лист' },
+  { img: settings, buttonText: 'Получить трек лист' },
+  { img: settings, buttonText: 'Получить трек лист' },
+];
 
 const Setting = () => {
-  const { userName, role } = useUserInfoStore(state => state);
-  const settingList = role === 'AUTHOR' ? authorSetting : userSetting
+  const { userName, role } = useUserInfoStore((state) => state);
+  const settingList = role === 'AUTHOR' ? authorSetting : userSetting;
   return (
     <div className={styles.settingBlock}>
       <h2 className={styles.title}>Настройки</h2>
       <div className={styles.settings}>
         <ul className={styles.settingList}>
-          {settingList.map(setting => {
+          {settingList.map((setting) => {
             return (
-                <li className={styles.setting}>
-                  <img src={setting.img} alt='' />
-                  <button>{setting.buttonText}</button>
-                </li>
-            )
+              <li className={styles.setting}>
+                <img src={setting.img} alt="" />
+                <button>{setting.buttonText}</button>
+              </li>
+            );
           })}
           <li className={styles.setting}>
             <Link to={`/${userName}/release-design`}>
-              <img src={upload} alt='icon' />
-              <button type='button'>Сделать релиз</button>
+              <img src={upload} alt="icon" />
+              <button type="button">Сделать релиз</button>
             </Link>
           </li>
         </ul>

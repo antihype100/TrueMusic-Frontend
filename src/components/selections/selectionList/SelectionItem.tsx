@@ -8,7 +8,7 @@ const SelectionItem = ({ author, trackName, albumName, cover }: IItemForSelectio
 
   return (
     <section className={styles.albumBlock}>
-      <img src={cover} className={styles.img} alt='img' />
+      <img src={cover} className={styles.img} alt="img" />
       <Link className={styles.nameAuthor} to={`/author/${author}/profile`}>
         {author}
       </Link>
