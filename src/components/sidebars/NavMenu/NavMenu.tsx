@@ -11,6 +11,13 @@ interface INavMenuLink {
   to: string;
 }
 
+const noAuthNavMenuList = [
+  { linkText: 'Главная', img: main, to: HOME },
+  { linkText: 'Регистрация', img: profile, to: REGISTER },
+  { linkText: 'True-Top', img: sound, to: '#' },
+  { linkText: 'NFT-Music', img: nft, to: '#' },
+];
+
 const NavMenuLink = ({ img, linkText, to }: INavMenuLink) => (
   <li className={styles.navMenu__item}>
     <Link className={styles.navMenu__link} to={to}>
@@ -21,15 +28,9 @@ const NavMenuLink = ({ img, linkText, to }: INavMenuLink) => (
 );
 
 const NavMenu = () => {
-  const userName = localStorage.getItem('userName');
-  const noAuthNavMenuList = [
-    { linkText: 'Главная', img: main, to: HOME },
-    { linkText: 'Регистрация', img: profile, to: REGISTER },
-    { linkText: 'True-Top', img: sound, to: '#' },
-    { linkText: 'NFT-Music', img: nft, to: '#' },
-  ];
+  const {userName, role, auth} = useUserInfoStore(state => state)
 
-  const authNavMenuList = [
+  const UserNavMenuList = [
     { linkText: 'Главная', img: main, to: HOME },
     { linkText: 'Профиль', img: profile, to: `/user/${userName}` },
     { linkText: 'Моя коллекция', img: profile, to: `/user/${userName}/playlists` },
@@ -37,8 +38,16 @@ const NavMenu = () => {
     { linkText: 'NFT-Music', img: nft, to: '#' },
   ];
 
-  const isAuth = useUserInfoStore((state) => state.auth);
-  const navMenuList = isAuth ? authNavMenuList : noAuthNavMenuList;
+  const AuthorNavMenuList = [
+    { linkText: 'Главная', img: main, to: HOME },
+    { linkText: 'Профиль', img: profile, to: `/author/${userName}` },
+    { linkText: 'Моя коллекция', img: profile, to: `/author/${userName}/playlists` },
+    { linkText: 'Сообщения', img: message, to: '#' },
+    { linkText: 'NFT-Music', img: nft, to: '#' },
+  ];
+
+  let navMenuList = auth ? AuthorNavMenuList : noAuthNavMenuList;
+
   return (
     <nav className={styles.navMenu}>
       <ul className={styles.navMenu__list}>

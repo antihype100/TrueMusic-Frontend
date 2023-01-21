@@ -10,7 +10,7 @@ export const AUTHOR_TRACK = '/author/:name/tracks/:trackName';
 export const AUTHOR_ALBUM = '/author/:name/albums/:albumName';
 export const AUTHOR_CABINET = '/:name';
 
-export const RELEASE = '/:name/release-design';
+export const RELEASE = '/:name/release-design/';
 export const RELEASE_UPLOAD_TRACK = '/:name/upload-track';
 
 export const USER_SETTING = '/user/:name';

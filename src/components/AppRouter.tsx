@@ -61,7 +61,6 @@ const AppRouter = () => {
 
       {/* Страницы указаны некоректно */}
       {/* <Route path={AUTHOR_CABINET} element={<Profile />} /> */}
-      <Route path={AUTHOR_PROFILE} element={<Profile />} />
 
       <Route path={USER_SETTING} element={<Profile />} />
       <Route path={USER_TRACKS} element={<TracksUsers />} />

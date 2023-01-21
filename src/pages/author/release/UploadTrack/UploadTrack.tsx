@@ -1,122 +1,115 @@
 import React, { useRef, useState } from 'react';
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from 'react-hook-form';
 import styles from '../ReleaseDesign/ReleaseDesign.module.scss';
 import { SearchPanel } from '../../../../components/searchPanel/SearchPanel';
 import Player from '../../../../components/player/Player';
 import ModalLayout from '../../../../components/layouts/modalLayout/ModalLayout';
-import NestedInputContainer from '../../../../components/inputForm/Input';
-import { useReleaseStore } from "../../../../store/ReleaseStore";
-import axios from "../../../../utils/axios";
+import { useReleaseStore } from '../../../../store/ReleaseStore';
+import axios from '../../../../utils/axios';
 
 export interface IFormUploadTrack {
-  trackName: string;
-  descriptionTrack: string;
-  production: string;
-  trackText: string;
-  trackPath: string;
-  coverPath: string;
+    trackName: string;
+    descriptionTrack: string;
+    production: string;
+    trackText: string;
 }
 
 const UploadTrack = () => {
-  const methods = useForm<IFormUploadTrack>({ mode: 'onBlur' });
-  const imgRef = useRef<HTMLInputElement>(null);
-  const audioRef = useRef<HTMLInputElement>(null);
-  const { release } = useReleaseStore((state) => state);
+    const {
+        register,
+        handleSubmit,
+    } = useForm<IFormUploadTrack>({ mode: 'onChange' });
+    const audioRef = useRef<HTMLInputElement>(null);
+    const { release } = useReleaseStore((state) => state);
+    const [trackName, setTrackName] = useState(null);
+    const [trackFile, setTrackFile] = useState<any>(null);
+    const [trackNumber, setTrackNumber] = useState(1);
 
-  const [fields, setFields] = useState({
-    image: '',
-    audio: ''
-  })
 
-  const onChangeFile = async (e: any, type: string) => {
-    try {
-      const formData = new FormData()
-      const file = e.target.files[0]
-      formData.append('trackFiles', file)
-      await axios.post('/upload', formData)
-        .then(({data}) => {
-          type === 'image'
-            ? setFields({...fields, image: data.url})
-            : setFields({...fields, audio: data.url})
-        })
-    } catch (err) {
-      console.warn(err)
-    }
-  }
 
-  const onSubmit: SubmitHandler<IFormUploadTrack> = async (data) => {
-    await axios.post('/album/create', release).then(({ data }) => console.log(data))
-    const res = await axios.post('/track/create', { ...data, trackPath: fields.audio, coverPath: fields.image })
-    console.log(res);
-    setFields({
-      audio: '',
-      image: ''
-    })
-    methods.reset()
-  };
+    const [trackData] = useState(new FormData());
 
-  return (
-    <ModalLayout>
-      <div className={styles.modalWrapper}>
-        <SearchPanel />
-        <div className={styles.modalRelease}>
-          <form onSubmit={methods.handleSubmit(onSubmit)} className={styles.releaseForm}>
-            <h1 className={styles.titleForm}>Загрузка трека №1</h1>
-            <div className={styles.form}>
-              <FormProvider {...methods}>
-                <NestedInputContainer
-                  inputName={'trackName'}
-                  errorText={'Поле обязательно к заполнению'}
-                  placeholder={'Название трека'}
-                  error={methods.formState.errors.trackName?.message!}
-                  styleInput={styles.formInput}
-                />
-                <NestedInputContainer
-                  inputName={'descriptionTrack'}
-                  errorText={'Поле обязательно к заполнению'}
-                  placeholder={'Описание трека'}
-                  error={methods.formState.errors.descriptionTrack?.message!}
-                  styleInput={styles.formInput}
-                />
-                <NestedInputContainer
-                  inputName={'production'}
-                  errorText={'Поле обязательно к заполнению'}
-                  placeholder={'Композитор'}
-                  error={methods.formState.errors.production?.message!}
-                  styleInput={styles.formInput}
-                />
-                <NestedInputContainer
-                  textarea={true}
-                  inputName={'trackText'}
-                  placeholder={'Текст'}
-                  error={methods.formState.errors.trackText?.message!}
-                  styleInput={styles.formInput}
-                />
-              </FormProvider>
-              <div className={styles.uploadFile}>
-                <span>Выберите обложку</span>
-                <input type="file" ref={imgRef} onChange={(e) => onChangeFile(e, 'image')} />
-                <button onClick={() => imgRef.current?.click()} type={'button'}>
-                  Выбрать файл
-                </button>
-              </div>
-              <div className={styles.uploadFile}>
-                <span>Выберите трек</span>
-                <input type="file" ref={audioRef} onChange={(e) => onChangeFile(e, 'audio')} />
-                <button onClick={() => audioRef.current?.click()} type={'button'}>
-                  Выбрать файл
-                </button>
-              </div>
-              <button type="submit" className={styles.formButton}>
-                Загрузить
-              </button>
+    const sendData = () => {
+        trackData.forEach(el => console.log(el))
+        axios.post('/track/upload', trackData, {
+            headers: {
+                'content-type': 'multipart/form-data; charset=UTF-8',
+            },
+        });
+    };
+
+    const onSubmit: SubmitHandler<IFormUploadTrack> = (data) => {
+        if (release) {
+            setTrackName(null);
+            setTrackNumber(trackNumber + 1);
+            trackData.set('albumName', release.albumName)
+            trackData.append('trackText', `${data.trackText}`);
+            trackData.append('trackDescription', `${data.descriptionTrack}`);
+            trackData.append('trackProduction', `${data.production}`);
+            trackData.append('trackFiles', trackFile, `${data.trackName}.mp3`);
+        }
+    };
+
+
+    return (
+        <ModalLayout>
+            <div className={styles.modalWrapper}>
+                <SearchPanel />
+                <div className={styles.modalRelease}>
+                    <form onSubmit={handleSubmit(onSubmit)} className={styles.releaseForm}>
+                        <h1 className={styles.titleForm}>Загрузка трека №{trackNumber}</h1>
+                        <div className={styles.form}>
+                            <input
+                                type='text'
+                                {...register('trackName', { required: true })}
+                                className={styles.formInput}
+                                placeholder={'Название трека'}
+                            />
+                            <input
+                                type='text'
+                                {...register('descriptionTrack', { required: true })}
+                                className={styles.formInput}
+                                placeholder={'Описание трека'}
+                            />
+                            <input
+                                type='text'
+                                {...register('production', { required: true })}
+                                className={styles.formInput}
+                                placeholder={'Композитор'}
+                            />
+                            <input
+                                type='text'
+                                {...register('trackText', { required: true })}
+                                className={styles.formInput}
+                                placeholder={'Текст'}
+                            />
+                            <div className={styles.uploadFile}>
+                                <span>{trackName ? trackName : 'Выберите трек'}</span>
+                                <input type='file' ref={audioRef}
+                                       onChange={(e: any) => {
+                                           setTrackFile(e.target.files[0]);
+                                           setTrackName(e.target.files[0].name)
+                                       }}
+                                />
+                                <button onClick={() => audioRef.current?.click()} type={'button'}>
+                                    Выбрать файл
+                                </button>
+                            </div>
+                            <button type='submit' className={styles.formButton}>
+                                Добавить еще песню
+                            </button>
+
+
+                        </div>
+                        <button type='button' onClick={sendData} className={styles.formButton}>
+                            Загрузить альбом
+                        </button>
+                    </form>
+                </div>
+                <Player />
             </div>
-          </form>
-        </div>
-        <Player />
-      </div>
-    </ModalLayout>
-  );
+        </ModalLayout>
+    );
 };
 
 export default UploadTrack;

@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import ModalLayout from '../../../../components/layouts/modalLayout/ModalLayout';
 import styles from './ReleaseDesign.module.scss';
 import { SearchPanel } from '../../../../components/searchPanel/SearchPanel';
 import Player from '../../../../components/player/Player';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import NestedInputContainer from '../../../../components/inputForm/Input';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useReleaseStore } from "../../../../store/ReleaseStore";
 
@@ -34,15 +33,31 @@ interface IFormReleaseAlbum {
 }
 
 const ReleaseDesign = () => {
+  const {
+    register,
+    handleSubmit,
+  } = useForm<IFormReleaseAlbum>();
+
   const navigate = useNavigate();
   const { setRelease } = useReleaseStore((state) => state);
+  const imgRef = useRef<HTMLInputElement>(null);
+  const [coverName, setCoverName] = useState(null)
+
 
   const name = 'dora';
   const methods = useForm<IFormReleaseAlbum>({ mode: 'onBlur' });
 
+  const coverData = new FormData()
+  const setCover = (e: any) => {
+    const coverFile = e.target.files[0]
+    coverData.append('coverFile', coverFile)
+    setCoverName(coverFile.name)
+  }
+
+
   const onSubmit: SubmitHandler<IFormReleaseAlbum> = (data) => {
     console.log(data);
-    setRelease(data)
+    setRelease({...data, coverFile: coverData})
   };
 
   return (
@@ -50,10 +65,9 @@ const ReleaseDesign = () => {
       <div className={styles.modalWrapper}>
         <SearchPanel />
         <div className={styles.modalRelease}>
-          <form onSubmit={methods.handleSubmit(onSubmit)} className={styles.releaseForm}>
+          <form onSubmit={handleSubmit(onSubmit)} className={styles.releaseForm}>
             <h1 className={styles.titleForm}>Оформление релиза</h1>
             <div className={styles.form}>
-              <FormProvider {...methods}>
                 <div className={styles.selectBlock}>
                   <label className={styles.arrow}>
                     <select {...methods.register('formatRelease')} className={styles.select}>
@@ -74,28 +88,27 @@ const ReleaseDesign = () => {
                     </select>
                   </label>
                 </div>
-                <NestedInputContainer
-                  inputName={'albumName'}
-                  errorText={'Название альбома'}
-                  placeholder={'Название трека'}
-                  error={methods.formState.errors.albumName?.message!}
-                  styleInput={styles.formInput}
+                <input
+                    type='text'
+                    {...register('albumName', { required: true })}
+                    className={styles.formInput}
+                    placeholder={'Название альбома'}
                 />
-                <NestedInputContainer
-                  inputName={'descriptionAlbum'}
-                  errorText={'Поле обязательно к заполнению'}
-                  placeholder={'Описание альбома'}
-                  error={methods.formState.errors.descriptionAlbum?.message!}
-                  styleInput={styles.formInput}
+                <input
+                    type='text'
+                    {...register('descriptionAlbum', { required: true })}
+                    className={styles.formInput}
+                    placeholder={'Описание альбома'}
                 />
-                {/*<NestedInputContainer*/}
-                {/*  inputName={'albumName'}*/}
-                {/*  errorText={'Поле обязательно к заполнению'}*/}
-                {/*  placeholder={'Copyright'}*/}
-                {/*  error={methods.formState.errors.albumName?.message!}*/}
-                {/*  styleInput={styles.formInput}*/}
-                {/*/>*/}
-              </FormProvider>
+              <div className={styles.uploadFile}>
+                <span>{coverName ? coverName : 'Выберите обложку'}</span>
+                <input type="file" ref={imgRef} onChange={e => setCover(e)}/>
+                <button onClick={() => imgRef.current?.click()} type={'button'}>
+                  Выбрать файл
+                </button>
+              </div>
+
+
               <button
                 type="submit"
                 disabled={!methods.formState.isValid}

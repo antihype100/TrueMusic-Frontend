@@ -31,6 +31,7 @@ const AuthForm = ({ title }: IAuthFormProps) => {
       axios.post('http://localhost:5000/user/register', data, { withCredentials: true }).then((res) => {
         if (res.data.isLogin) {
           setAuth(true);
+          console.log(res.data.user.role);
           setRole(res.data.user.role);
           setUserName(res.data.user.userName);
         }
@@ -40,6 +41,7 @@ const AuthForm = ({ title }: IAuthFormProps) => {
       axios.post('http://localhost:5000/user/login', data, { withCredentials: true }).then((res) => {
         if (res.data.isLogin) {
           setAuth(true);
+          console.log(res.data.user.role);
           setRole(res.data.user.role);
           setUserName(res.data.user.userName);
         }
