@@ -1,6 +1,6 @@
 import styles from './ProfileBlock.module.scss';
 import profileLogo from '../../assets/png/profileLogo.png';
-import { burger } from '../../shared/utils/importSvg';
+import { burger } from '../../shared/helper/importSvg';
 import { useUserInfoStore } from '../User/model/UserInfoStore';
 
 const ProfileBlock = () => {

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import axios from 'axios';
 import styles from './AuthForm.module.scss';
-import { message } from '../../shared/utils/importSvg';
-import { LOGIN, REGISTER } from '../../shared/utils/routes';
+import { message } from '../../shared/helper/importSvg';
+import { LOGIN, REGISTER } from '../../shared/helper/routes';
 import { useUserInfoStore } from '../../entities/User/model/UserInfoStore';
 
 interface IAuthFormProps {

@@ -17,7 +17,7 @@ import {
     USER_TRACKS,
     RELEASE_UPLOAD_TRACK,
     USER_SETTING,
-} from '../shared/utils/routes';
+} from '../shared/helper/routes';
 import SignIn from '../process/signin/SignIn';
 import SignUp from '../process/signup/SignUp';
 import TracksUsers from '../pages/users/tracks/Tracks';
@@ -28,7 +28,7 @@ import TrackPage from '../pages/author/trackPage/TrackPage';
 import Profile from '../pages/author/profile/Profile';
 import AuthorMainPage from '../pages/author/authorMainPage/AuthorMainPage';
 import ReleaseDesign from '../process/release/ReleaseDesign/ReleaseDesign';
-import UploadTrack from '../process/release/UploadTrack/UploadTrack';
+import UploadTrack from '../process/release/UploadTrack/ui/UploadTrack';
 import { useUserInfoStore } from '../entities/User/model/UserInfoStore';
 
 const AppRouter = () => {

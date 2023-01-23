@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './TrackAlbumPlaylistCover.module.scss';
 import like from '../../assets/svg/like.svg';
-import { headphones } from '../../shared/utils/importSvg';
+import { headphones } from '../../shared/helper/importSvg';
 
 interface IPageCover {
   title?: string;

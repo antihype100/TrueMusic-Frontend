@@ -1,6 +1,6 @@
 import styles from './Player.module.scss';
 import img from '../../assets/sidebar/playlist/cover7.png';
-import { repeat, like, next, prev, play } from '../../shared/utils/importSvg';
+import { repeat, like, next, prev, play } from '../../shared/helper/importSvg';
 
 const Player = () => {
   return (

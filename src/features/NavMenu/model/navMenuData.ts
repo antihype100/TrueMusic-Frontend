@@ -1,5 +1,5 @@
-import { main, message, profile, sound } from '../../../shared/utils/importSvg';
-import { HOME, REGISTER } from '../../../shared/utils/routes';
+import { main, message, profile, sound } from '../../../shared/helper/importSvg';
+import { HOME, REGISTER } from '../../../shared/helper/routes';
 import nft from '../../../assets/sidebar/navmenu/nft.png';
 
 

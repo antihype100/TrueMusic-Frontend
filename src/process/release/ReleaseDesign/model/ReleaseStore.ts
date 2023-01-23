@@ -1,7 +1,7 @@
 import create from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
-interface IRelease {
+export interface IRelease {
     albumName: string;
     descriptionAlbum: string;
     genre: string;
@@ -10,7 +10,7 @@ interface IRelease {
 }
 
 interface IReleaseStore {
-    release: IRelease | null;
+    release: IRelease;
 
     setRelease(release: IRelease): void;
 
@@ -24,7 +24,7 @@ const useReleaseStore = create<IReleaseStore>()(
     devtools(
         persist(
             (set) => ({
-                release: null,
+                release: {} as IRelease,
                 setRelease: (release) => set(() => ({ release })),
                 trackFileName: null,
                 setTrackFileName: (trackFileName) => set(() => ({trackFileName }))

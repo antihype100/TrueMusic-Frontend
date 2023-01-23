@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ProfileInfo.module.scss';
-import { control, list, music, settings, stats, upload } from '../../shared/utils/importSvg';
+import { control, list, music, settings, stats, upload } from '../../shared/helper/importSvg';
 import img from '../../assets/sidebar/playlist/cover7.png';
 import { Link } from 'react-router-dom';
 import { useUserInfoStore } from '../../entities/User/model/UserInfoStore';

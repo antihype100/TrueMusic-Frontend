@@ -7,7 +7,7 @@ import cover6 from '../../../../assets/sidebar/playlist/cover6.png';
 import cover7 from '../../../../assets/sidebar/playlist/cover7.png';
 
 import styles from './Playlist.module.scss';
-import { arrow } from '../../../../shared/utils/importSvg';
+import { arrow } from '../../../../shared/helper/importSvg';
 import { Track } from '../Track/Track';
 
 const trackListSideBar = [

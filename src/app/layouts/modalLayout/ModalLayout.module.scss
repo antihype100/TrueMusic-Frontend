@@ -1,16 +1,43 @@
 .layoutWrapper {
-  display: flex;
-  justify-content: space-between;
-  background-image: url('../../../assets/bg/bg.gif');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	background-image: url('../../../assets/bg/bg.gif');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 100%;
+	align-items: center;
+}
+.widgetsWrapper {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+.modalWrapper {
+	width: 732px;
+	height: 600px;
+	z-index: 10;
+	margin: 0 10px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-image: url('../../../assets/png/bgSignInUp.png');
+	box-shadow: -4px 4px 87px 20px rgba(245, 245, 245, 0.15);
+	border-radius: 40px;
+	@media screen and (max-width: 1400px) {
+		background-image: url('../../../assets/png/bgSignInUpMedium.png');
+		width: 470px;
+		background-position: center;
+	}
 }
 
 .bgc {
-  position: absolute;
-  background: rgba(0, 0, 0, 0.52);
-  width: 100vw;
-  height: 100vh;
+	position: absolute;
+	background: rgba(0, 0, 0, 0.52);
+	width: 100vw;
+	height: 100vh;
 }

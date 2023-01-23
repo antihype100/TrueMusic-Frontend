@@ -1,5 +1,5 @@
 import styles from './searchPanel.module.scss';
-import { stick, search } from '../../shared/utils/importSvg';
+import { stick, search } from '../../shared/helper/importSvg';
 import { useState } from 'react';
 
 const SearchPanel = () => {

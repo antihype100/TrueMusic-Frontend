@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './SignInUpButtons.module.scss';
-import { LOGIN, REGISTER } from '../../shared/utils/routes';
+import { LOGIN, REGISTER } from '../../shared/helper/routes';
 const SignInUpButtons = () => {
   return (
     <div className={styles.authBlock}>

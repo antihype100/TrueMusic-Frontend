@@ -5,7 +5,7 @@ import { SearchPanel } from '../../../widgets/SearchPanel/SearchPanel';
 import Player from '../../../widgets/Player/Player';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { useReleaseStore } from '../../../app/store/ReleaseStore';
+import { useReleaseStore } from './model/ReleaseStore';
 import { useUserInfoStore } from '../../../entities/User/model/UserInfoStore';
 import { getFormatOptions } from './model/formatOptions';
 
@@ -52,69 +52,61 @@ const ReleaseDesign = () => {
     };
 
 
-    const formatRelease = getFormatOptions()
+    const formatRelease = getFormatOptions();
     return (
         <ModalLayout>
-            <div className={styles.modalWrapper}>
-                <SearchPanel />
-                <div className={styles.modalRelease}>
-                    <form onSubmit={handleSubmit(onSubmit)} className={styles.releaseForm}>
-                        <h1 className={styles.titleForm}>Оформление релиза</h1>
-                        <div className={styles.form}>
-                            <div className={styles.selectBlock}>
-                                <label className={styles.arrow}>
-                                    <select {...methods.register('formatRelease')} className={styles.select}>
-                                        {formatRelease.map(({ format }, i) => (
-                                            <option key={i} value={format}>
-                                                {format}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </label>
-                            </div>
-                            <div className={styles.selectBlock}>
-                                <label className={styles.arrow}>
-                                    <select {...methods.register('genre')} className={styles.select}>
-                                        <option defaultValue='Option 1'>Option 1</option>
-                                        <option value='Option 2'>Option 2</option>
-                                        <option value='Option 3'>Option 3</option>
-                                    </select>
-                                </label>
-                            </div>
-                            <input
-                                type='text'
-                                {...register('albumName', { required: true })}
-                                className={styles.formInput}
-                                placeholder={'Название альбома'}
-                            />
-                            <input
-                                type='text'
-                                {...register('descriptionAlbum', { required: true })}
-                                className={styles.formInput}
-                                placeholder={'Описание альбома'}
-                            />
-                            <div className={styles.uploadFile}>
-                                <span>{coverName ? coverName : 'Выберите обложку'}</span>
-                                <input type='file' ref={imgRef} onChange={(e: any) => setCover(e)} />
-                                <button onClick={() => imgRef.current?.click()} type={'button'}>
-                                    Выбрать файл
-                                </button>
-                            </div>
-
-
-                            <button
-                                type='submit'
-                                disabled={!methods.formState.isValid}
-                                onClick={() => setTimeout(() => navigate(`/${name}/upload-track`), 50)}
-                                className={styles.formButton}
-                            >
-                                Далее
-                            </button>
-                        </div>
-                    </form>
+            <form onSubmit={handleSubmit(onSubmit)} className={styles.releaseForm}>
+                <h1 className={styles.titleForm}>Оформление релиза</h1>
+                <div className={styles.form}>
+                    <div className={styles.selectBlock}>
+                        <label className={styles.arrow}>
+                            <select {...methods.register('formatRelease')} className={styles.select}>
+                                {formatRelease.map(({ format }, i) => (
+                                    <option key={i} value={format}>
+                                        {format}
+                                    </option>
+                                ))}
+                            </select>
+                        </label>
+                    </div>
+                    <div className={styles.selectBlock}>
+                        <label className={styles.arrow}>
+                            <select {...methods.register('genre')} className={styles.select}>
+                                <option defaultValue='Option 1'>Option 1</option>
+                                <option value='Option 2'>Option 2</option>
+                                <option value='Option 3'>Option 3</option>
+                            </select>
+                        </label>
+                    </div>
+                    <input
+                        type='text'
+                        {...register('albumName', { required: true })}
+                        className={styles.formInput}
+                        placeholder={'Название альбома'}
+                    />
+                    <input
+                        type='text'
+                        {...register('descriptionAlbum', { required: true })}
+                        className={styles.formInput}
+                        placeholder={'Описание альбома'}
+                    />
+                    <div className={styles.uploadFile}>
+                        <span>{coverName ? coverName : 'Выберите обложку'}</span>
+                        <input type='file' ref={imgRef} onChange={(e: any) => setCover(e)} />
+                        <button onClick={() => imgRef.current?.click()} type={'button'}>
+                            Выбрать файл
+                        </button>
+                    </div>
+                    <button
+                        type='submit'
+                        disabled={!methods.formState.isValid}
+                        onClick={() => setTimeout(() => navigate(`/${name}/upload-track`), 50)}
+                        className={styles.formButton}
+                    >
+                        Далее
+                    </button>
                 </div>
-                <Player />
-            </div>
+            </form>
         </ModalLayout>
     );
 };

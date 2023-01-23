@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import img from '../../../assets/sidebar/playlist/cover7.png';
 import styles from './Track.module.scss';
-import { headphones, like } from '../../../shared/utils/importSvg';
+import { headphones, like } from '../../../shared/helper/importSvg';
 import type { ITrack } from '../TrackList';
 
 const Track = ({ index, author, trackName, audition, duration, likes }: ITrack) => {
