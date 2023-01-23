@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../SubSample/SelectionList.module.scss';
-import { IItemForSelection } from '../Selection/Selections';
+import { IItemForSelection } from '../../model/types';
 
 const SelectionItem = ({ author, trackName, albumName, cover }: IItemForSelection) => {
     author = author.toLowerCase();
