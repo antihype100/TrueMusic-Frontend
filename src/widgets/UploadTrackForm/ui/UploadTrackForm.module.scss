@@ -1,0 +1,59 @@
+.uploadForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 7px;
+	background-color: #fff;
+	padding: 20px 35px 20px 35px;
+}
+
+
+.uploadFormInnerWrapper {
+	width: calc(100vw / 5);
+	display: flex;
+	flex-direction: column;
+	@media screen and (min-width: 2000px) {
+		width: calc(100vw / 7);
+	}
+}
+
+.titleForm {
+	font-size: 30px;
+	font-style: italic;
+	font-weight: 600;
+	margin-bottom: 15px;
+	@media screen and (max-width: 1500px) {
+		font-size: 25px;
+	}
+}
+
+.formInputTextArea {
+	margin-top: 20px;
+	padding: 10px 0 10px 20px;
+
+	&::placeholder {
+		font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 7px);
+		color: #979797;
+		font-style: italic;
+		font-weight: 600;
+		letter-spacing: 0.03em;
+	}
+
+	@media screen and (min-width: 2000px) {
+		width: calc(100vw / 8);
+		padding-left: 30px;
+	}
+}
+
+.uploadedAudioElement {
+	height: 100px;
+	width: 200px;
+}
+
+
+
+
+
+
+
+

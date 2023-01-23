@@ -1,0 +1,116 @@
+@import '../../../../app/styles/color';
+
+.playerTrack {
+	display: flex;
+	margin-bottom: 25px;
+	align-items: center;
+	width: 100%;;
+}
+
+.img {
+	border-radius: 3px;
+	margin-right: 20px;
+	height: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 50px);
+	width: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 50px);
+}
+
+.numberPosition {
+	margin-right: 20px;
+	font-style: italic;
+	font-weight: 500;
+	font-size: calc((100vw - 180px) / (1280 - 480) * (21 - 16) + 4px);
+	line-height: 18px;
+	letter-spacing: 0.03em;
+	color: #ffffff;
+}
+
+.contentAndInputWrapper {
+	display: flex;
+	flex-direction: column;
+	width: 100%
+}
+
+.rightLeftContentWrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.leftContentWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.authorName {
+	font-weight: 700;
+	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 11px);
+	margin-bottom: 3px;
+	letter-spacing: 0.03em;
+	color: #ffffff;
+}
+
+.trackName {
+	font-weight: 400;
+	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 9px);
+	letter-spacing: 0.03em;
+	margin-bottom: 3px;
+}
+
+.presentTime {
+	font-style: italic;
+	font-weight: 400;
+	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 10px);
+	letter-spacing: 0.03em;
+	margin-bottom: 5px;
+	color: #979797;
+}
+
+.statisticWrapper {
+	display: flex;
+	align-items: center;
+}
+
+.rightContent {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+}
+
+.auditionsAmount {
+	font-style: italic;
+	font-weight: 400;
+	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 8px);
+	letter-spacing: 0.03em;
+	color: #ffffff;
+	margin-right: 10px;
+}
+
+.playerTrackDuration {
+	font-style: italic;
+	font-weight: 400;
+	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 8px);
+	letter-spacing: 0.03em;
+	margin-bottom: 5px;
+	color: #979797;
+}
+
+.likeWrapper {
+	display: flex;
+	align-items: center;
+	margin-right: 10px;
+
+	.likeAmount {
+		font-style: italic;
+		font-weight: 400;
+		font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 8px);
+		line-height: 14px;
+		letter-spacing: 0.03em;
+
+		color: #ffffff;
+		margin-right: 10px;
+	}
+}
+
+.black {
+	color: red;
+}

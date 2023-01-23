@@ -1,0 +1,75 @@
+
+
+
+
+.uploadedTracksList {
+	font-style: italic;
+	font-weight: 600;
+	font-size: 15px;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	border-radius: 7px;
+	transform: translate(-(calc(100vw / 3)), -20px);
+	background-color: #fff;
+	width: calc(100vw / 5);
+	height: 380px;
+	@media screen and (min-width: 2000px) {
+		width: calc(100vw / 8);
+		transform: translate(-(calc(100vw / 5)), -20px);
+	}
+}
+
+
+
+.inputCover {
+	position: relative;
+	max-width: 100%;
+	margin-top: 20px;
+}
+
+.inputError {
+	position: absolute;
+	bottom: -15px;
+	color: red;
+	font-size: 13px;
+}
+
+.formInputTextArea {
+	width: 100%;
+	border-radius: 3px;
+	margin-top: 15px;
+	padding: 7px 0 7px 5px;
+	border: 1px solid #979797;
+	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 11px);
+	color: #000;
+	font-style: italic;
+	font-weight: 600;
+
+	&::placeholder {
+		font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 11px);
+		color: #979797;
+		font-style: italic;
+		font-weight: 600;
+		letter-spacing: 0.03em;
+	}
+}
+
+
+
+.formText {
+	width: 100%;
+	resize: none;
+	font-style: italic;
+	font-weight: 500;
+	font-size: 18px;
+	color: #979797;
+}
+
+
+
+
+

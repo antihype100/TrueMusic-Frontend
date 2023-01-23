@@ -1,0 +1,26 @@
+.formButton {
+	cursor: pointer;
+	font-style: italic;
+	margin-top: 30px;
+	font-weight: 600;
+	font-size: 16px;
+	letter-spacing: 0.03em;
+	color: #ffffff;
+	background: #610084;
+	border-radius: 49px;
+	border: none;
+	padding: 10px 30px;
+
+	&:hover {
+		background: #8801b9;
+	}
+
+	&:disabled {
+		color: #9f9f9f;
+		background: #4a0164;
+	}
+
+	@media screen and (max-width: 1400px) {
+		font-size: 14px;
+	}
+}

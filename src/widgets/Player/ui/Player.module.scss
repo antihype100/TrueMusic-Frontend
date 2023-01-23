@@ -1,0 +1,106 @@
+@import '../../../app/styles/color';
+
+.player {
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	flex-direction: column;
+	position: relative;
+	margin-top: 70px;
+	padding: 15px;
+	border-radius: 10px 10px 0 0;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.48));
+}
+
+.contentWrapper {
+	display: flex;
+	width: calc(100vw / 2);
+	margin-bottom: 5px;
+	justify-content: space-between;
+}
+
+
+.leftContent {
+	display: flex;
+	align-items: end;
+	width: calc(100vw / 10);
+}
+
+.infoWrapper {
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+	margin-left: 15px;
+}
+
+.authorName {
+	color: whitesmoke;
+	margin-bottom: 5px;
+	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 10px);
+}
+
+.trackName {
+	color: #979797;
+	margin-bottom: 5px;
+	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 10px);
+}
+
+.presentTime {
+	color: white;
+	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 10px);
+}
+
+.trackImg {
+	width: calc((100vw - 480px) / (1280 - 480) * (20 - 16) + 45px);
+	height: calc((100vw - 480px) / (1280 - 480) * (20 - 16) + 45px);
+}
+
+.iconsWrapper {
+	align-self: end;
+	margin-left: 10px;
+}
+
+.repeatIcon {
+	margin-right: 10px;
+	height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 8px);
+	width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 8px);
+}
+
+.likeIcon {
+	height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 8px);
+	width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 8px);
+}
+
+.playStopWrapper {
+	display: flex;
+	align-items: center;
+	align-self: center;
+
+	.playPause {
+		margin-right: 15px;
+		margin-left: 15px;
+		width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 40px);
+		height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 40px);
+	}
+
+	.next {
+		width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 20px);
+		height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 20px);
+	}
+
+	.prev {
+		width: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 20px);
+		height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 20px);
+	}
+}
+
+.playerDuration {
+	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 10px);
+	display: block;
+	text-align: right;
+	width: calc(100vw / 10);
+	align-self: end;
+	color: white;
+}
+
+

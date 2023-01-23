@@ -1,5 +1,5 @@
 import ProfileLayout from '../../../app/layouts/profileLayout/ProfileLayout';
-import { SearchPanel } from '../../../widgets/SearchPanel/SearchPanel';
+import { SearchPanel } from '../../../widgets/SearchPanel';
 import styles from './Profile.module.scss';
 import ProfileInfo from '../../../widgets/ProfileInfo/ProfileInfo';
 import { Selections } from '../../../widgets/SelectionInProfile/ui/Selection/Selections';

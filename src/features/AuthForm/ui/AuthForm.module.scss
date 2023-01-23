@@ -1,0 +1,52 @@
+.authForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 7px;
+	background-color: #fff;
+	padding: 20px 35px 40px 35px;
+}
+
+.headerForm {
+	font-size: 35px;
+	font-style: italic;
+	font-weight: 600;
+	margin-bottom: 70px;
+	@media screen and (max-width: 1400px) {
+		font-size: 30px;
+	}
+}
+
+.questionSignUp {
+	display: flex;
+	font-style: italic;
+	font-weight: 600;
+	font-size: 14px;
+	letter-spacing: 0.03em;
+	color: #36435c;
+	@media screen and (max-width: 1400px) {
+		font-size: 12px;
+	}
+
+	a {
+		text-decoration: none;
+		color: #699cff;
+		margin-left: 5px;
+	}
+}
+
+.signUpButton {
+	font-style: italic;
+	font-weight: 600;
+	font-size: 18px;
+	letter-spacing: 0.03em;
+	color: #ffffff;
+	background: #610084;
+	border-radius: 49px;
+	border: none;
+	padding: 15px 30px;
+	margin-top: 50px;
+	@media screen and (max-width: 1400px) {
+		font-size: 14px;
+	}
+}

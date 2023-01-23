@@ -1,22 +1,21 @@
-import React from 'react';
-import RightSideBar from '../../../widgets/RightSideBar/RightSideBar';
 import '../../styles/global.scss';
 import styles from './ModalLayout.module.scss';
-import LeftSidebar from '../../../widgets/LeftSidebar/LeftSidebar';
 import { useNavigate } from 'react-router-dom';
-import { SearchPanel } from '../../../widgets/SearchPanel/SearchPanel';
-import Player from '../../../widgets/Player/Player';
+import { LeftSideBar } from '../../../widgets/LeftSideBar';
+import {RightSideBar} from '../../../widgets/RightSideBar';
+import { SearchPanel } from '../../../widgets/SearchPanel';
+import { Player } from '../../../widgets/Player';
 
 interface IBaseLayout {
     children: any;
 }
 
-const ModalLayout = ({ children }: IBaseLayout) => {
+export const ModalLayout = ({ children }: IBaseLayout) => {
     const navigate = useNavigate();
 
     return (
         <div className={styles.layoutWrapper}>
-            <LeftSidebar />
+            <LeftSideBar />
             <div className={styles.widgetsWrapper}>
                 <SearchPanel />
                 <div className={styles.modalWrapper}>

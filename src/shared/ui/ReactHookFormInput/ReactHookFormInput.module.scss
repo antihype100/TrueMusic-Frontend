@@ -1,0 +1,34 @@
+.inputWrapper {
+	display: flex;
+	align-items: center;
+	position: relative;
+	margin-top: 30px;
+}
+
+.inputForm {
+	border: none;
+	width: calc(100vw / 5);
+	border-bottom: 1px solid #979797;
+	padding: 10px 0 10px 50px;
+	@media screen and (min-width: 2000px) {
+		width: calc(100vw / 8);
+		padding-left: 30px;
+	}
+
+	&::placeholder {
+		font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 7px);
+		color: #979797;
+		font-style: italic;
+		font-weight: 600;
+
+		letter-spacing: 0.03em;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.inputIcon {
+	position: absolute;
+}

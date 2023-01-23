@@ -1,10 +1,10 @@
 import React from 'react';
-import LeftSideBar from '../../../widgets/LeftSidebar/LeftSidebar';
-import RightSideBar from '../../../widgets/RightSideBar/RightSideBar';
+import { LeftSideBar } from '../../../widgets/LeftSideBar';
+import {RightSideBar} from '../../../widgets/RightSideBar';
 import '../../styles/global.scss';
 import styles from './BaseLayout.module.scss';
-import { SearchPanel } from '../../../widgets/SearchPanel/SearchPanel';
-import Player from '../../../widgets/Player/Player';
+import { SearchPanel } from '../../../widgets/SearchPanel';
+import { Player } from '../../../widgets/Player';
 
 interface IBaseLayout {
   children: any;
