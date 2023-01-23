@@ -12,7 +12,7 @@ import { loginPost } from '../api/login';
 
 
 
-const AuthForm = ({ title }: IAuthFormProps) => {
+export const AuthForm = ({ title }: IAuthFormProps) => {
     const { setAuth, setRole, setUserName } = useUserInfoStore((state) => state);
     const { register, handleSubmit} = useForm<IAuthFormValues>();
 
@@ -68,5 +68,3 @@ const AuthForm = ({ title }: IAuthFormProps) => {
         </form>
     );
 };
-
-export { AuthForm };
