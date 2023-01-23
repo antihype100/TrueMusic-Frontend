@@ -1,8 +1,8 @@
-import ProfileLayout from '../../../components/layouts/profileLayout/ProfileLayout';
-import { SearchPanel } from '../../../components/searchPanel/SearchPanel';
+import ProfileLayout from '../../../app/layouts/profileLayout/ProfileLayout';
+import { SearchPanel } from '../../../widgets/SearchPanel/SearchPanel';
 import styles from './Profile.module.scss';
-import ProfileInfo from '../../../components/profileInfo/ProfileInfo';
-import { Selections } from '../../../components/selections/Selections';
+import ProfileInfo from '../../../widgets/ProfileInfo/ProfileInfo';
+import { Selections } from '../../../widgets/SelectionInProfile/ui/Selection/Selections';
 import cover1 from '../../../assets/sidebar/playlist/cover1.png';
 import cover2 from '../../../assets/sidebar/playlist/cover2.png';
 import cover3 from '../../../assets/sidebar/playlist/cover3.png';

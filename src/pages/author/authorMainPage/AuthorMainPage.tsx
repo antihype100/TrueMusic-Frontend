@@ -1,8 +1,8 @@
 import { Link, useParams } from 'react-router-dom';
-import { TrackList } from '../../../components/trackList/TrackList';
+import { TrackList } from '../../../widgets/MainPlaylist/TrackList';
 import styles from './AuthorMainPage.module.scss';
-import AuthorLayout from '../../../components/layouts/authorLayout/AuthorLayout';
-import BaseLayout from '../../../components/layouts/baseLayout/BaseLayout';
+import AuthorLayout from '../../../app/layouts/authorLayout/AuthorLayout';
+import BaseLayout from '../../../app/layouts/baseLayout/BaseLayout';
 
 const navList = [
   { id: 'main', href: '/', title: 'Треки' },

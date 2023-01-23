@@ -2,10 +2,10 @@ import { useParams } from 'react-router-dom';
 import React from 'react';
 import styles from './TrackPage.module.scss';
 import img from '../../../assets/sidebar/playlist/cover7.png';
-import TrackAlbumPlaylistCover from '../../../components/trackAlbumPlaylistCover/TrackAlbumPlaylistCover';
-import BaseLayout from '../../../components/layouts/baseLayout/BaseLayout';
-import AuthorLayout from '../../../components/layouts/authorLayout/AuthorLayout';
-import Comments from '../../../components/comments/Comments';
+import TrackAlbumPlaylistCover from '../../../entities/TrackAlbumPlaylistCover/TrackAlbumPlaylistCover';
+import BaseLayout from '../../../app/layouts/baseLayout/BaseLayout';
+import AuthorLayout from '../../../app/layouts/authorLayout/AuthorLayout';
+import Comments from '../../../widgets/Comments/Comments';
 
 const TrackPage = () => {
   const { name, trackName } = useParams();

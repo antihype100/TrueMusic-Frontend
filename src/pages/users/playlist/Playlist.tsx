@@ -1,9 +1,9 @@
 import React from 'react';
-import TrackAlbumPlaylistCover from '../../../components/trackAlbumPlaylistCover/TrackAlbumPlaylistCover';
+import TrackAlbumPlaylistCover from '../../../entities/TrackAlbumPlaylistCover/TrackAlbumPlaylistCover';
 import img from '../../../assets/sidebar/playlist/cover7.png';
-import { TrackList } from '../../../components/trackList/TrackList';
-import BaseLayout from '../../../components/layouts/baseLayout/BaseLayout';
-import AuthorLayout from '../../../components/layouts/authorLayout/AuthorLayout';
+import { TrackList } from '../../../widgets/MainPlaylist/TrackList';
+import BaseLayout from '../../../app/layouts/baseLayout/BaseLayout';
+import AuthorLayout from '../../../app/layouts/authorLayout/AuthorLayout';
 
 const tracksList = [
   { author: 'Kizaru', trackName: 'Messege', duration: 534, likes: 234234, audition: 846532 },

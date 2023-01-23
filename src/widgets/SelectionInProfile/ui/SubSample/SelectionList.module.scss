@@ -1,0 +1,93 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.titleBlock {
+	display: flex;
+	max-width: calc((100vw / 12) * 3 + 50px);
+	justify-content: space-between;
+	align-items: end;
+	margin-bottom: 15px;
+
+	h2 {
+		font-weight: 700;
+		font-size: calc((100vw - 80px) / (1280 - 480) * (20 - 16) + 12px);
+		letter-spacing: 0.03em;
+		color: #ffffff;
+	}
+
+	button {
+		font-weight: 700;
+		display: flex;
+		align-items: end;
+		font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 2px);
+		letter-spacing: 0.03em;
+		color: #009cf3;
+
+		background: transparent;
+		border: none;
+		cursor: pointer;
+	}
+}
+
+.list {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	max-width: calc((100vw / 12) * 3 + 50px);
+
+	li {
+		cursor: pointer;
+	}
+}
+
+.albumBlock {
+	display: flex;
+	margin-bottom: 20px;
+	width: calc(100vw / 12);
+	max-width: 250px;
+	flex-direction: column;
+}
+
+.img {
+	border-radius: 6px;
+}
+
+.nameBlock {
+	display: flex;
+	flex-direction: column;
+}
+
+.nameAuthor {
+	font-weight: 700;
+	margin-top: 5px;
+	font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 5px);
+	color: #ffffff;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.nameTrack {
+	font-weight: 400;
+	font-size: 12px;
+	color: #afafaf;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.nameAlbum {
+	font-weight: 500;
+	margin-top: 10px;
+	font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 3px);
+	color: #ffffff;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}

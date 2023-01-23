@@ -1,16 +1,13 @@
 import { Link } from 'react-router-dom';
-import { TrackList } from '../../components/trackList/TrackList';
+import { TrackList } from '../../widgets/MainPlaylist/TrackList';
 import styles from './Home.module.scss';
-import { SignInUpButtons } from '../../components/signInUpButtons/SignInUpButtons';
-import BaseLayout from '../../components/layouts/baseLayout/BaseLayout';
-import { useUserInfoStore } from '../../store/UserInfoStore';
-import { ProfileBlock } from '../../components/profileBlock/ProfileBlock';
+import { SignInUpButtons } from '../../features/AuthButton/SignInUpButtons';
+import BaseLayout from '../../app/layouts/baseLayout/BaseLayout';
+import { useUserInfoStore } from '../../entities/User/model/UserInfoStore';
+import { ProfileBlock } from '../../entities/ProfileBlock/ProfileBlock';
+import { PlaylistNavMenu } from '../../features/PlaylistNavMenu';
 
-const navList = [
-  { id: 1, title: 'Подборка TrueMusic', path: '№' },
-  { id: 2, title: 'ТОП-чарт', path: '#', active: true },
-  { id: 3, title: 'Последнее послушанное', path: '#' },
-];
+
 
 const tracksList = [
   { author: 'Kizaru', trackName: 'Messege', duration: 534, likes: 234234, audition: 846532 },
@@ -27,13 +24,7 @@ const Home = () => {
   return (
     <BaseLayout>
       <div className={styles.homeContentWrapper}>
-        <nav className={styles.navBar}>
-          {navList.map((el) => (
-            <Link className={el.active ? styles.navLinkActive : styles.navLink} to="#">
-              {el.title}
-            </Link>
-          ))}
-        </nav>
+        <PlaylistNavMenu/>
 
         <TrackList amountTracks={amountTracks} tracksList={tracksList} />
       </div>
