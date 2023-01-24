@@ -9,50 +9,63 @@ import { ITrackProps } from '../../model/types';
 export const Track = ({ authorName, trackName, textColor, trackPath, trackPosition }: ITrackProps) => {
     const [isPaused, setIsPaused] = useState(true);
     const audioRef = useRef<HTMLAudioElement>(null);
-    const [currentTime, setCurrentTime] = useState(0);
-    const [duration, setDuration] = useState(0);
+    const [currentTime, setCurrentTime] = useState<number>(0);
+    const [duration, setDuration] = useState<number>(0);
 
     useEffect(() => {
-        // @ts-ignore
-        audioRef.current.ontimeupdate = handleTimeUpdate;
-        // @ts-ignore
-        audioRef.current.onloadedmetadata = handleLoadedMetadata;
-    }, []);
+        if (audioRef.current) {
+            audioRef.current.ontimeupdate = handleTimeUpdate;
+            audioRef.current.onloadedmetadata = handleLoadedMetadata;
+        }
+
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.ontimeupdate = null;
+                audioRef.current.onloadedmetadata = null;
+            }
+        };
+    }, [audioRef.current]);
 
     const handleTimeUpdate = () => {
-        // @ts-ignore
-        setCurrentTime(audioRef.current.currentTime);
+        if (audioRef.current) {
+            setCurrentTime(audioRef.current.currentTime);
+        }
+
     };
 
     const handleLoadedMetadata = () => {
-        // @ts-ignore
-        setDuration(audioRef.current.duration);
-    }
+        if (audioRef.current) {
+            setDuration(audioRef.current.duration);
+        }
+
+    };
 
     const handleChange = (e: any) => {
-        // @ts-ignore
-        audioRef.current.currentTime = e.target.value;
-    }
+        if (audioRef.current) {
+            audioRef.current.currentTime = e.target.value;
+        }
+
+    };
     const playPause = () => {
         if (audioRef !== null) {
             if (isPaused) {
                 // @ts-ignore
-                audioRef.current.play()
-                setIsPaused(false)
+                audioRef.current.play();
+                setIsPaused(false);
             } else {
                 // @ts-ignore
-                audioRef.current.pause()
-                setIsPaused(true)
+                audioRef.current.pause();
+                setIsPaused(true);
             }
         }
-    }
+    };
 
     return (
         <>
             <audio ref={audioRef} src={trackPath} preload='metadata'></audio>
             <div className={styles.playerTrack}>
                 <p className={styles.numberPosition}>{trackPosition}</p>
-                <img className={styles.img} src={img} alt='' onClick={playPause}/>
+                <img className={styles.img} src={img} alt='' onClick={playPause} />
                 <div className={styles.contentAndInputWrapper}>
                     <div className={styles.rightLeftContentWrapper}>
                         <LeftContent
@@ -63,7 +76,7 @@ export const Track = ({ authorName, trackName, textColor, trackPath, trackPositi
                         />
                         <RightContent textColor={textColor} duration={duration} />
                     </div>
-                    <TrackProgressBar currentTime={currentTime} duration={duration} onChange={handleChange}/>
+                    <TrackProgressBar currentTime={currentTime} duration={duration} onChange={handleChange} />
                 </div>
             </div>
         </>

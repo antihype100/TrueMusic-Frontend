@@ -1,39 +1,17 @@
 import styles from './Player.module.scss';
-import img from '../../../assets/sidebar/playlist/cover7.png';
-import { repeat, like, next, prev, play } from '../../../shared/helper/importSvg';
-import { TrackProgressBar } from '../../../shared/ui/TrackProgressBar/TrackProgressBar';
+import { Track } from '../../../entities/Track';
+import { baseUrl } from '../../../shared/helper/baseUrl';
+import { memo, useEffect } from 'react';
+import { useUserInfoStore } from '../../../entities/User/model/UserInfoStore';
 
-export const Player = () => {
+export const Player = memo(() => {
+    const {auth} = useUserInfoStore(state => state)
+
     return (
         <div className={styles.player}>
             <div className={styles.contentWrapper}>
-                <div className={styles.leftContent}>
-                    <img className={styles.trackImg} src={img} alt='' />
-
-                    <div className={styles.infoWrapper}>
-                        <span className={styles.authorName}>Kizaru</span>
-                        <span className={styles.trackName}>Messege</span>
-                        <span className={styles.presentTime}>00:40</span>
-                    </div>
-
-                    <div className={styles.iconsWrapper}>
-                        <img className={styles.repeatIcon} src={repeat} alt='' />
-                        <img className={styles.likeIcon} src={like} alt='' />
-                    </div>
-                </div>
-
-                <div className={styles.playStopWrapper}>
-                    <img className={styles.prev} src={prev} alt='' />
-
-                    <img className={styles.playPause} src={play} alt='' />
-
-                    <img className={styles.next} src={next} alt='' />
-                </div>
-
-                <span className={styles.playerDuration}>02:32</span>
+                <Track authorName={'ewff'} trackName={'wefwef'} trackPath={`${baseUrl}/track/Kizaru/Там где тебя нет/Ha Ha Ha.mp3`}/>
             </div>
-
-            <TrackProgressBar currentTime={54354} duration={43543} handleChange={() => {}} />
         </div>
     );
-};
+})
