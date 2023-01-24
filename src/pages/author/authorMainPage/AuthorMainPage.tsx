@@ -3,6 +3,8 @@ import { MainPlaylist } from '../../../widgets/MainPlaylist';
 import styles from './AuthorMainPage.module.scss';
 import AuthorLayout from '../../../app/layouts/authorLayout/AuthorLayout';
 import BaseLayout from '../../../app/layouts/baseLayout/BaseLayout';
+import { useEffect, useState } from 'react';
+import axios from '../../../shared/helper/axios';
 
 const navList = [
     { id: 'main', href: '/', title: 'Треки' },
@@ -10,17 +12,17 @@ const navList = [
     { id: 'about', href: '/', title: 'Описание' },
 ];
 
-const tracksList = [
-    { authorName: 'Kizaru', trackName: 'Messege', duration: 534, likes: 234234, audition: 846532 },
-    { authorName: '6BLACK', trackName: 'Ex Calling', duration: 234, likes: 3244, audition: 9805 },
-    { authorName: 'Instasamka', trackName: 'Pop star', duration: 349, likes: 243674, audition: 35325 },
-    { authorName: 'Cold carti', trackName: 'ILY', duration: 434, likes: 234234, audition: 324679 },
-    { authorName: 'DJ Snake', trackName: 'Middle', duration: 134, likes: 34324, audition: 65332 },
-    { authorName: 'Kizaru', trackName: 'Мне это не нужно', duration: 224, likes: 8709, audition: 2167976 },
-];
+
 
 const AuthorMainPage = () => {
     const { name } = useParams();
+
+    const [trackList, setTrackList] = useState([])
+    useEffect(() => {
+        axios.get('track/all').then(res => {
+            setTrackList(res.data)
+        })
+    }, [])
 
     return (
         <BaseLayout>
@@ -37,7 +39,7 @@ const AuthorMainPage = () => {
                             {navList[2].title}
                         </Link>
                     </nav>
-                    <MainPlaylist amountTracks={5} tracksList={tracksList} />
+                    <MainPlaylist amountTracks={5} tracksList={trackList} />
                 </div>
             </AuthorLayout>
         </BaseLayout>
