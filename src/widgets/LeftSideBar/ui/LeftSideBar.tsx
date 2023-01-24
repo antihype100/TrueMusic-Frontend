@@ -1,6 +1,6 @@
 import { logo } from '../../../shared/helper/importSvg';
 import styles from './LeftSideBar.module.scss';
-import { Playlist } from '../../../features/PlaylistSideBar/ui/Playlist/Playlist';
+import { TrackList } from '../../../features/TrackListSideBar/ui/TrackList/TrackList';
 import { NavMenu } from '../../../features/NavMenu';
 
 export const LeftSideBar = () => {
@@ -11,7 +11,7 @@ export const LeftSideBar = () => {
             <img className={styles.logo} src={logo} alt='' />
             <NavMenu />
             <hr className='sideBarHr' />
-            <Playlist amountTracks={amountTracks} header='Ваш плейлист' />
+            <TrackList amountTracks={amountTracks} header='Ваш плейлист' />
         </aside>
     );
 };

@@ -1,5 +1,6 @@
 .layoutWrapper {
 	display: flex;
+
 	justify-content: space-between;
 	background-image: url('../../../assets/bg/bg.gif');
 	background-repeat: no-repeat;
@@ -16,6 +17,7 @@
 	justify-content: space-between;
 }
 .modalWrapper {
+	transform: translateY(-23vh);
 	width: 732px;
 	height: 600px;
 	z-index: 10;

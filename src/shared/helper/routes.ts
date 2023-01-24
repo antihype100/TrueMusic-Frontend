@@ -26,5 +26,5 @@ export const USER_PLAYLIST = '/user/:name/playlists/:playlistName';
 //   { path: AUTHOR_ALBUMS, Component: AlbumsAuthor },
 //   { path: USER_TRACKS, Component: TracksUsers },
 //   { path: USER_ALBUMS, Component: AlbumsUsers },
-//   { path: USER_PLAYLISTS, Component: Playlist }
+//   { path: USER_PLAYLISTS, Component: TrackList }
 // ];

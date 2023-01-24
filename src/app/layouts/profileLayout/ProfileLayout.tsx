@@ -1,6 +1,5 @@
 import styles from './ProfileLayout.module.scss';
 import { LeftSideBar } from '../../../widgets/LeftSideBar';
-import { Player } from '../../../widgets/Player';
 import { RightSideBar } from '../../../widgets/RightSideBar';
 
 interface IProfileLayout {
@@ -13,7 +12,6 @@ const ProfileLayout = ({ children }: IProfileLayout) => (
         <section className={styles.sectionLayout}>
             <main className={styles.mainLayout}>
                 <div className={styles.body}>{children}</div>
-                <Player />
             </main>
         </section>
         <RightSideBar />

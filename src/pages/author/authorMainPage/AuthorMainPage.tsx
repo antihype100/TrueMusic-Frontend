@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { MainPlaylist } from '../../../widgets/MainPlaylist';
+import { TrackList } from '../../../features/TrackList';
 import styles from './AuthorMainPage.module.scss';
 import AuthorLayout from '../../../app/layouts/authorLayout/AuthorLayout';
 import BaseLayout from '../../../app/layouts/baseLayout/BaseLayout';
@@ -39,7 +39,7 @@ const AuthorMainPage = () => {
                             {navList[2].title}
                         </Link>
                     </nav>
-                    <MainPlaylist amountTracks={5} tracksList={trackList} />
+                    <TrackList amountTracks={5} tracksList={trackList} />
                 </div>
             </AuthorLayout>
         </BaseLayout>

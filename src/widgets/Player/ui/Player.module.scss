@@ -1,11 +1,17 @@
 @import '../../../app/styles/color';
 
 .player {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	text-align: center;
+	bottom: 0;
 	display: flex;
 	align-items: center;
 	width: fit-content;
 	flex-direction: column;
-	position: relative;
 	margin-top: 70px;
 	padding: 15px;
 	border-radius: 10px 10px 0 0;

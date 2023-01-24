@@ -1,12 +1,8 @@
 import styles from './Player.module.scss';
 import { Track } from '../../../entities/Track';
 import { baseUrl } from '../../../shared/helper/baseUrl';
-import { memo, useEffect } from 'react';
-import { useUserInfoStore } from '../../../entities/User/model/UserInfoStore';
 
-export const Player = memo(() => {
-    const {auth} = useUserInfoStore(state => state)
-
+export const Player = () => {
     return (
         <div className={styles.player}>
             <div className={styles.contentWrapper}>
@@ -14,4 +10,4 @@ export const Player = memo(() => {
             </div>
         </div>
     );
-})
+}

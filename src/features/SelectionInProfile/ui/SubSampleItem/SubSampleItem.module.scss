@@ -1,0 +1,33 @@
+.albumBlock {
+	display: flex;
+	margin-bottom: 20px;
+	width: calc(100vw / 12);
+	max-width: 250px;
+	flex-direction: column;
+}
+
+.albumCover {
+	border-radius: 6px;
+}
+
+.authorName {
+	font-weight: 700;
+	margin-top: 5px;
+	font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 5px);
+	color: #ffffff;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.albumName {
+	font-weight: 500;
+	margin-top: 10px;
+	font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 3px);
+	color: #ffffff;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}

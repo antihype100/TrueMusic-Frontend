@@ -1,0 +1,23 @@
+.textBody {
+	margin: 0 30px;
+	padding: 20px;
+	width: calc(100vw / 4);
+	height: calc(100vw / 6);
+	background: rgba(0, 0, 0, 0.51);
+	border-radius: 6px;
+	overflow-y: hidden;
+}
+
+.text {
+	height: 96%;
+	overflow-y: auto;
+	p {
+		padding: 25px 0;
+		font-style: italic;
+		font-weight: 500;
+		font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 5px);
+		line-height: 170%;
+		letter-spacing: 0.03em;
+		color: #ffffff;
+	}
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import ModalLayout from '../../app/layouts/modalLayout/ModalLayout';
-import { AuthForm } from '../../features/AuthForm/ui/AuthForm';
+import { AuthForm } from '../../features/AuthForm';
 import { useAuthRedirect } from '../../shared/hooks/useAuthRedirect';
 
 const SignIn = () => {

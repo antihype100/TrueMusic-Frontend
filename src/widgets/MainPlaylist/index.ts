@@ -1,1 +1,1 @@
-export {MainPlaylist} from './ui/MainPlaylist';
+export {MainPLayList} from './ui/MainPLayList';
