@@ -33,7 +33,7 @@ export const Player = () => {
                 <span className={styles.playerDuration}>02:32</span>
             </div>
 
-        <TrackProgressBar value={'10'}/>
+            <TrackProgressBar currentTime={54354} duration={43543} handleChange={() => {}} />
         </div>
     );
 };

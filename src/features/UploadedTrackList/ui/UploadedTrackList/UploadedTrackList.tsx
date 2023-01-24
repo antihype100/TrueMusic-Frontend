@@ -1,18 +1,35 @@
 import styles from './UploadedTrackList.module.scss';
-import { IUploadedTrackList } from '../../model/types';
+import { IUploadedTrackListProps } from '../../model/types';
 import { NextStepButton } from '../../../../shared/ui/NextStepButton/NextStepButton';
+import { Track } from '../../../../entities/Track';
+import { useUserInfoStore } from '../../../../entities/User/model/UserInfoStore';
 
 
 
 
-export const UploadedTrackList = ({ albumName, trackList }: IUploadedTrackList) => {
+export const UploadedTrackList = ({ albumName, trackList, sendRelease }: IUploadedTrackListProps) => {
 
+    const {userName} = useUserInfoStore()
 
     return (
         <div className={styles.uploadedTrackListWrapper}>
             <h2 className={styles.uploadedTrackListHeader}>Альбом {albumName}</h2>
-            {trackList.map(el => el)}
-            <NextStepButton text={'Загрузить альбом'} action={() => {console.log(10)}}/>
+            <div className={styles.wrapperForPaddingScroll}>
+                <ul className={styles.uploadedTrackList}>
+                    {trackList.map((el, index) => {
+                        return (
+                            <Track
+                                trackPosition={index + 1}
+                                authorName={userName}
+                                trackName={el.trackName}
+                                trackPath={el.trackPath}
+                                textColor={'black'}
+                            />
+                        )
+                    })}
+                </ul>
+            </div>
+            <NextStepButton text={'Загрузить альбом'} action={sendRelease}/>
         </div>
     );
 };

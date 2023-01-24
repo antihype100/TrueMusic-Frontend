@@ -5,6 +5,8 @@ import BaseLayout from '../../app/layouts/baseLayout/BaseLayout';
 import { useUserInfoStore } from '../../entities/User/model/UserInfoStore';
 import { ProfileBlock } from '../../entities/ProfileBlock/ProfileBlock';
 import { NavMenuPlaylist } from '../../features/NavMenuPlaylist';
+import { useEffect, useState } from 'react';
+import axios from '../../shared/helper/axios';
 
 
 const tracksList = [
@@ -19,11 +21,19 @@ const tracksList = [
 const Home = () => {
     const amountTracks = window.screen.height > 1100 ? 8 : 6;
     const { auth } = useUserInfoStore((state) => state);
+    const [trackList, setTrackList] = useState([])
+    useEffect(() => {
+            axios.get('track/all').then(res => {
+                setTrackList(res.data)
+            })
+        }, [])
+    console.log(trackList);
     return (
         <BaseLayout>
             <div className={styles.homeContentWrapper}>
+
                 <NavMenuPlaylist />
-                <MainPlaylist amountTracks={amountTracks} tracksList={tracksList} />
+                <MainPlaylist amountTracks={amountTracks} tracksList={trackList} />
             </div>
             {auth ? <ProfileBlock /> : <SignInUpButtons />}
         </BaseLayout>

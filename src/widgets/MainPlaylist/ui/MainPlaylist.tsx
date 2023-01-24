@@ -1,22 +1,21 @@
 import { Track } from '../../../entities/Track';
 import styles from './MainPlaylist.module.scss';
-import { ITrackList } from '../model/types';
+import { IMainPlaylistProps } from '../model/types';
+import { baseUrl } from '../../../shared/helper/baseUrl';
 
 
-export const MainPlaylist = ({ amountTracks, tracksList }: ITrackList) => {
+export const MainPlaylist = ({ amountTracks, tracksList }: IMainPlaylistProps) => {
 
     return (
         <div className={styles.trackListWrapper}>
             <ul className={styles.trackList}>
-                {tracksList.map((track, i) => (
-                <li className={styles.trackListItem} key={i}>
+                {tracksList.map((track, index) => (
+                <li className={styles.trackListItem} key={index}>
                     <Track
-                        index={i + 1}
+                        trackPosition={index + 1}
                         authorName={track.authorName}
                         trackName={track.trackName}
-                        duration={track.duration}
-                        likes={track.likes}
-                        audition={track.audition}
+                        trackPath={`${baseUrl}/track/${track.trackPath}`}
                     />
                 </li>
             )).slice(0, amountTracks)}

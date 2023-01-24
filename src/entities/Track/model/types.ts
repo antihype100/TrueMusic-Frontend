@@ -1,17 +1,16 @@
-export interface ITrack {
-    index?: number;
+export interface ITrackProps {
+    trackPosition?: number;
     authorName: string;
     trackName: string;
-    duration: number;
-    likes: number;
-    audition: number;
-    textColor?: string
+    textColor?: string;
+    trackPath: string
 }
 
 export interface ILeftContent {
     authorName: string,
     trackName: string,
-    textColor?: string
+    textColor?: string;
+    currentTime: number
 }
 
 export interface IRightContent {

@@ -4,7 +4,7 @@
 	display: flex;
 	margin-bottom: 25px;
 	align-items: center;
-	width: 100%;;
+	width: 99%;;
 }
 
 .img {
@@ -21,7 +21,7 @@
 	font-size: calc((100vw - 180px) / (1280 - 480) * (21 - 16) + 4px);
 	line-height: 18px;
 	letter-spacing: 0.03em;
-	color: #ffffff;
+	color: black;
 }
 
 .contentAndInputWrapper {
@@ -41,12 +41,19 @@
 	justify-content: space-between;
 }
 
-.authorName {
+.whiteTextAuthorName {
 	font-weight: 700;
-	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 11px);
+	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 9px);
 	margin-bottom: 3px;
 	letter-spacing: 0.03em;
 	color: #ffffff;
+}
+.blackTextAuthorName {
+	font-weight: 700;
+	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 9px);
+	margin-bottom: 3px;
+	letter-spacing: 0.03em;
+	color: black;
 }
 
 .trackName {
@@ -56,10 +63,10 @@
 	margin-bottom: 3px;
 }
 
-.presentTime {
+.currentTime {
 	font-style: italic;
 	font-weight: 400;
-	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 10px);
+	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 8px);
 	letter-spacing: 0.03em;
 	margin-bottom: 5px;
 	color: #979797;
@@ -76,15 +83,6 @@
 	justify-content: end;
 }
 
-.auditionsAmount {
-	font-style: italic;
-	font-weight: 400;
-	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 8px);
-	letter-spacing: 0.03em;
-	color: #ffffff;
-	margin-right: 10px;
-}
-
 .playerTrackDuration {
 	font-style: italic;
 	font-weight: 400;
@@ -94,23 +92,4 @@
 	color: #979797;
 }
 
-.likeWrapper {
-	display: flex;
-	align-items: center;
-	margin-right: 10px;
 
-	.likeAmount {
-		font-style: italic;
-		font-weight: 400;
-		font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 8px);
-		line-height: 14px;
-		letter-spacing: 0.03em;
-
-		color: #ffffff;
-		margin-right: 10px;
-	}
-}
-
-.black {
-	color: red;
-}

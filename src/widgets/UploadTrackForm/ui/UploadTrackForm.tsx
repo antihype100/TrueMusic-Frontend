@@ -10,6 +10,8 @@ import { message } from '../../../shared/helper/importSvg';
 import type { IFormUploadTrack } from '../model/types';
 import { NextStepButton } from '../../../shared/ui/NextStepButton/NextStepButton';
 import { UploadedTrackList } from '../../../features/UploadedTrackList';
+import { ITrackItem } from '../../../features/UploadedTrackList/model/types';
+import { sendRelease } from '../api/sendRelease';
 
 export const UploadTrackForm = () => {
 
@@ -19,19 +21,15 @@ export const UploadTrackForm = () => {
     const { userName } = useUserInfoStore(state => state);
 
     const [trackFile, setTrackFile] = useState<File>({} as File);
-    const [trackList] = useState<JSX.Element[]>([])
+    const [trackList] = useState<ITrackItem[]>([])
     const [trackNumber, setTrackNumber] = useState(1);
     const [trackData] = useState(new FormData());
 
     const onSubmit: SubmitHandler<IFormUploadTrack> = (data) => {
-        if (trackFile.name) {
-            const url = URL.createObjectURL(trackFile);
-            const audio = new Audio(url)
-            audio.play()
-        }
+        const track = addDataToFormData(release, data, trackData, trackFile, userName);
+        trackList.push(track)
         setTrackFile({} as File)
         reset()
-        addDataToFormData(release, data, trackData, trackFile, userName);
     };
     console.log(trackList);
 
@@ -42,7 +40,7 @@ export const UploadTrackForm = () => {
             <UploadedTrackList
                 albumName={release.albumName}
                 trackList={trackList}
-
+                sendRelease={() => sendRelease(trackData, release)}
             />
             <div className={styles.uploadFormInnerWrapper}>
                 <ReactHookFormInput

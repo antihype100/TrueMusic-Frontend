@@ -7,9 +7,18 @@ export const addDataToFormData = (release: IRelease, data: IFormUploadTrack, tra
     trackData.set('descriptionAlbum', release.descriptionAlbum);
     trackData.set('genreAlbum', release.genre);
     trackData.set('formatReleaseAlbum', release.formatRelease);
-    trackData.append('trackText', `${data.trackText}`);
-    trackData.append('trackDescription', `${data.descriptionTrack}`);
-    trackData.append('trackProduction', `${data.production}`);
-    trackData.append('trackFiles', trackFile, `${data.trackName}.mp3`);
+    trackData.append('trackText', data.trackText);
+    trackData.append('trackDescription', data.descriptionTrack);
+    trackData.append('trackProduction', data.production);
+    trackData.append('trackName', data.trackName)
+    trackData.append('trackFiles', trackFile, data.trackName);
     trackData.forEach(el => console.log(el));
+
+    const url = URL.createObjectURL(trackFile);
+
+    return {
+        trackName: data.trackName,
+        trackPath: url
+
+    }
 };
