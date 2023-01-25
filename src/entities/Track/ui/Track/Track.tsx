@@ -5,73 +5,64 @@ import { LeftContent } from '../LeftContent/LeftContent';
 import { RightContent } from '../RightContent/RightContent';
 import { ITrackProps } from '../../model/types';
 import { useGlobalTrackStore } from '../../../../widgets/Player/model/globalTrackStore';
-import { useState } from 'react';
+import { playPause } from '../../helpler/playPause';
 
 export const Track = ({ authorName, trackName, textColor, trackPosition, trackPath }: ITrackProps) => {
     const {
         trackInfoGlobal,
+        currentTime,
         setTrackInfoGlobal,
-        audioRefGlobal
+        audioRefGlobal,
     } = useGlobalTrackStore(state => state);
-    const [currentTime, setCurrentTime] = useState(0)
 
-    const playPause = () => {
-        console.log('trackName:', trackName);
-        console.log(trackInfoGlobal);
-        if ((trackName !== trackInfoGlobal.trackName) && trackPath) {
+    const playPauseWrapper = () => {
+        playPause(trackName, trackInfoGlobal, authorName, setTrackInfoGlobal, audioRefGlobal)
+    };
+
+    let currentTimeLocal = 0
+    if (authorName === trackInfoGlobal.authorName && trackName === trackInfoGlobal.trackName) {
+        currentTimeLocal = currentTime
+    }
+
+    const setTrack = () => {
+        if (trackPath) {
             setTrackInfoGlobal({
                 ...trackInfoGlobal,
                 trackName: trackName,
                 trackPath: trackPath,
                 authorName: authorName,
-                duration: duration,
-                isPaused: false
+                isPlay: true
             });
-            // @ts-ignore
-            setTimeout(() => audioRefGlobal.current.play(), 300)
-        }
-
-        if (authorName === trackInfoGlobal.authorName && trackName === trackInfoGlobal.trackName) {
-            if (audioRefGlobal !== null && audioRefGlobal.current) {
-
-                if (trackInfoGlobal.isPaused) {
-                    audioRefGlobal.current.play();
-                    setTrackInfoGlobal({ ...trackInfoGlobal, isPaused: false });
-                } else {
-                    audioRefGlobal.current.pause();
-                    setTrackInfoGlobal({ ...trackInfoGlobal, isPaused: true });
-                }
-            }
-
         }
     };
 
     const handleChange = (e: any) => {
         if (authorName === trackInfoGlobal.authorName && trackName === trackInfoGlobal.trackName) {
             if (audioRefGlobal !== null && audioRefGlobal.current) {
-                setCurrentTime(e.target.value) ;
-                console.log(10);
+                audioRefGlobal.current.currentTime = e.target.value
             }
         }
-    };
+    }
 
-    let duration = 0
 
     return (
         <div className={styles.playerTrack}>
             <p className={styles.numberPosition}>{trackPosition}</p>
-            <img className={styles.img} src={img} alt='' onClick={playPause} />
+            <img className={styles.img} src={img} alt='' onClick={() => {
+                setTrack();
+                playPauseWrapper()
+            }} />
             <div className={styles.contentAndInputWrapper}>
                 <div className={styles.rightLeftContentWrapper}>
                     <LeftContent
                         textColor={textColor}
                         authorName={authorName}
                         trackName={trackName}
-                        currentTime={currentTime}
+                        currentTime={currentTimeLocal}
                     />
-                    <RightContent textColor={textColor} duration={duration} />
+                    <RightContent textColor={textColor} duration={100} />
                 </div>
-                <TrackProgressBar currentTime={currentTime} duration={duration} onChange={handleChange} />
+                <TrackProgressBar handleChange={handleChange} currentTime={currentTimeLocal} duration={100}/>
             </div>
         </div>
     );
