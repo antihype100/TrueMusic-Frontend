@@ -5,6 +5,7 @@ import { LeftContent } from '../LeftContent/LeftContent';
 import { RightContent } from '../RightContent/RightContent';
 import { ITrackProps } from '../../model/types';
 import { useGlobalTrackStore } from '../../../../widgets/Player/model/globalTrackStore';
+import { useState } from 'react';
 
 export const Track = ({ authorName, trackName, textColor, trackPosition, trackPath }: ITrackProps) => {
     const {
@@ -12,9 +13,9 @@ export const Track = ({ authorName, trackName, textColor, trackPosition, trackPa
         setTrackInfoGlobal,
         audioRefGlobal
     } = useGlobalTrackStore(state => state);
+    const [currentTime, setCurrentTime] = useState(0)
 
-
-    let playPause = () => {
+    const playPause = () => {
         console.log('trackName:', trackName);
         console.log(trackInfoGlobal);
         if ((trackName !== trackInfoGlobal.trackName) && trackPath) {
@@ -24,7 +25,10 @@ export const Track = ({ authorName, trackName, textColor, trackPosition, trackPa
                 trackPath: trackPath,
                 authorName: authorName,
                 duration: duration,
+                isPaused: false
             });
+            // @ts-ignore
+            setTimeout(() => audioRefGlobal.current.play(), 300)
         }
 
         if (authorName === trackInfoGlobal.authorName && trackName === trackInfoGlobal.trackName) {
@@ -45,14 +49,13 @@ export const Track = ({ authorName, trackName, textColor, trackPosition, trackPa
     const handleChange = (e: any) => {
         if (authorName === trackInfoGlobal.authorName && trackName === trackInfoGlobal.trackName) {
             if (audioRefGlobal !== null && audioRefGlobal.current) {
-                audioRefGlobal.current.currentTime = e.target.value;
+                setCurrentTime(e.target.value) ;
+                console.log(10);
             }
         }
     };
 
-    let currentTime = 0;
-    let duration = 0;
-
+    let duration = 0
 
     return (
         <div className={styles.playerTrack}>
