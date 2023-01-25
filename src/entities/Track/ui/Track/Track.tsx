@@ -7,7 +7,8 @@ import { ITrackProps } from '../../model/types';
 import { useGlobalTrackStore } from '../../../../widgets/Player/model/globalTrackStore';
 import { playPause } from '../../helpler/playPause';
 
-export const Track = ({ authorName, trackName, textColor, trackPosition, trackPath }: ITrackProps) => {
+
+export const Track = ({ authorName, trackName, textColor, trackPosition, trackPath, duration = '100' }: ITrackProps) => {
     const {
         trackInfoGlobal,
         currentTime,
@@ -60,7 +61,7 @@ export const Track = ({ authorName, trackName, textColor, trackPosition, trackPa
                         trackName={trackName}
                         currentTime={currentTimeLocal}
                     />
-                    <RightContent textColor={textColor} duration={100} />
+                    <RightContent textColor={textColor} duration={Number(duration)} />
                 </div>
                 <TrackProgressBar handleChange={handleChange} currentTime={currentTimeLocal} duration={100}/>
             </div>

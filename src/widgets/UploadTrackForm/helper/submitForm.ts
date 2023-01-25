@@ -12,13 +12,12 @@ export const addDataToFormData = (release: IRelease, data: IFormUploadTrack, tra
     trackData.append('trackProduction', data.production);
     trackData.append('trackName', data.trackName)
     trackData.append('trackFiles', trackFile, data.trackName);
-    trackData.forEach(el => console.log(el));
 
     const url = URL.createObjectURL(trackFile);
+
 
     return {
         trackName: data.trackName,
         trackPath: url
-
     }
 };

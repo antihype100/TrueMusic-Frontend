@@ -10,6 +10,7 @@ import { useUserInfoStore } from '../../../../entities/User/model/UserInfoStore'
 export const UploadedTrackList = ({ albumName, trackList, sendRelease }: IUploadedTrackListProps) => {
 
     const {userName} = useUserInfoStore()
+    console.log(trackList);
 
     return (
         <div className={styles.uploadedTrackListWrapper}>
@@ -19,6 +20,7 @@ export const UploadedTrackList = ({ albumName, trackList, sendRelease }: IUpload
                     {trackList.map((el, index) => {
                         return (
                             <Track
+                                duration={el.duration}
                                 trackPosition={index + 1}
                                 authorName={userName}
                                 trackName={el.trackName}

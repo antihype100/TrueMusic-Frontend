@@ -4,6 +4,7 @@ export interface ITrackProps {
     trackName: string;
     textColor?: string;
     trackPath?: string
+    duration?: string
 }
 
 export interface ILeftContent {

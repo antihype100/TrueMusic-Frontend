@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import styles from './UploadTrackForm.module.scss';
 import { useReleaseStore } from '../../../processes/release/CreateRelease/model/ReleaseStore';
@@ -24,14 +24,26 @@ export const UploadTrackForm = () => {
     const [trackList] = useState<ITrackItem[]>([])
     const [trackNumber, setTrackNumber] = useState(1);
     const [trackData] = useState(new FormData());
+    const [duration, setDuration] = useState('')
+
+    useEffect(() => {
+        if (trackFile.name) {
+            const url = URL.createObjectURL(trackFile);
+            const audio = document.createElement('audio')
+            audio.src = url
+            audio.onloadedmetadata =  function() {
+                setDuration(audio.duration.toString())
+                trackData.append('trackDuration', audio.duration.toString())
+            }
+        }
+    }, [trackFile]);
 
     const onSubmit: SubmitHandler<IFormUploadTrack> = (data) => {
         const track = addDataToFormData(release, data, trackData, trackFile, userName);
-        trackList.push(track)
+        trackList.push({...track, duration: duration})
         setTrackFile({} as File)
         reset()
     };
-    console.log(trackList);
 
 
     return (

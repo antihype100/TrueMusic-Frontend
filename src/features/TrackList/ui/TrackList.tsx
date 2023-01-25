@@ -1,12 +1,9 @@
 import { Track } from '../../../entities/Track';
 import styles from './TrackList.module.scss';
 import { ITrackListProps } from '../model/types';
-import { baseUrl } from '../../../shared/helper/baseUrl';
 
 
 export const TrackList = ({ amountTracks, tracksList }: ITrackListProps) => {
-
-    console.log(tracksList);
 
     return (
         <div className={styles.trackListWrapper}>
@@ -18,7 +15,7 @@ export const TrackList = ({ amountTracks, tracksList }: ITrackListProps) => {
                                 trackPosition={index + 1}
                                 authorName={track.authorName}
                                 trackName={track.trackName}
-                                trackPath={`${baseUrl}/track${track.trackPath}`}
+                                trackPath={track.trackPath}
                             />
                         </li>
                     );

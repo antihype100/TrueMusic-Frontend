@@ -3,6 +3,7 @@ import { IRelease } from '../../../processes/release/CreateRelease/model/Release
 export interface ITrackItem {
     trackName: string,
     trackPath: string
+    duration: string
 }
 
 export interface IUploadedTrackListProps {
