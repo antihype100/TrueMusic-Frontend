@@ -1,26 +1,28 @@
 import create from 'zustand';
-import { devtools, persist } from 'zustand/middleware';
 
 interface IAuthState {
-  auth: boolean;
-  setAuth(auth: boolean): void;
+    auth: boolean;
 
-  role: string;
-  setRole(role: string): void;
+    setAuth(auth: boolean): void;
 
-  userName: string;
-  setUserName(userName: string): void;
+    role: string;
+
+    setRole(role: string): void;
+
+    userName: string;
+
+    setUserName(userName: string): void;
 }
 
 const useUserInfoStore = create<IAuthState>((set) => ({
-  auth: false,
-  setAuth: (auth) => set(() => ({ auth })),
+    auth: false,
+    setAuth: (auth) => set(() => ({ auth })),
 
-  role: '',
-  setRole: (role) => set(() => ({ role })),
+    role: '',
+    setRole: (role) => set(() => ({ role })),
 
-  userName: '',
-  setUserName: (userName) => set(() => ({ userName })),
+    userName: '',
+    setUserName: (userName) => set(() => ({ userName })),
 }));
 
 export { useUserInfoStore };

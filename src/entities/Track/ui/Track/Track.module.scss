@@ -2,9 +2,8 @@
 
 .playerTrack {
 	display: flex;
-	margin-bottom: 25px;
 	align-items: center;
-	width: 99%;;
+	width: 99%;
 }
 
 .img {
@@ -27,7 +26,8 @@
 .contentAndInputWrapper {
 	display: flex;
 	flex-direction: column;
-	width: 100%
+	width: 100%;
+
 }
 
 .rightLeftContentWrapper {
@@ -38,6 +38,7 @@
 .leftContentWrapper {
 	display: flex;
 	flex-direction: column;
+	align-items: start;
 	justify-content: space-between;
 }
 

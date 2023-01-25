@@ -3,7 +3,7 @@ export interface ITrackProps {
     authorName: string;
     trackName: string;
     textColor?: string;
-    trackPath: string
+    trackPath?: string
 }
 
 export interface ILeftContent {

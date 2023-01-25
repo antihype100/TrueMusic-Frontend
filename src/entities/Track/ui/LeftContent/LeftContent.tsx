@@ -1,7 +1,6 @@
 import styles from '../Track/Track.module.scss';
 import { Link } from 'react-router-dom';
 import { ILeftContent } from '../../model/types';
-import { useEffect, useState } from 'react';
 
 
 export const LeftContent = ({ authorName, trackName, textColor, currentTime }: ILeftContent) => {
