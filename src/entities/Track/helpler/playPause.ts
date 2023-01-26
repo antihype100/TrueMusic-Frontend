@@ -1,11 +1,11 @@
-import { ITrackInfo } from '../../../widgets/Player/model/globalTrackStore';
+import { ITrackInfoGlobal } from '../../../widgets/Player/model/globalTrackStore';
 import { RefObject } from 'react';
 
 export const playPause = (
     trackName: string,
-    trackInfoGlobal: ITrackInfo,
+    trackInfoGlobal: ITrackInfoGlobal,
     authorName: string,
-    setTrackInfoGlobal: (trackInfo: ITrackInfo) => void,
+    setTrackInfoGlobal: (trackInfo: ITrackInfoGlobal) => void,
     audioRefGlobal: RefObject<HTMLAudioElement> | null,
 ) => {
         if (authorName === trackInfoGlobal.authorName && trackName === trackInfoGlobal.trackName) {
