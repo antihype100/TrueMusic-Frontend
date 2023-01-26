@@ -1,24 +1,24 @@
 .sectionLayout {
-  height: 100vh;
-  width: 85%;
-  padding: 0 20px;
-  background-image: url('../../../assets/bg/bg1-mod.gif');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  position: relative;
-  justify-content: center;
+	height: 100vh;
+	width: 85%;
+	padding: 0 20px;
+	background-image: url('../../../assets/bg/bg1-mod.gif');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	position: relative;
+	justify-content: center;
 }
 
 .mainLayout {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
 }
 
 .baseLayout {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }

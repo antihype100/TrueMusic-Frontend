@@ -8,7 +8,6 @@ import { useGlobalTrackStore } from '../../model/globalTrackStore';
 export const Player = () => {
     const { trackInfoGlobal } = useGlobalTrackStore(state => state);
 
-
     return (
         <div className={styles.player}>
             <div className={styles.contentWrapper}>

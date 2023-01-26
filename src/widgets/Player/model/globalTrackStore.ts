@@ -15,7 +15,7 @@ export interface ITrackResponse {
     updatedAt: string,
 }
 
-export interface ITrackInfo {
+export interface ITrackInfoGlobal {
     trackPath: string,
     trackName: string,
     authorName: string,
@@ -23,19 +23,18 @@ export interface ITrackInfo {
     isPlay: boolean,
 }
 
-interface IGlobalTrackStore {
-    trackInfoGlobal: ITrackInfo
+export interface IGlobalTrackStore {
+    trackInfoGlobal: ITrackInfoGlobal
     audioRefGlobal: RefObject<HTMLAudioElement> | null
     currentTime: number,
     indexInGlobalTrackList: number,
     globalTrackList: ITrackResponse[],
 
 
-    setTrackInfoGlobal: (trackInfo: ITrackInfo) => void,
+    setTrackInfoGlobal: (trackInfo: ITrackInfoGlobal) => void,
     setAudioRefGlobal: (ref: RefObject<HTMLAudioElement>) => void
     setCurrentTime: (currentTime: number) => void,
     setGlobalTrackList: (trackList: ITrackResponse[]) => void,
-    nextTrack: () => void,
 }
 
 export const useGlobalTrackStore = create<IGlobalTrackStore>()(
@@ -57,8 +56,6 @@ export const useGlobalTrackStore = create<IGlobalTrackStore>()(
         setAudioRefGlobal: (ref) => set(() => ({ audioRefGlobal: ref })),
         setCurrentTime: (currentTime) => set(() => ({ currentTime })),
         setGlobalTrackList: (trackList) => set(() => ({ globalTrackList: trackList })),
-
-        nextTrack: () => set(() => ({}))
 
     }),
 );

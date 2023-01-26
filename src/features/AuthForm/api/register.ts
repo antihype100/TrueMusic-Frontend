@@ -1,4 +1,4 @@
-import axios from '../../../shared/helper/axios';
+import axios from '../../../shared/api/axios';
 import {IAuthFormValues } from '../model/types';
 
 

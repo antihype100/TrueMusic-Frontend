@@ -1,52 +1,31 @@
 import styles from './PlayPauseNextPrevButton.module.scss'
+import { useGlobalTrackStore } from '../../model/globalTrackStore';
+import { getPlayingTrackIndex } from '../../helper/getPlayingTrackIndex';
+import { nextTrackWrapper, playPauseWrapper, prevTrackWrapper } from '../../helper/trackController';
+import { Pause } from '../../assets/Pause';
 import { Prev } from '../../assets/Prev';
 import { Next } from '../../assets/Next';
 import { Play } from '../../assets/Play';
-import { useGlobalTrackStore } from '../../model/globalTrackStore';
-import { Pause } from '../../assets/Pause';
 
 export const PlayPauseNextPrevButton = () => {
     const { audioRefGlobal, trackInfoGlobal, setTrackInfoGlobal, globalTrackList } = useGlobalTrackStore(state => state)
 
-    const playingTrack = globalTrackList.filter(el => el.trackName === trackInfoGlobal.trackName && el.authorName === trackInfoGlobal.authorName)
-    // @ts-ignore
-    const playingTrackIndex = globalTrackList.indexOf(...playingTrack)
+    const playingTrackIdx = getPlayingTrackIndex(globalTrackList, trackInfoGlobal)
 
-    const nextTrack = (index: number) => {
-        const {trackPath, trackName, authorName } = globalTrackList[index + 1]
-        setTrackInfoGlobal({ ...trackInfoGlobal, trackName, trackPath, authorName, isPlay: true })
-        setTimeout(() => audioRefGlobal?.current?.play(), 300)
-    }
+    const nextTrack = nextTrackWrapper(playingTrackIdx, globalTrackList, setTrackInfoGlobal, audioRefGlobal, trackInfoGlobal)
+    const prevTrack = prevTrackWrapper(playingTrackIdx, globalTrackList, setTrackInfoGlobal, audioRefGlobal, trackInfoGlobal)
+    const playPause = playPauseWrapper(audioRefGlobal, trackInfoGlobal, setTrackInfoGlobal)
 
-    const prevTrack = (index: number) => {
-        const {trackPath, trackName, authorName } = globalTrackList[index - 1]
-        setTrackInfoGlobal({ ...trackInfoGlobal, trackName, trackPath, authorName, isPlay: true })
-        setTimeout(() => audioRefGlobal?.current?.play(), 300)
-    }
-
-
-    const playPause = () => {
-        if (!trackInfoGlobal.isPlay) {
-            console.log(audioRefGlobal, 'play');
-            audioRefGlobal?.current?.play();
-            setTrackInfoGlobal({ ...trackInfoGlobal, isPlay: true });
-        } else {
-            console.log(audioRefGlobal, 'pause');
-            audioRefGlobal?.current?.pause();
-            setTrackInfoGlobal({ ...trackInfoGlobal, isPlay: false });
-        }
-    }
 
     return (
         <div className={styles.playPauseNextPrevButtonWrapper}>
-            <Prev onClick={() => prevTrack(playingTrackIndex)}/>
+            <Prev onClick={() => prevTrack()}/>
             {
                 trackInfoGlobal.isPlay
                 ? <Pause onClick={() => playPause()}/>
                 : <Play onClick={() => playPause()}/>
             }
-
-            <Next onClick={() => nextTrack(playingTrackIndex)}/>
+            <Next onClick={() => nextTrack()}/>
         </div>
     )
 }

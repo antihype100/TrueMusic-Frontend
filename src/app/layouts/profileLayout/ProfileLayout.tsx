@@ -1,12 +1,13 @@
 import styles from './ProfileLayout.module.scss';
 import { LeftSideBar } from '../../../widgets/LeftSideBar';
 import { RightSideBar } from '../../../widgets/RightSideBar';
+import { ReactNode } from 'react';
 
 interface IProfileLayout {
-    children: any;
+    children: ReactNode;
 }
 
-const ProfileLayout = ({ children }: IProfileLayout) => (
+export const ProfileLayout = ({ children }: IProfileLayout) => (
     <div className={styles.baseLayout}>
         <LeftSideBar />
         <section className={styles.sectionLayout}>
@@ -18,4 +19,3 @@ const ProfileLayout = ({ children }: IProfileLayout) => (
     </div>
 );
 
-export default ProfileLayout;

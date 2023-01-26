@@ -18,18 +18,18 @@ import {
     RELEASE_UPLOAD_TRACK,
     USER_SETTING,
 } from '../shared/helper/routes';
-import SignIn from '../processes/signin/SignIn';
-import SignUp from '../processes/signup/SignUp';
+import { SignIn } from '../processes/auth/signin';
+import { SignUp } from '../processes/auth/signup';
 import TracksUsers from '../pages/users/tracks/Tracks';
 import AlbumsUsers from '../pages/users/albums/Albums';
-import Playlist from '../pages/users/playlist/Playlist';
-import AlbumPage from '../pages/author/albumPage/AlbumPage';
-import { TrackPage } from '../pages/author/trackPage/TrackPage';
+import { Playlist }from '../pages/users/playlist';
+import { AlbumPage } from '../pages/author/albumPage';
+import { TrackPage } from '../pages/author/trackPage';
 import { Profile } from '../pages/profile/Profile';
-import AuthorMainPage from '../pages/author/authorMainPage/AuthorMainPage';
+import { AuthorMainPage } from '../pages/author/authorMainPage';
 import { CreateRelease } from '../processes/release/CreateRelease';
-import { UploadTrack } from '../processes/release/UploadTrack/ui/UploadTrack';
-import { useUserInfoStore } from '../entities/User/model/UserInfoStore';
+import { UploadTrack } from '../processes/release/UploadTrack';
+import { useUserInfoStore } from '../entities/User/';
 
 const AppRouter = () => {
     const { setAuth, setRole, setUserName, auth } = useUserInfoStore((state) => state);

@@ -1,8 +1,8 @@
-import ProfileLayout from '../../app/layouts/profileLayout/ProfileLayout';
-import { SearchPanel } from '../../features/SearchPanel';
 import styles from './Profile.module.scss';
-import {ProfileBlock} from '../../entities/ProfileBlock';
+import { ProfileLayout } from '../../app/layouts/profileLayout/ProfileLayout';
 import { Selections } from '../../features/SelectionInProfile';
+import { SearchPanel } from '../../features/SearchPanel';
+import { ProfileBlock } from '../../entities/ProfileBlock';
 import cover1 from '../../assets/sidebar/playlist/cover1.png';
 import cover2 from '../../assets/sidebar/playlist/cover2.png';
 import cover3 from '../../assets/sidebar/playlist/cover3.png';
@@ -60,7 +60,7 @@ export const Profile = () => {
                 <SearchPanel />
                 <Selections selectionList={selectionList} />
             </section>
-            <ProfileBlock/>
+            <ProfileBlock />
         </ProfileLayout>
     );
 };

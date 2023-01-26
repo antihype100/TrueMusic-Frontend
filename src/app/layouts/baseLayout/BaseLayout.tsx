@@ -9,7 +9,7 @@ interface IBaseLayout {
     children: any;
 }
 
-const BaseLayout = ({ children }: IBaseLayout) => (
+export const BaseLayout = ({ children }: IBaseLayout) => (
     <div className={styles.baseLayout}>
         <LeftSideBar />
         <section className={styles.sectionLayout}>
@@ -22,5 +22,3 @@ const BaseLayout = ({ children }: IBaseLayout) => (
         <RightSideBar />
     </div>
 );
-
-export default BaseLayout;

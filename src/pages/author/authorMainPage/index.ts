@@ -1,0 +1,1 @@
+export {AuthorMainPage} from './ui/AurhorMainPage/AuthorMainPage';

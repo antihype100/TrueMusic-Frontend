@@ -1,1 +1,1 @@
-export {UploadTrackForm} from './ui/UploadTrackForm';
+export {UploadTrackForm} from './ui/UploadTrackForm/UploadTrackForm';

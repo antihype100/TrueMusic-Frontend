@@ -1,27 +1,26 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import styles from './AuthForm.module.scss';
-import { message } from '../../../shared/helper/importSvg';
-import { LOGIN, REGISTER } from '../../../shared/helper/routes';
-import { useUserInfoStore } from '../../../entities/User/model/UserInfoStore';
-import { ReactHookFormInput } from '../../../shared/ui/ReactHookFormInput/ReactHookFormInput';
-import type { IAuthFormProps, IAuthFormValues } from '../model/types';
+import { useUserInfoStore } from '../../../entities/User';
 import { registerPost } from '../api/register';
 import { loginPost } from '../api/login';
-
+import { LOGIN, REGISTER } from '../../../shared/helper/routes';
+import { ReactHookFormInput } from '../../../shared/ui/ReactHookFormInput/ReactHookFormInput';
+import { NextStepButton } from '../../../shared/ui/NextStepButton/NextStepButton';
+import type { IAuthFormProps, IAuthFormValues } from '../model/types';
+import { message } from '../../../shared/helper/importSvg';
 
 
 export const AuthForm = ({ title }: IAuthFormProps) => {
     const { setAuth, setRole, setUserName } = useUserInfoStore((state) => state);
-    const { register, handleSubmit} = useForm<IAuthFormValues>();
+    const { register, handleSubmit, formState: { isValid } } = useForm<IAuthFormValues>();
 
     const onSubmit: SubmitHandler<IAuthFormValues> = (data) => {
         if (title === 'Регистрация') {
-            registerPost(data, setAuth, setRole, setUserName)
+            registerPost(data, setAuth, setRole, setUserName);
         }
         if (title === 'Вход') {
-            loginPost(data, setAuth, setRole, setUserName)
+            loginPost(data, setAuth, setRole, setUserName);
         }
     };
 
@@ -58,13 +57,18 @@ export const AuthForm = ({ title }: IAuthFormProps) => {
             )}
 
             <span className={styles.questionSignUp}>
-          {title === 'Регистрация' ? 'У вас ужe есть аккаунт?' : 'Еще не зарегистрированы?'}
+                {title === 'Регистрация' ? 'У вас ужe есть аккаунт?' : 'Еще не зарегистрированы?'}
                 <br />
-          <Link to={title === 'Регистрация' ? LOGIN : REGISTER}>
-            {title === 'Регистрация' ? 'Войти' : 'Зарегистрироваться'}
-          </Link>
-        </span>
-            <button className={styles.signUpButton}>{title === 'Регистрация' ? 'Зарегистрироваться' : 'Войти'}</button>
+                <Link to={title === 'Регистрация' ? LOGIN : REGISTER}>
+                    {title === 'Регистрация' ? 'Войти' : 'Зарегистрироваться'}
+                </Link>
+            </span>
+            <NextStepButton
+                isValid={isValid}
+                text={title === 'Регистрация' ? 'Зарегистрироваться' : 'Войти'}
+                action={() => {
+                }}
+            />
         </form>
     );
 };

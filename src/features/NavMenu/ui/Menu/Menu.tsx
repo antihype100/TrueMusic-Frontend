@@ -1,5 +1,5 @@
 import styles from './Menu.module.scss';
-import { useUserInfoStore } from '../../../../entities/User/model/UserInfoStore';
+import { useUserInfoStore } from '../../../../entities/User';
 import { getUserNavMenuList, getAuthorNavMenuList, getNoAuthNavMenuList } from '../../model/navMenuData';
 import { NavMenuLink } from '../MenuLink/MenuLink';
 
@@ -9,7 +9,6 @@ export const Menu = () => {
     const userNavMenuList = getUserNavMenuList(userName);
     const authorNavMenuList = getAuthorNavMenuList(userName);
     const noAuthNavMenuList = getNoAuthNavMenuList();
-    console.log(userName, role, auth);
 
     let navMenuList = auth && role === 'AUTHOR'
         ? authorNavMenuList

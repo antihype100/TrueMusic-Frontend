@@ -1,6 +1,6 @@
 import { memo, useEffect, useRef } from 'react';
 import { useGlobalTrackStore } from '../../model/globalTrackStore';
-import { baseUrl } from '../../../../shared/helper/baseUrl';
+import { baseUrl } from '../../../../shared/api/baseUrl';
 
 interface IAudio {
     trackPath: string;
@@ -18,6 +18,7 @@ export const Audio = memo(({ trackPath }: IAudio) => {
             audioRef.current.play();
         }
     });
+
     const onTimeUpdate = () => {
         // @ts-ignore
         setCurrentTime(audioRef.current.currentTime);

@@ -1,14 +1,16 @@
-import img from '../../../../assets/sidebar/playlist/cover7.png';
+import { useGlobalTrackStore } from '../../../../widgets/Player/model/globalTrackStore';
 import styles from './Track.module.scss';
-import { TrackProgressBar } from '../../../../shared/ui/TrackProgressBar/TrackProgressBar';
+import type { ITrackProps } from '../../model/types';
 import { LeftContent } from '../LeftContent/LeftContent';
 import { RightContent } from '../RightContent/RightContent';
-import { ITrackProps } from '../../model/types';
-import { useGlobalTrackStore } from '../../../../widgets/Player/model/globalTrackStore';
+import { TrackProgressBar } from '../../../../shared/ui/TrackProgressBar/TrackProgressBar';
 import { playPause } from '../../helpler/playPause';
+import { changeProgressBar } from '../../helpler/changeProgressBar';
+import img from '../../../../assets/sidebar/playlist/cover7.png';
+import { setTrackWrapper } from '../../helpler/setTrackGlobal';
 
 
-export const Track = ({ authorName, trackName, textColor, trackPosition, trackPath, duration = '100' }: ITrackProps) => {
+export const Track = ({ authorName, trackName, textColor, trackPosition, trackPath, trackDuration = 100 }: ITrackProps) => {
     const {
         trackInfoGlobal,
         currentTime,
@@ -20,31 +22,13 @@ export const Track = ({ authorName, trackName, textColor, trackPosition, trackPa
         playPause(trackName, trackInfoGlobal, authorName, setTrackInfoGlobal, audioRefGlobal)
     };
 
+    const setTrack = setTrackWrapper(trackPath, setTrackInfoGlobal, trackInfoGlobal, trackName, authorName)
+    const handleChange = changeProgressBar(authorName, trackInfoGlobal, trackName, audioRefGlobal )
+
     let currentTimeLocal = 0
     if (authorName === trackInfoGlobal.authorName && trackName === trackInfoGlobal.trackName) {
         currentTimeLocal = currentTime
     }
-
-    const setTrack = () => {
-        if (trackPath) {
-            setTrackInfoGlobal({
-                ...trackInfoGlobal,
-                trackName: trackName,
-                trackPath: trackPath,
-                authorName: authorName,
-                isPlay: true
-            });
-        }
-    };
-
-    const handleChange = (e: any) => {
-        if (authorName === trackInfoGlobal.authorName && trackName === trackInfoGlobal.trackName) {
-            if (audioRefGlobal !== null && audioRefGlobal.current) {
-                audioRefGlobal.current.currentTime = e.target.value
-            }
-        }
-    }
-
 
     return (
         <div className={styles.playerTrack}>
@@ -61,9 +45,9 @@ export const Track = ({ authorName, trackName, textColor, trackPosition, trackPa
                         trackName={trackName}
                         currentTime={currentTimeLocal}
                     />
-                    <RightContent textColor={textColor} duration={Number(duration)} />
+                    <RightContent textColor={textColor} duration={trackDuration} />
                 </div>
-                <TrackProgressBar handleChange={handleChange} currentTime={currentTimeLocal} duration={100}/>
+                <TrackProgressBar handleChange={handleChange} currentTime={currentTimeLocal} duration={trackDuration}/>
             </div>
         </div>
     );

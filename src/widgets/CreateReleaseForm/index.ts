@@ -1,1 +1,1 @@
-export {CreateReleaseForm} from './ui/CreateReleaseForm';
+export {CreateReleaseForm} from './ui/CreateReleaseForm/CreateReleaseForm';

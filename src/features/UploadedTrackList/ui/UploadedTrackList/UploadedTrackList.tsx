@@ -1,8 +1,8 @@
 import styles from './UploadedTrackList.module.scss';
-import { IUploadedTrackListProps } from '../../model/types';
-import { NextStepButton } from '../../../../shared/ui/NextStepButton/NextStepButton';
 import { Track } from '../../../../entities/Track';
-import { useUserInfoStore } from '../../../../entities/User/model/UserInfoStore';
+import { useUserInfoStore } from '../../../../entities/User';
+import type { IUploadedTrackListProps } from '../../model/types';
+import { NextStepButton } from '../../../../shared/ui/NextStepButton/NextStepButton';
 
 
 
@@ -20,7 +20,7 @@ export const UploadedTrackList = ({ albumName, trackList, sendRelease }: IUpload
                     {trackList.map((el, index) => {
                         return (
                             <Track
-                                duration={el.duration}
+                                trackDuration={el.trackDuration}
                                 trackPosition={index + 1}
                                 authorName={userName}
                                 trackName={el.trackName}

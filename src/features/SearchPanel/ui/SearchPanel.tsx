@@ -1,4 +1,4 @@
-import styles from './searchPanel.module.scss';
+import styles from './SearchPanel.module.scss';
 import { stick, search } from '../../../shared/helper/importSvg';
 import { useState } from 'react';
 

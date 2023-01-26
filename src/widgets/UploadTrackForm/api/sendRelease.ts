@@ -1,4 +1,4 @@
-import axios from '../../../shared/helper/axios';
+import axios from '../../../shared/api/axios';
 import type { IRelease } from '../../../processes/release/CreateRelease/model/ReleaseStore';
 
 export const sendRelease = async (trackData: FormData, release: IRelease) => {
