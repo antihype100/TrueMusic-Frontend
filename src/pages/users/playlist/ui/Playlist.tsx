@@ -17,8 +17,8 @@ export const Playlist = () => {
     return (
         <BaseLayout>
             <AuthorLayout>
-                <TrackAlbumPlaylistCover img={img} likes={'241'} listening={'124001'} title={'Relax'} />
-                <TrackList amountTracks={5} tracksList={trackList} />
+                <TrackAlbumPlaylistCover img={img} likes="241" listening="124001" title="Relax" />
+                <TrackList amountTracks={5}/>
             </AuthorLayout>
         </BaseLayout>
     );

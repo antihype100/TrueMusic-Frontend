@@ -34,7 +34,7 @@ export const AuthorMainPage = () => {
                             {navList[2].title}
                         </Link>
                     </nav>
-                    <TrackList amountTracks={5} tracksList={trackList} />
+                    <TrackList amountTracks={5} />
                 </div>
             </AuthorLayout>
         </BaseLayout>
