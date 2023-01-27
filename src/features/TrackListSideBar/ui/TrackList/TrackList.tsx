@@ -24,8 +24,17 @@ export const TrackList = ({amountTracks, title}: IPlaylistSideBar) => {
         })
     }, [])
 
-    const trackList = trackListState.map(({authorName, trackName, trackPath, id, trackDuration}) => {
-        const setTrack = setTrackWrapper(trackPath, setTrackInfoGlobal, trackInfoGlobal, trackName, authorName, trackDuration)
+    const trackList = trackListState.map(({authorName, trackName, trackPath, id, trackDuration, isLiked, usersLiked}) => {
+        const setTrack = setTrackWrapper(
+            trackPath,
+            setTrackInfoGlobal,
+            trackInfoGlobal,
+            trackName,
+            authorName,
+            trackDuration,
+            usersLiked,
+            id,
+            isLiked)
         const playPause = playPauseWrapper(trackName, trackInfoGlobal, authorName, setTrackInfoGlobal, audioRefGlobal)
         return (
             <li className={styles.trackListItem} key={id}>

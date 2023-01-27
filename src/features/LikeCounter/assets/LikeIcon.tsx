@@ -1,9 +1,13 @@
 import styles from '../ui/LikeCounter.module.scss'
 
-export const LikeIcon = () => (
+interface ILikeIcon {
+    isLiked: boolean
+}
+
+export const LikeIcon = ({isLiked}: ILikeIcon) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
-        fill="red"
+        fill={isLiked ? "red" : 'black'}
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"

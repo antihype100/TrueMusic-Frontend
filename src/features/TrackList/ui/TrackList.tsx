@@ -20,21 +20,19 @@ export const TrackList = ({amountTracks}: ITrackListProps) => {
             setGlobalTrackList(res.data)
         })
     }, [])
-
-
     const coverWidthHeight = (window.screen.width - 480) / (1280 - 480) * (18 - 16) + 50
     const fontSize = (window.screen.width - 480) / (1280 - 480) * (18 - 16) + 9
 
     return (
         <div className={styles.trackListWrapper}>
             <ul className={styles.trackList}>
-                {trackList.map(({trackName, trackPath, authorName, trackDuration, id}, index) => {
+                {trackList.map(({id, trackName, trackPath, authorName, trackDuration, usersLiked, isLiked}, index) => {
 
-                    const setTrack = setTrackWrapper(trackPath, setTrackInfoGlobal, trackInfoGlobal, trackName, authorName, trackDuration)
+                    const setTrack = setTrackWrapper(trackPath, setTrackInfoGlobal, trackInfoGlobal, trackName, authorName, trackDuration, usersLiked, id, isLiked)
                     const playPause = playPauseWrapper(trackName, trackInfoGlobal, authorName, setTrackInfoGlobal, audioRefGlobal)
 
                     return (
-                        <li className={styles.trackListItem} key={index}>
+                        <li className={styles.trackListItem} key={id}>
                             <Track
                                 fontSize={fontSize}
                                 coverWidthHeight={coverWidthHeight}
@@ -44,7 +42,7 @@ export const TrackList = ({amountTracks}: ITrackListProps) => {
                                 trackPosition={index + 1}
                                 authorName={authorName}
                                 trackName={trackName}
-                                Like={<LikeCounter/>}
+                                Like={<LikeCounter trackId={id} usersLiked={usersLiked}/>}
                             />
                         </li>
                     );

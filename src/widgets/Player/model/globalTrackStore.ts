@@ -18,12 +18,15 @@ export interface ITrackResponse {
 }
 
 export interface ITrackInfoGlobal {
-    trackPath: string,
-    coverPath?: string,
-    trackName: string,
-    authorName: string,
-    trackDuration: number,
-    isPlay: boolean,
+    trackPath: string;
+    coverPath?: string;
+    trackName: string;
+    authorName: string;
+    trackDuration: number;
+    usersLiked: number;
+    trackId: number;
+    isLiked: boolean
+    isPlay: boolean;
 }
 
 export interface IGlobalTrackStore {
@@ -45,8 +48,11 @@ export const useGlobalTrackStore = create<IGlobalTrackStore>()(
         trackInfoGlobal: {
             trackName: 'Track',
             trackPath: '',
+            usersLiked: 0,
             authorName: 'Author',
             trackDuration: 0,
+            trackId: 0,
+            isLiked: false,
             isPlay: false,
         },
         audioRefGlobal: null,

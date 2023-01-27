@@ -6,7 +6,7 @@ export const loginPost = (
     setAuth: (auth: boolean) => void,
     setRole: (role: string) => void,
     setUserName: (userName: string) => void,
-    setUserId: (userId: number) => void
+    setUserId: (userId: number) => void,
 ) => {
     axios.post('/user/login', data, {withCredentials: true}).then((res) => {
         if (res.data.isLogin) {
@@ -15,6 +15,7 @@ export const loginPost = (
             setUserName(res.data.user.userName);
             setUserId(res.data.user.id)
             localStorage.setItem('accessToken', res.data.accessToken)
+            window.location.reload()
         }
     });
 };
