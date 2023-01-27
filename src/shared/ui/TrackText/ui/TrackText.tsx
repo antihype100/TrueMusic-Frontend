@@ -1,8 +1,7 @@
-import styles from './TrackText.module.scss'
 import React from 'react';
+import styles from './TrackText.module.scss'
 
-export const TrackText = () => {
-    return (
+export const TrackText = () => (
         <div className={styles.textBody}>
             <div className={styles.text}>
                 {Array.from(Array(5).keys()).map((_, i) => (
@@ -15,4 +14,3 @@ export const TrackText = () => {
             </div>
         </div>
     );
-};
