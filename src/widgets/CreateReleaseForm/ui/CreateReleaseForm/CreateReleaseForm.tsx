@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import styles from './CreateReleaseForm.module.scss';
-import { useReleaseStore } from '../../../../processes/release/CreateRelease';
+import { useReleaseStore , getFormatOptions } from '../../../../processes/release/CreateRelease';
 import { useUserInfoStore } from '../../../../entities/User';
-import { getFormatOptions } from '../../../../processes/release/CreateRelease';
 import { NextStepButton } from '../../../../shared/ui/NextStepButton/NextStepButton';
 import { UploadFileButton } from '../../../../shared/ui/UploadFileButton/UploadFileButton';
 import { ReactHookFormInput } from '../../../../shared/ui/ReactHookFormInput/ReactHookFormInput';
@@ -36,35 +35,35 @@ export const CreateReleaseForm = () => {
             <div className={styles.releaseFormInnerWrapper}>
                 <ReactHookFormSelectInput
                     register={register}
-                    placeholder={'Выберите формат релиза'}
-                    inputName={'formatRelease'}
+                    placeholder="Выберите формат релиза"
+                    inputName="formatRelease"
                     options={formatRelease}
                 />
                 <ReactHookFormSelectInput
                     register={register}
-                    placeholder={'Выберите жанр релиза'}
-                    inputName={'genre'}
+                    placeholder="Выберите жанр релиза"
+                    inputName="genre"
                     options={formatRelease}
                 />
                 <ReactHookFormInput
                     register={register}
                     icon={message}
-                    placeholder={'Название альбома'}
-                    inputName={'albumName'}
+                    placeholder="Название альбома"
+                    inputName="albumName"
                 />
                 <ReactHookFormInput
                     register={register}
                     icon={message}
-                    placeholder={'Описание альбома'}
-                    inputName={'descriptionAlbum'}
+                    placeholder="Описание альбома"
+                    inputName="descriptionAlbum"
                 />
                 <UploadFileButton
                     fileName={coverFile.name}
-                    placeholder={'Выберите обложку'}
+                    placeholder="Выберите обложку"
                     setFile={setCoverFile}
                 />
                 <NextStepButton
-                    text={'Далее'}
+                    text="Далее"
                     action={() => setTimeout(() => navigate(`/${userName}/upload-track`), 50)}
                     isValid={isValid && Boolean(coverFile.name)}
                 />

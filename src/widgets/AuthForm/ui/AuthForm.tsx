@@ -1,26 +1,26 @@
-import { Link } from 'react-router-dom';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import {Link} from 'react-router-dom';
+import {SubmitHandler, useForm} from 'react-hook-form';
 import styles from './AuthForm.module.scss';
-import { useUserInfoStore } from '../../../entities/User';
-import { registerPost } from '../api/register';
-import { loginPost } from '../api/login';
-import { LOGIN, REGISTER } from '../../../shared/helper/routes';
-import { ReactHookFormInput } from '../../../shared/ui/ReactHookFormInput/ReactHookFormInput';
-import { NextStepButton } from '../../../shared/ui/NextStepButton/NextStepButton';
-import type { IAuthFormProps, IAuthFormValues } from '../model/types';
-import { message } from '../../../shared/helper/importSvg';
+import {useUserInfoStore} from '../../../entities/User';
+import {registerPost} from '../api/register';
+import {loginPost} from '../api/login';
+import {LOGIN, REGISTER} from '../../../shared/helper/routes';
+import {ReactHookFormInput} from '../../../shared/ui/ReactHookFormInput/ReactHookFormInput';
+import {NextStepButton} from '../../../shared/ui/NextStepButton/NextStepButton';
+import type {IAuthFormProps, IAuthFormValues} from '../model/types';
+import {message} from '../../../shared/helper/importSvg';
 
 
-export const AuthForm = ({ title }: IAuthFormProps) => {
-    const { setAuth, setRole, setUserName } = useUserInfoStore((state) => state);
-    const { register, handleSubmit, formState: { isValid } } = useForm<IAuthFormValues>();
+export const AuthForm = ({title}: IAuthFormProps) => {
+    const {setAuth, setRole, setUserName, setUserId} = useUserInfoStore((state) => state);
+    const {register, handleSubmit, formState: {isValid}} = useForm<IAuthFormValues>();
 
     const onSubmit: SubmitHandler<IAuthFormValues> = (data) => {
         if (title === 'Регистрация') {
-            registerPost(data, setAuth, setRole, setUserName);
+            registerPost(data, setAuth, setRole, setUserName, setUserId);
         }
         if (title === 'Вход') {
-            loginPost(data, setAuth, setRole, setUserName);
+            loginPost(data, setAuth, setRole, setUserName, setUserId);
         }
     };
 
@@ -31,34 +31,34 @@ export const AuthForm = ({ title }: IAuthFormProps) => {
                 <ReactHookFormInput
                     register={register}
                     icon={message}
-                    placeholder={'Почта'}
-                    inputName={'email'}
+                    placeholder="Почта"
+                    inputName="email"
                 />
             )}
             <ReactHookFormInput
                 register={register}
                 icon={message}
-                placeholder={'Логин'}
-                inputName={'userName'}
+                placeholder="Логин"
+                inputName="userName"
             />
             <ReactHookFormInput
                 register={register}
                 icon={message}
-                placeholder={'Пароль'}
-                inputName={'password'}
+                placeholder="Пароль"
+                inputName="password"
             />
             {title === 'Регистрация' && (
                 <ReactHookFormInput
                     register={register}
                     icon={message}
-                    placeholder={'Повторите пароль'}
-                    inputName={'repeatPassword'}
+                    placeholder="Повторите пароль"
+                    inputName="repeatPassword"
                 />
             )}
 
             <span className={styles.questionSignUp}>
                 {title === 'Регистрация' ? 'У вас ужe есть аккаунт?' : 'Еще не зарегистрированы?'}
-                <br />
+                <br/>
                 <Link to={title === 'Регистрация' ? LOGIN : REGISTER}>
                     {title === 'Регистрация' ? 'Войти' : 'Зарегистрироваться'}
                 </Link>

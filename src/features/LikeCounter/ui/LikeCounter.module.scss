@@ -1,0 +1,11 @@
+.likeCounterWrapper {
+  display: flex;
+  position: relative;
+  color: #979797;
+}
+.likeIcon {
+  position: absolute;
+  width: 20px;
+  bottom: -2px;
+  right: -23px;
+}

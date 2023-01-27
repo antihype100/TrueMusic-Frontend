@@ -1,18 +1,20 @@
 import axios from '../../../shared/api/axios';
-import { IAuthFormValues } from '../model/types';
+import {IAuthFormValues} from '../model/types';
 
 export const loginPost = (
     data: IAuthFormValues,
     setAuth: (auth: boolean) => void,
     setRole: (role: string) => void,
     setUserName: (userName: string) => void,
+    setUserId: (userId: number) => void
 ) => {
-    axios.post('/user/login', data, { withCredentials: true }).then((res) => {
+    axios.post('/user/login', data, {withCredentials: true}).then((res) => {
         if (res.data.isLogin) {
             setAuth(true);
-            console.log(res.data.user.role);
             setRole(res.data.user.role);
             setUserName(res.data.user.userName);
+            setUserId(res.data.user.id)
+            localStorage.setItem('accessToken', res.data.accessToken)
         }
     });
 };

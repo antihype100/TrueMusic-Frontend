@@ -1,7 +1,7 @@
 import styles from './ProfileButton.module.scss';
-import profileLogo from '../../assets/png/profileLogo.png';
-import { burger } from '../../shared/helper/importSvg';
-import { useUserInfoStore } from '../User/model/UserInfoStore';
+import profileLogo from '../../../assets/png/profileLogo.png';
+import { burger } from '../../helper/importSvg';
+import { useUserInfoStore} from "../../../entities/User";
 
 const ProfileButton = () => {
     const { userName } = useUserInfoStore((state) => state);

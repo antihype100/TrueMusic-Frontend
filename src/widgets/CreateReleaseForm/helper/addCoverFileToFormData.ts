@@ -11,5 +11,6 @@ export const addCoverFileToFormData = (
     const fileExtension = coverFile.name.split('.').pop();
     coverData.set('authorName', userName);
     coverData.append('coverFile', coverFile, `${data.albumName}.${fileExtension}`);
-    setRelease({ ...data, coverFile: coverData });
+    const url = URL.createObjectURL(coverFile);
+    setRelease({ ...data, coverData, coverPath: url});
 }

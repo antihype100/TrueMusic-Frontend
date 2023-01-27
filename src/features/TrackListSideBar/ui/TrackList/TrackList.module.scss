@@ -1,19 +1,21 @@
-
-.header {
+.title {
   color: white;
   text-align: center;
   font-size: calc((100vw - 480px) / (900 - 480) * (18 - 16) + 6px);
   margin-top: 20px;
   margin-bottom: 30px;
 }
-
-
-
-
-
-
-
+.playlistSideBar {
+  display: flex;
+  flex-direction: column;
+}
 .arrow {
   display: block;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 2px auto;
+}
+.trackListItem {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  margin-bottom: 15px;
 }

@@ -1,37 +1,48 @@
 import styles from './UploadedTrackList.module.scss';
-import { Track } from '../../../../entities/Track';
-import { useUserInfoStore } from '../../../../entities/User';
-import type { IUploadedTrackListProps } from '../../model/types';
-import { NextStepButton } from '../../../../shared/ui/NextStepButton/NextStepButton';
+import {useUserInfoStore} from '../../../../entities/User';
+import {useReleaseStore} from "../../../../processes/release/CreateRelease";
+import {useGlobalTrackStore} from "../../../../widgets/Player/model/globalTrackStore";
+import {Track} from '../../../../entities/Track';
+import {NextStepButton} from '../../../../shared/ui/NextStepButton/NextStepButton';
+import {setTrackWrapper} from "../../../../entities/Track/helpler/setTrackGlobal";
+import {playPauseWrapper} from "../../../../entities/Track/helpler/playPause";
+import type {IUploadedTrackListProps} from '../../model/types';
 
 
+export const UploadedTrackList = ({albumName, trackList, sendRelease}: IUploadedTrackListProps) => {
 
-
-export const UploadedTrackList = ({ albumName, trackList, sendRelease }: IUploadedTrackListProps) => {
-
+    const {setTrackInfoGlobal, trackInfoGlobal, audioRefGlobal} = useGlobalTrackStore(state => state)
+    const {coverPath} = useReleaseStore(state => state.release)
     const {userName} = useUserInfoStore()
-    console.log(trackList);
 
     return (
         <div className={styles.uploadedTrackListWrapper}>
             <h2 className={styles.uploadedTrackListHeader}>Альбом {albumName}</h2>
             <div className={styles.wrapperForPaddingScroll}>
                 <ul className={styles.uploadedTrackList}>
-                    {trackList.map((el, index) => {
+                    {trackList.map(({trackPath, trackName, trackDuration}) => {
+                        const setTrack = setTrackWrapper(trackPath, setTrackInfoGlobal, trackInfoGlobal, trackName, userName, trackDuration, coverPath)
+                        const playPause = playPauseWrapper(trackName, trackInfoGlobal, userName, setTrackInfoGlobal, audioRefGlobal)
                         return (
-                            <Track
-                                trackDuration={el.trackDuration}
-                                trackPosition={index + 1}
-                                authorName={userName}
-                                trackName={el.trackName}
-                                trackPath={el.trackPath}
-                                textColor={'black'}
-                            />
+                            <li className={styles.uploadedTrackItem}>
+                                <Track
+                                    coverWidthHeight={15}
+                                    fontSize={15}
+                                    coverPath={coverPath}
+                                    setTrack={setTrack}
+                                    playPause={playPause}
+                                    trackDuration={trackDuration}
+                                    authorName={userName}
+                                    trackName={trackName}
+                                    trackPath={trackPath}
+                                    textColor="black"
+                                />
+                            </li>
                         )
                     })}
                 </ul>
             </div>
-            <NextStepButton text={'Загрузить альбом'} action={sendRelease}/>
+            <NextStepButton text="Загрузить альбом" action={sendRelease}/>
         </div>
     );
 };

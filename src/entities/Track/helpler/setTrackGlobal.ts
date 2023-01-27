@@ -6,16 +6,18 @@ export const setTrackWrapper = (
     trackInfoGlobal: ITrackInfoGlobal,
     trackName: string,
     authorName: string,
-) => {
-    return () => {
+    trackDuration: number,
+    coverPath?: string
+) => () => {
         if (trackPath) {
             setTrackInfoGlobal({
                 ...trackInfoGlobal,
-                trackName: trackName,
-                trackPath: trackPath,
-                authorName: authorName,
+                trackName,
+                trackDuration,
+                trackPath,
+                coverPath,
+                authorName,
                 isPlay: true
             });
         }
-    };
-}
+    }

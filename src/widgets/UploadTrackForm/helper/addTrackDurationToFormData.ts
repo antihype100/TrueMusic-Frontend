@@ -7,7 +7,7 @@ export const addTrackDurationToFormData = (
         const url = URL.createObjectURL(uploadTrackFile);
         const audio = document.createElement('audio');
         audio.src = url;
-        audio.onloadedmetadata = function() {
+        audio.onloadedmetadata = () => {
             setTrackDuration(audio.duration);
             trackData.append('trackDuration', audio.duration.toString());
         };

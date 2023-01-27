@@ -27,17 +27,14 @@ export const UploadTrackForm = () => {
     const { release } = useReleaseStore((state) => state);
     const { userName } = useUserInfoStore(state => state);
 
-
     useEffect(() => {
         addTrackDurationToFormData(uploadTrackFile, setTrackDuration, trackData)
     }, [uploadTrackFile]);
 
-
     const onSubmit: SubmitHandler<IFormUploadTrack> = (data) => {
         addDataToFormData(release, data, trackData,uploadTrackFile,
-            userName, uploadTrackList, trackDuration, setUploadTrackFile, reset);
+            userName, uploadTrackList, trackDuration, setUploadTrackFile, reset, trackNumber);
     };
-
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className={styles.uploadForm}>
@@ -51,28 +48,28 @@ export const UploadTrackForm = () => {
                 <ReactHookFormInput
                     register={register}
                     icon={message}
-                    placeholder={'Название трека'}
-                    inputName={'trackName'}
+                    placeholder="Название трека"
+                    inputName="trackName"
                 />
                 <ReactHookFormInput
                     register={register}
                     icon={message}
-                    placeholder={'Описание трека'}
-                    inputName={'descriptionTrack'}
+                    placeholder="Описание трека"
+                    inputName="descriptionTrack"
                 />
                 <textarea
                     {...register('trackText', { required: true })}
                     className={styles.formInputTextArea}
-                    placeholder={'Текст'}
+                    placeholder="Текст"
                     rows={5}
                 />
                 <UploadFileButton
                     fileName={uploadTrackFile.name}
-                    placeholder={'Выберите трек'}
+                    placeholder="Выберите трек"
                     setFile={setUploadTrackFile}
                 />
                 <NextStepButton
-                    text={'Добавить еще песню'}
+                    text="Добавить еще песню"
                     action={() => setTrackNumber(trackNumber + 1)}
                     isValid={isValid && Boolean(uploadTrackFile.name)}
                 />

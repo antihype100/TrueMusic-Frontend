@@ -1,96 +1,49 @@
 @import '../../../../app/styles/color';
 
-.playerTrack {
+.trackWrapper {
 	display: flex;
-	align-items: center;
+
+	align-items: end;
 	width: 99%;
 }
 
-.img {
+.trackCover {
 	border-radius: 3px;
-	margin-right: 20px;
-	height: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 50px);
-	width: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 50px);
+	margin-right: 13px;
 }
 
-.numberPosition {
-	margin-right: 20px;
-	font-style: italic;
-	font-weight: 500;
-	font-size: calc((100vw - 180px) / (1280 - 480) * (21 - 16) + 4px);
-	line-height: 18px;
-	letter-spacing: 0.03em;
-	color: black;
+.trackInfoWrapper {
+	align-items: start;
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+
 }
 
 .contentAndInputWrapper {
 	display: flex;
+	align-items: start;
 	flex-direction: column;
 	width: 100%;
-
 }
 
-.rightLeftContentWrapper {
-	display: flex;
-	justify-content: space-between;
-}
 
-.leftContentWrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: start;
-	justify-content: space-between;
-}
-
-.whiteTextAuthorName {
+.authorName {
 	font-weight: 700;
-	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 9px);
-	margin-bottom: 3px;
 	letter-spacing: 0.03em;
 	color: #ffffff;
+	margin-bottom: 6px;
 }
-.blackTextAuthorName {
-	font-weight: 700;
-	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 9px);
-	margin-bottom: 3px;
-	letter-spacing: 0.03em;
-	color: black;
-}
+
 
 .trackName {
+	display: block;
 	font-weight: 400;
-	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 9px);
 	letter-spacing: 0.03em;
-	margin-bottom: 3px;
+
 }
 
-.currentTime {
-	font-style: italic;
-	font-weight: 400;
-	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 8px);
-	letter-spacing: 0.03em;
-	margin-bottom: 5px;
-	color: #979797;
-}
 
-.statisticWrapper {
-	display: flex;
-	align-items: center;
-}
 
-.rightContent {
-	display: flex;
-	flex-direction: column;
-	justify-content: end;
-}
-
-.playerTrackDuration {
-	font-style: italic;
-	font-weight: 400;
-	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 8px);
-	letter-spacing: 0.03em;
-	margin-bottom: 5px;
-	color: #979797;
-}
 
 

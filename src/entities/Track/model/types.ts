@@ -1,20 +1,26 @@
+import {ReactNode} from "react";
+
 export interface ITrackProps {
     trackPosition?: number;
     authorName: string;
     trackName: string;
     textColor?: string;
-    trackPath?: string
-    trackDuration?: number
+    trackPath?: string;
+    coverPath?: string;
+    trackDuration?: number;
+    coverWidthHeight: number;
+    fontSize: number,
+    playPause?: () => void;
+    setTrack?: () => void;
+    ProgressBar?: ReactNode;
+    Like?: ReactNode;
+
 }
 
-export interface ILeftContent {
-    authorName: string,
-    trackName: string,
+export interface ITrackInfoProps {
+    authorName: string;
+    trackName: string;
     textColor?: string;
-    currentTime: number
-}
 
-export interface IRightContent {
-    duration: number,
-    textColor?: string
+    fontSize: number
 }

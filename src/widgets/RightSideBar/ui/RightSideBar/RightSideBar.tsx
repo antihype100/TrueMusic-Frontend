@@ -6,8 +6,8 @@ export const RightSideBar = () => {
 
     return (
         <aside className={styles.rightSideBar}>
-            <TrackList amountTracks={amountTracks} header='Уходящая неделя' />
-            <TrackList amountTracks={amountTracks} header='Уходящий месяц' />
+            <TrackList amountTracks={amountTracks} title='Уходящая неделя' />
+            <TrackList amountTracks={amountTracks} title='Уходящий месяц' />
         </aside>
     );
 };

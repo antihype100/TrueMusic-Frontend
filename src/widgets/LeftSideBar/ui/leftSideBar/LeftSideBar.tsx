@@ -11,7 +11,7 @@ export const LeftSideBar = () => {
             <img className={styles.logo} src={logo} alt='' />
             <NavMenu />
             <hr className='sideBarHr' />
-            <TrackList amountTracks={amountTracks} header='Ваш плейлист' />
+            <TrackList amountTracks={amountTracks} title='Ваш плейлист' />
         </aside>
     );
 };

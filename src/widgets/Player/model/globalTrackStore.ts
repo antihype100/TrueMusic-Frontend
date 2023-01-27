@@ -1,14 +1,16 @@
 import create from 'zustand';
 import { RefObject } from 'react';
 
+
+
 export interface ITrackResponse {
     albumId: number,
     authorName: string,
     createdAt: string,
-    descriptionTrack: string,
-    duration: string,
+    trackDescription: string,
+    trackDuration: number,
     id: number,
-    production: string,
+    trackProduction: string,
     trackName: string,
     trackPath: string,
     trackText: string,
@@ -17,16 +19,17 @@ export interface ITrackResponse {
 
 export interface ITrackInfoGlobal {
     trackPath: string,
+    coverPath?: string,
     trackName: string,
     authorName: string,
-    duration: number,
+    trackDuration: number,
     isPlay: boolean,
 }
 
 export interface IGlobalTrackStore {
     trackInfoGlobal: ITrackInfoGlobal
     audioRefGlobal: RefObject<HTMLAudioElement> | null
-    currentTime: number,
+    trackCurrentTime: number,
     indexInGlobalTrackList: number,
     globalTrackList: ITrackResponse[],
 
@@ -43,18 +46,18 @@ export const useGlobalTrackStore = create<IGlobalTrackStore>()(
             trackName: 'Track',
             trackPath: '',
             authorName: 'Author',
-            duration: 0,
+            trackDuration: 0,
             isPlay: false,
         },
         audioRefGlobal: null,
-        currentTime: 0,
+        trackCurrentTime: 0,
         globalTrackList: [],
         indexInGlobalTrackList: 0,
 
 
         setTrackInfoGlobal: (trackInfo) => set(() => ({ trackInfoGlobal: trackInfo })),
         setAudioRefGlobal: (ref) => set(() => ({ audioRefGlobal: ref })),
-        setCurrentTime: (currentTime) => set(() => ({ currentTime })),
+        setCurrentTime: (trackCurrentTime) => set(() => ({ trackCurrentTime })),
         setGlobalTrackList: (trackList) => set(() => ({ globalTrackList: trackList })),
 
     }),

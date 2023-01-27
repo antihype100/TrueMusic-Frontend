@@ -1,12 +1,12 @@
-import { memo, useEffect, useRef } from 'react';
-import { useGlobalTrackStore } from '../../model/globalTrackStore';
-import { baseUrl } from '../../../../shared/api/baseUrl';
+import {memo, useEffect, useRef} from 'react';
+import {useGlobalTrackStore} from '../../model/globalTrackStore';
+import {baseUrl} from '../../../../shared/api/baseUrl';
 
 interface IAudio {
     trackPath: string;
 }
 
-export const Audio = memo(({ trackPath }: IAudio) => {
+export const Audio = memo(({trackPath}: IAudio) => {
     const audioRef = useRef(null);
     const setRef = useGlobalTrackStore(state => state.setAudioRefGlobal);
     const setCurrentTime = useGlobalTrackStore(state => state.setCurrentTime);
@@ -31,6 +31,6 @@ export const Audio = memo(({ trackPath }: IAudio) => {
             src={window.location.href.split('/').pop() === 'upload-track'
                 ? trackPath
                 : `${baseUrl}/track${trackPath}`}
-            preload='metadata'></audio>
+            preload='metadata'/>
     );
 });

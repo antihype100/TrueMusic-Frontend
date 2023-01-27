@@ -8,7 +8,7 @@ export const sendRelease = async (trackData: FormData, release: IRelease) => {
         },
     });
     if (release) {
-        await axios.post('/release/upload/cover', release.coverFile, {
+        await axios.post('/release/upload/cover', release.coverData, {
             headers: {
                 'content-type': 'multipart/form-data; charset=UTF-8',
             },

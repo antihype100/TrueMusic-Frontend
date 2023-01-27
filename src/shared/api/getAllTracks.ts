@@ -1,5 +1,3 @@
 import axios from './axios';
 
-export const getAllTracks = () => {
-    return axios.get('track/all')
-}
+export const getAllTracks = () => axios.get('track/all')

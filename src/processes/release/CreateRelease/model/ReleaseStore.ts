@@ -5,7 +5,8 @@ export interface IRelease {
     descriptionAlbum: string;
     genre: string;
     formatRelease: string;
-    coverFile: FormData | any;
+    coverData: FormData | any;
+    coverPath: string
 }
 
 interface IReleaseStore {
