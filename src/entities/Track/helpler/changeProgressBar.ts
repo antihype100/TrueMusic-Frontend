@@ -1,7 +1,7 @@
 import { RefObject } from 'react';
 import { IGlobalTrackInfo } from '../../../widgets/Player/model/globalTrackStore';
 
-export const changeProgressBar = (
+export const changeProgressBarWrapper = (
     authorName: string,
     trackInfoGlobal: IGlobalTrackInfo,
     trackName: string,

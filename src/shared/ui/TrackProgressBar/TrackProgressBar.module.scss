@@ -8,17 +8,18 @@
 	font-weight: 400;
 	margin-top: 12px;
 	display: flex;
-	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 11px);
+	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 12px);
 	justify-content: space-between;
 	align-items: start;
 }
 .trackCurrentTimeWrapper {
 	display: flex;
+	align-items: end;
 }
 
 .trackCurrentTime {
 	display: flex;
-	width: 60px;
+	width: 50px;
 }
 
 

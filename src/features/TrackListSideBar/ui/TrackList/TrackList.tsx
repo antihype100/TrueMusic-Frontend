@@ -16,6 +16,7 @@ export const TrackList = ({amountTracks, title, trackList}: IPlaylistSideBar) =>
     const {globalTrackInfo, audioRefGlobal, setTrackInfoGlobal, globalTrackList} = useGlobalTrackStore(state => state);
 
     const coverWidthHeight = (window.screen.width - 480) / (1280 - 480) * (18 - 16) + 50
+    const fontSize = (window.screen.width - 480) / (1280 - 480) * (16 - 16) + 10
 
     return (
         <ul className={styles.playlistSideBar}>
@@ -27,7 +28,7 @@ export const TrackList = ({amountTracks, title, trackList}: IPlaylistSideBar) =>
                     return (
                         <li className={styles.trackListItem} key={id}>
                             <Track
-                                fontSize={15}
+                                fontSize={fontSize}
                                 coverWidthHeight={coverWidthHeight}
                                 trackPath={trackPath}
                                 authorName={authorName}

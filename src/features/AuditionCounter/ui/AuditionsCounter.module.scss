@@ -1,12 +1,11 @@
-.likeCounterWrapper {
+.auditionsCounterWrapper {
   display: flex;
   align-items: end;
+  margin-left: 10px;
   position: relative;
-  margin-left: 40px;
   color: #979797;
 }
-.likeIcon {
+.headphonesIcon {
   position: absolute;
-  width: 20px;
   right: -23px;
 }

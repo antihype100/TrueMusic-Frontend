@@ -16,7 +16,8 @@ export const Track = (
         coverWidthHeight,
         fontSize,
         ProgressBar,
-        Like,
+        LikeCounter,
+        AuditionsCounter
     }: ITrackProps) => (
     <div className={styles.trackWrapper}>
         <img
@@ -35,13 +36,19 @@ export const Track = (
             }}
         />
         <div className={styles.contentAndInputWrapper}>
-            <TrackInfo
-                fontSize={fontSize}
-                textColor={textColor}
-                authorName={authorName}
-                trackName={trackName}
-            />
-            {Like}
+            <div className={styles.likeAndAuditionsAndTrackInfoWrapper}>
+                <TrackInfo
+                    fontSize={fontSize}
+                    textColor={textColor}
+                    authorName={authorName}
+                    trackName={trackName}
+                />
+                <div className={styles.likeAndAuditionsWrapper}>
+                    {AuditionsCounter}
+                    {LikeCounter}
+                </div>
+
+            </div>
             {ProgressBar}
         </div>
     </div>

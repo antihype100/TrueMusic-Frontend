@@ -17,12 +17,14 @@ export const playPauseGlobalPlayerWrapper = (
 
 
 export const nextTrackWrapper = (
+    setCurrentTime: (currentTime: number) => void,
     playingTrackIdx: number,
     globalTrackList: ITrackResponse[],
     setTrackInfoGlobal: (globalTrackInfo: IGlobalTrackInfo) => void,
-    audioRefGlobal: RefObject<HTMLAudioElement> | null,
+    audioRefGlobal?: RefObject<HTMLAudioElement> | null,
 ) => () => {
     if (playingTrackIdx < globalTrackList.length - 1) {
+        setCurrentTime(0)
         setTrackInfoGlobal({...globalTrackList[playingTrackIdx + 1], isPlay: true})
         setTimeout(() => audioRefGlobal?.current?.play(), 300)
     }
@@ -31,12 +33,14 @@ export const nextTrackWrapper = (
 }
 
 export const prevTrackWrapper = (
+    setCurrentTime: (currentTime: number) => void,
     playingTrackIdx: number,
     globalTrackList: ITrackResponse[],
     setTrackInfoGlobal: (globalTrackInfo: IGlobalTrackInfo) => void,
     audioRefGlobal: RefObject<HTMLAudioElement> | null,
 ) => () => {
     if (playingTrackIdx > 0) {
+        setCurrentTime(0)
         setTrackInfoGlobal({...globalTrackList[playingTrackIdx - 1], isPlay: true})
         setTimeout(() => audioRefGlobal?.current?.play(), 300)
     }

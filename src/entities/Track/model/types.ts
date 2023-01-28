@@ -13,7 +13,8 @@ export interface ITrackProps {
     playPause?: () => void;
     setTrack?: () => void;
     ProgressBar?: ReactNode;
-    Like?: ReactNode;
+    LikeCounter?: ReactNode;
+    AuditionsCounter?: ReactNode
 
 }
 

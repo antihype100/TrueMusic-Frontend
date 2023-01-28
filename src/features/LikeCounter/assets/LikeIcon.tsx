@@ -8,7 +8,7 @@ export const LikeIcon = ({isLiked}: ILikeIcon) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         fill={isLiked ? "red" : 'black'}
-        viewBox="0 0 24 24"
+        viewBox="0 0 23 23"
         strokeWidth={1.5}
         stroke="currentColor"
         className={styles.likeIcon}>

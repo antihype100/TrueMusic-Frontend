@@ -5,11 +5,13 @@ interface ITrackProgressBarProps {
     trackDuration: number,
     trackCurrentTime: number
     handleChange: (e: any) => void,
-    LikeInGlobalPLayer?: ReactNode;
+    LikeCounter?: ReactNode;
+
+    AuditionsCounter?: ReactNode
 
 }
 
-export const TrackProgressBar = ({trackDuration, trackCurrentTime, handleChange, LikeInGlobalPLayer}: ITrackProgressBarProps) => {
+export const TrackProgressBar = ({trackDuration, trackCurrentTime, handleChange, LikeCounter, AuditionsCounter}: ITrackProgressBarProps) => {
     const [value, setValue] = useState(0)
 
     useEffect(() => {
@@ -23,7 +25,8 @@ export const TrackProgressBar = ({trackDuration, trackCurrentTime, handleChange,
                     <span className={styles.trackCurrentTime}>{
                         Math.floor(trackCurrentTime / 60).toString().padStart(2, '0')}:{Math.floor(trackCurrentTime % 60).toString().padStart(2, '0')}
                     </span>
-                    {LikeInGlobalPLayer}
+                    {AuditionsCounter}
+                    {LikeCounter}
                 </span>
                 <span className={styles.trackDuration}>
                     {Math.floor(trackDuration / 60).toString().padStart(2, '0')}:{Math.floor(trackDuration % 60).toString().padStart(2, '0')}

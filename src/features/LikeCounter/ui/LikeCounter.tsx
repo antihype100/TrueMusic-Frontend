@@ -14,6 +14,7 @@ export const LikeCounter = ({usersLiked, trackId, isLiked,}: ILikeCounter) => {
     const {globalTrackList, setGlobalTrackList, setTrackInfoGlobal, globalTrackInfo} = useGlobalTrackStore(state => state)
     const likeAction = likeActionWrapper(trackId, globalTrackList, setGlobalTrackList, setTrackInfoGlobal, globalTrackInfo)
 
+
     return (
         <div onClick={likeAction} className={styles.likeCounterWrapper}>
             <span>{usersLiked}</span>

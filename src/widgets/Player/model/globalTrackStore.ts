@@ -2,6 +2,7 @@ import create from 'zustand';
 import { RefObject } from 'react';
 
 export interface ITrackResponse {
+    isPlay?: boolean;
     albumId: number,
     authorName: string,
     createdAt: string,
@@ -11,6 +12,7 @@ export interface ITrackResponse {
     usersAuditions: number
     id: number;
     isLiked: boolean | undefined;
+    isAudition: boolean | undefined
     trackProduction: string,
     trackName: string,
     trackPath: string,
@@ -20,7 +22,8 @@ export interface ITrackResponse {
 
 export interface IGlobalTrackInfo extends ITrackResponse{
     coverPath?: string;
-    isPlay?: boolean;
+    isPlay?: boolean
+
 }
 
 export interface IGlobalTrackStore {
@@ -46,6 +49,7 @@ export const useGlobalTrackStore = create<IGlobalTrackStore>()(
             trackDuration: 0,
             id: 0,
             isLiked: undefined,
+            isAudition: undefined,
             isPlay: false,
             albumId: 0,
             createdAt: '',

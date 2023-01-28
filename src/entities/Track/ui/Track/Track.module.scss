@@ -20,6 +20,16 @@
 
 }
 
+.likeAndAuditionsAndTrackInfoWrapper {
+	display: flex;
+	width: 100%;
+}
+
+.likeAndAuditionsWrapper {
+	display: flex;
+	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 13px);
+}
+
 .contentAndInputWrapper {
 	display: flex;
 	align-items: start;
@@ -34,7 +44,6 @@
 	color: #ffffff;
 	margin-bottom: 6px;
 }
-
 
 .trackName {
 	display: block;
