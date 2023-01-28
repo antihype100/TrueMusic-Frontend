@@ -32,7 +32,7 @@ export const TrackProgressBar = ({trackDuration, trackCurrentTime, handleChange,
             </div>
             <input
                 className={`${styles.inputDuration} ${styles.sliderProgress}`}
-                max={100}
+                max={trackDuration}
                 value={value}
                 type='range'
                 min={0}

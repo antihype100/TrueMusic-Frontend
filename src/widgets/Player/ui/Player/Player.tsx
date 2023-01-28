@@ -1,4 +1,3 @@
-import {useEffect, useState} from "react";
 import styles from './Player.module.scss';
 import { Track } from '../../../../entities/Track';
 import { PlayPauseNextPrevButton } from '../PlayPauseNextPrevButton/PlayPauseNextPrevButton';
@@ -12,18 +11,15 @@ import {LikeCounter} from "../../../../features/LikeCounter";
 
 export const Player = () => {
 
-    const { trackInfoGlobal, trackCurrentTime, audioRefGlobal, setTrackInfoGlobal } = useGlobalTrackStore(state => state);
-    const {authorName, trackName, trackPath, trackDuration, coverPath, trackId, isLiked} = trackInfoGlobal
-    const [usersLiked, setUsersLiked] = useState(0)
-    const playPause = playPauseGlobalPlayerWrapper(audioRefGlobal, trackInfoGlobal, setTrackInfoGlobal)
-    const handleChange = changeProgressBar(authorName, trackInfoGlobal, trackName, audioRefGlobal )
+    const { globalTrackInfo, trackCurrentTime, audioRefGlobal, setTrackInfoGlobal } = useGlobalTrackStore(state => state);
+    const {authorName, trackName, trackPath, trackDuration, coverPath, id, usersLiked, isLiked} = globalTrackInfo
 
     const coverWidthHeight = (window.screen.width - 480) / (1280 - 480) * (18 - 16) + 75
     const fontSize = (window.screen.width - 480) / (1280 - 480) * (18 - 16) + 9
 
-    useEffect(() => {
-        setUsersLiked(trackInfoGlobal.usersLiked)
-    }, [trackInfoGlobal])
+    const playPause = playPauseGlobalPlayerWrapper(audioRefGlobal, globalTrackInfo, setTrackInfoGlobal)
+    const handleChange = changeProgressBar(authorName, globalTrackInfo, trackName, audioRefGlobal )
+
 
     return (
         <div className={styles.player}>
@@ -44,7 +40,7 @@ export const Player = () => {
                         trackCurrentTime={trackCurrentTime}
                         trackDuration={trackDuration}
                         LikeInGlobalPLayer={
-                        <LikeCounter isLiked={isLiked} trackId={trackId} usersLiked={usersLiked}/>
+                        <LikeCounter isLiked={isLiked} trackId={id} usersLiked={usersLiked}/>
                         }
                     />
                 }

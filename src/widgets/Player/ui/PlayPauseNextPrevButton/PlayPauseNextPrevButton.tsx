@@ -8,20 +8,20 @@ import { Next } from '../../assets/Next';
 import { Play } from '../../assets/Play';
 
 export const PlayPauseNextPrevButton = () => {
-    const { audioRefGlobal, trackInfoGlobal, setTrackInfoGlobal, globalTrackList } = useGlobalTrackStore(state => state)
+    const { audioRefGlobal, globalTrackInfo, setTrackInfoGlobal, globalTrackList } = useGlobalTrackStore(state => state)
 
-    const playingTrackIdx = getPlayingTrackIndex(globalTrackList, trackInfoGlobal)
+    const playingTrackIdx = getPlayingTrackIndex(globalTrackList, globalTrackInfo)
 
-    const nextTrack = nextTrackWrapper(playingTrackIdx, globalTrackList, setTrackInfoGlobal, audioRefGlobal, trackInfoGlobal)
-    const prevTrack = prevTrackWrapper(playingTrackIdx, globalTrackList, setTrackInfoGlobal, audioRefGlobal, trackInfoGlobal)
-    const playPause = playPauseGlobalPlayerWrapper(audioRefGlobal, trackInfoGlobal, setTrackInfoGlobal)
+    const nextTrack = nextTrackWrapper(playingTrackIdx, globalTrackList, setTrackInfoGlobal, audioRefGlobal)
+    const prevTrack = prevTrackWrapper(playingTrackIdx, globalTrackList, setTrackInfoGlobal, audioRefGlobal)
+    const playPause = playPauseGlobalPlayerWrapper(audioRefGlobal, globalTrackInfo, setTrackInfoGlobal)
 
 
     return (
         <div className={styles.playPauseNextPrevButtonWrapper}>
             <Prev onClick={() => prevTrack()}/>
             {
-                trackInfoGlobal.isPlay
+                globalTrackInfo.isPlay
                 ? <Pause onClick={() => playPause()}/>
                 : <Play onClick={() => playPause()}/>
             }

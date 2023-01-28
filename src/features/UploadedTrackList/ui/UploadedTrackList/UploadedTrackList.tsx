@@ -4,14 +4,13 @@ import {useReleaseStore} from "../../../../processes/release/CreateRelease";
 import {useGlobalTrackStore} from "../../../../widgets/Player/model/globalTrackStore";
 import {Track} from '../../../../entities/Track';
 import {NextStepButton} from '../../../../shared/ui/NextStepButton/NextStepButton';
-import {setTrackWrapper} from "../../../../entities/Track/helpler/setTrackGlobal";
 import {playPauseWrapper} from "../../../../entities/Track/helpler/playPause";
 import type {IUploadedTrackListProps} from '../../model/types';
 
 
 export const UploadedTrackList = ({albumName, trackList, sendRelease}: IUploadedTrackListProps) => {
 
-    const {setTrackInfoGlobal, trackInfoGlobal, audioRefGlobal} = useGlobalTrackStore(state => state)
+    const {setTrackInfoGlobal, globalTrackInfo, audioRefGlobal} = useGlobalTrackStore(state => state)
     const {coverPath} = useReleaseStore(state => state.release)
     const {userName} = useUserInfoStore()
 
@@ -21,8 +20,8 @@ export const UploadedTrackList = ({albumName, trackList, sendRelease}: IUploaded
             <div className={styles.wrapperForPaddingScroll}>
                 <ul className={styles.uploadedTrackList}>
                     {trackList.map(({trackPath, trackName, trackDuration}) => {
-                        const setTrack = setTrackWrapper(trackPath, setTrackInfoGlobal, trackInfoGlobal, trackName, userName, trackDuration, coverPath)
-                        const playPause = playPauseWrapper(trackName, trackInfoGlobal, userName, setTrackInfoGlobal, audioRefGlobal)
+                        const setTrack = () => {}
+                        const playPause = playPauseWrapper(trackName, globalTrackInfo, userName, setTrackInfoGlobal, audioRefGlobal)
                         return (
                             <li className={styles.uploadedTrackItem}>
                                 <Track

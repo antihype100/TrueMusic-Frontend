@@ -1,15 +1,37 @@
 import axios from "../../../shared/api/axios";
+import {IGlobalTrackInfo, ITrackResponse} from "../../../widgets/Player/model/globalTrackStore";
 
 export const likeActionWrapper = (
     trackId: number,
-    setIsLiked: (value: boolean) => void,
-) => () =>
+    globalTrackList: ITrackResponse[],
+    setGlobalTrackList: (trackList: ITrackResponse[]) => void,
+    setTrackInfoGlobal: (trackInfo: ITrackResponse ) => void,
+    globalTrackInfo: IGlobalTrackInfo
+) => () => {
+
     axios.post('track/like', {
         trackId
     }).then(res => {
+        const track: ITrackResponse[] = globalTrackList.filter(track => track.id === trackId)
+        const idx = globalTrackList.indexOf(track[0])
+
         if (res.data.action === 'like') {
-            setIsLiked(true)
+            track[0].isLiked = true
+            track[0].usersLiked += 1
+            if (trackId === globalTrackInfo.id) {
+                setTrackInfoGlobal(track[0])
+            }
+            const newGlobalTrackLIst = [...globalTrackList.slice(0, idx), track[0], ...globalTrackList.slice(idx + 1)]
+            setGlobalTrackList(newGlobalTrackLIst)
         } else {
-            setIsLiked(false)
+            track[0].isLiked = false
+            track[0].usersLiked -= 1
+            if (trackId === globalTrackInfo.id) {
+                setTrackInfoGlobal(track[0])
+            }
+            const newGlobalTrackLIst = [...globalTrackList.slice(0, idx), track[0], ...globalTrackList.slice(idx + 1)]
+            setGlobalTrackList(newGlobalTrackLIst)
         }
     })
+}
+

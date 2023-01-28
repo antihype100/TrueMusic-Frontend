@@ -1,17 +1,17 @@
 import {RefObject} from 'react';
-import {ITrackInfoGlobal, ITrackResponse} from '../model/globalTrackStore';
+import {IGlobalTrackInfo, ITrackResponse} from '../model/globalTrackStore';
 
 export const playPauseGlobalPlayerWrapper = (
     audioRefGlobal: RefObject<HTMLAudioElement> | null,
-    trackInfoGlobal: ITrackInfoGlobal,
-    setTrackInfoGlobal: (trackInfoGlobal: ITrackInfoGlobal) => void,
+    globalTrackInfo: IGlobalTrackInfo,
+    setTrackInfoGlobal: (globalTrackInfo: IGlobalTrackInfo) => void,
 ) => () => {
-    if (!trackInfoGlobal.isPlay) {
+    if (!globalTrackInfo.isPlay) {
         audioRefGlobal?.current?.play();
-        setTrackInfoGlobal({...trackInfoGlobal, isPlay: true});
+        setTrackInfoGlobal({...globalTrackInfo, isPlay: true});
     } else {
         audioRefGlobal?.current?.pause();
-        setTrackInfoGlobal({...trackInfoGlobal, isPlay: false});
+        setTrackInfoGlobal({...globalTrackInfo, isPlay: false});
     }
 }
 
@@ -19,25 +19,28 @@ export const playPauseGlobalPlayerWrapper = (
 export const nextTrackWrapper = (
     playingTrackIdx: number,
     globalTrackList: ITrackResponse[],
-    setTrackInfoGlobal: (trackInfoGlobal: ITrackInfoGlobal) => void,
+    setTrackInfoGlobal: (globalTrackInfo: IGlobalTrackInfo) => void,
     audioRefGlobal: RefObject<HTMLAudioElement> | null,
-    trackInfoGlobal: ITrackInfoGlobal
 ) => () => {
-    const {trackPath, trackName, authorName} = globalTrackList[playingTrackIdx + 1]
-    setTrackInfoGlobal({...trackInfoGlobal, trackName, trackPath, authorName, isPlay: true})
-    setTimeout(() => audioRefGlobal?.current?.play(), 300)
+    if (playingTrackIdx < globalTrackList.length - 1) {
+        setTrackInfoGlobal({...globalTrackList[playingTrackIdx + 1], isPlay: true})
+        setTimeout(() => audioRefGlobal?.current?.play(), 300)
+    }
+
+
 }
 
 export const prevTrackWrapper = (
     playingTrackIdx: number,
     globalTrackList: ITrackResponse[],
-    setTrackInfoGlobal: (trackInfoGlobal: ITrackInfoGlobal) => void,
+    setTrackInfoGlobal: (globalTrackInfo: IGlobalTrackInfo) => void,
     audioRefGlobal: RefObject<HTMLAudioElement> | null,
-    trackInfoGlobal: ITrackInfoGlobal
 ) => () => {
-    const {trackPath, trackName, authorName} = globalTrackList[playingTrackIdx - 1]
-    setTrackInfoGlobal({...trackInfoGlobal, trackName, trackPath, authorName, isPlay: true})
-    setTimeout(() => audioRefGlobal?.current?.play(), 300)
+    if (playingTrackIdx > 0) {
+        setTrackInfoGlobal({...globalTrackList[playingTrackIdx - 1], isPlay: true})
+        setTimeout(() => audioRefGlobal?.current?.play(), 300)
+    }
+
 }
 
 

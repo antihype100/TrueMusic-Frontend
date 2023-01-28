@@ -10,14 +10,14 @@ import {getAllTracks} from "../../../shared/api/getAllTracks";
 
 
 export const TrackList = ({amountTracks}: ITrackListProps) => {
-    const {trackInfoGlobal, audioRefGlobal, setTrackInfoGlobal} = useGlobalTrackStore(state => state);
+    const {globalTrackInfo, audioRefGlobal, setTrackInfoGlobal, globalTrackList, setGlobalTrackList} = useGlobalTrackStore(state => state);
     const [trackList, setTrackList] = useState([])
-    const setGlobalTrackList = useGlobalTrackStore(state => state.setGlobalTrackList)
 
     useEffect(() => {
         getAllTracks().then(res => {
             setTrackList(res.data)
             setGlobalTrackList(res.data)
+            setTrackInfoGlobal(res.data[0])
         })
     }, [])
     const coverWidthHeight = (window.screen.width - 480) / (1280 - 480) * (18 - 16) + 50
@@ -26,10 +26,9 @@ export const TrackList = ({amountTracks}: ITrackListProps) => {
     return (
         <div className={styles.trackListWrapper}>
             <ul className={styles.trackList}>
-                {trackList.map(({id, trackName, trackPath, authorName, trackDuration, usersLiked, isLiked}, index) => {
-
-                    const setTrack = setTrackWrapper(trackPath, setTrackInfoGlobal, trackInfoGlobal, trackName, authorName, trackDuration, usersLiked, id, isLiked)
-                    const playPause = playPauseWrapper(trackName, trackInfoGlobal, authorName, setTrackInfoGlobal, audioRefGlobal)
+                {trackList.map(({id, trackName, trackPath, authorName, usersLiked, isLiked}, index) => {
+                    const setTrack = setTrackWrapper(id, setTrackInfoGlobal, globalTrackList)
+                    const playPause = playPauseWrapper(trackName, globalTrackInfo, authorName, setTrackInfoGlobal, audioRefGlobal)
 
                     return (
                         <li className={styles.trackListItem} key={id}>
@@ -42,7 +41,7 @@ export const TrackList = ({amountTracks}: ITrackListProps) => {
                                 trackPosition={index + 1}
                                 authorName={authorName}
                                 trackName={trackName}
-                                Like={<LikeCounter trackId={id} usersLiked={usersLiked}/>}
+                                Like={<LikeCounter isLiked={isLiked} trackId={id} usersLiked={usersLiked}/>}
                             />
                         </li>
                     );

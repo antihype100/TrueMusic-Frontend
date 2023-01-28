@@ -1,15 +1,16 @@
 import create from 'zustand';
 import { RefObject } from 'react';
 
-
-
 export interface ITrackResponse {
     albumId: number,
     authorName: string,
     createdAt: string,
     trackDescription: string,
     trackDuration: number,
-    id: number,
+    usersLiked: number;
+    usersAuditions: number
+    id: number;
+    isLiked: boolean | undefined;
     trackProduction: string,
     trackName: string,
     trackPath: string,
@@ -17,27 +18,19 @@ export interface ITrackResponse {
     updatedAt: string,
 }
 
-export interface ITrackInfoGlobal {
-    trackPath: string;
+export interface IGlobalTrackInfo extends ITrackResponse{
     coverPath?: string;
-    trackName: string;
-    authorName: string;
-    trackDuration: number;
-    usersLiked: number;
-    trackId: number;
-    isLiked: boolean
-    isPlay: boolean;
+    isPlay?: boolean;
 }
 
 export interface IGlobalTrackStore {
-    trackInfoGlobal: ITrackInfoGlobal
+    globalTrackInfo: IGlobalTrackInfo
     audioRefGlobal: RefObject<HTMLAudioElement> | null
     trackCurrentTime: number,
-    indexInGlobalTrackList: number,
     globalTrackList: ITrackResponse[],
 
 
-    setTrackInfoGlobal: (trackInfo: ITrackInfoGlobal) => void,
+    setTrackInfoGlobal: (trackInfo: IGlobalTrackInfo | ITrackResponse) => void,
     setAudioRefGlobal: (ref: RefObject<HTMLAudioElement>) => void
     setCurrentTime: (currentTime: number) => void,
     setGlobalTrackList: (trackList: ITrackResponse[]) => void,
@@ -45,23 +38,29 @@ export interface IGlobalTrackStore {
 
 export const useGlobalTrackStore = create<IGlobalTrackStore>()(
     (set) => ({
-        trackInfoGlobal: {
+        globalTrackInfo: {
             trackName: 'Track',
             trackPath: '',
             usersLiked: 0,
             authorName: 'Author',
             trackDuration: 0,
-            trackId: 0,
-            isLiked: false,
+            id: 0,
+            isLiked: undefined,
             isPlay: false,
+            albumId: 0,
+            createdAt: '',
+            trackText: '',
+            trackDescription: '',
+            usersAuditions: 0,
+            trackProduction: '',
+            updatedAt: '',
         },
         audioRefGlobal: null,
         trackCurrentTime: 0,
         globalTrackList: [],
-        indexInGlobalTrackList: 0,
 
 
-        setTrackInfoGlobal: (trackInfo) => set(() => ({ trackInfoGlobal: trackInfo })),
+        setTrackInfoGlobal: (trackInfo) => set(() => ({ globalTrackInfo: trackInfo })),
         setAudioRefGlobal: (ref) => set(() => ({ audioRefGlobal: ref })),
         setCurrentTime: (trackCurrentTime) => set(() => ({ trackCurrentTime })),
         setGlobalTrackList: (trackList) => set(() => ({ globalTrackList: trackList })),
