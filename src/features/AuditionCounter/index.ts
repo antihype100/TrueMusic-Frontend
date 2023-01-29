@@ -1,1 +1,1 @@
-export {AuditionsCounter} from "./ui/AuditionsCounter";
+export {AuditionCounter} from "./ui/AuditionCounter";

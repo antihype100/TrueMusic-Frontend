@@ -7,10 +7,10 @@ interface ILikeIcon {
 export const LikeIcon = ({isLiked}: ILikeIcon) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
-        fill={isLiked ? "red" : 'black'}
+        fill={isLiked ? "#8a0000" : 'black'}
         viewBox="0 0 23 23"
         strokeWidth={1.5}
-        stroke="currentColor"
+        stroke={isLiked ? '' : '#777777'}
         className={styles.likeIcon}>
         <path
             strokeLinecap="round"

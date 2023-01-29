@@ -7,7 +7,7 @@ import {TrackProgressBar} from "../../../../shared/ui/TrackProgressBar/TrackProg
 import {changeProgressBarWrapper} from "../../../../entities/Track/helpler/changeProgressBar";
 import {playPauseGlobalPlayerWrapper} from "../../helper/trackController";
 import {auditionActionWrapper, LikeCounter} from "../../../../features/LikeCounter";
-import {AuditionsCounter} from "../../../../features/AuditionCounter";
+import {AuditionCounter} from "../../../../features/AuditionCounter";
 
 
 export const Player = () => {
@@ -65,7 +65,7 @@ export const Player = () => {
                         trackCurrentTime={trackCurrentTime}
                         trackDuration={trackDuration}
                         LikeCounter={<LikeCounter isLiked={isLiked} trackId={id} usersLiked={usersLiked}/>}
-                        AuditionsCounter={<AuditionsCounter usersAuditions={usersAuditions}/>}
+                        AuditionsCounter={<AuditionCounter isAudition={isAudition} usersAuditions={usersAuditions}/>}
                     />}
                 />
                 <PlayPauseNextPrevButton/>

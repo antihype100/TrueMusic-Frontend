@@ -66,6 +66,7 @@ export const AuthForm = ({title}: IAuthFormProps) => {
             <NextStepButton
                 isValid={isValid}
                 text={title === 'Регистрация' ? 'Зарегистрироваться' : 'Войти'}
+                width={title !== 'Регистрация'}
                 action={() => {
                 }}
             />

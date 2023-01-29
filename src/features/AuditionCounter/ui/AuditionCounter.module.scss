@@ -1,4 +1,4 @@
-.auditionsCounterWrapper {
+.auditionCounterWrapper {
   display: flex;
   align-items: end;
   margin-left: 10px;
@@ -7,5 +7,10 @@
 }
 .headphonesIcon {
   position: absolute;
+  bottom: -1px;
   right: -23px;
+}
+
+.auditionCounter {
+  cursor: default;
 }

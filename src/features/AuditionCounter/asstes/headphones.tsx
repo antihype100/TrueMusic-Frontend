@@ -1,14 +1,18 @@
-import styles from '../ui/AuditionsCounter.module.scss'
+import styles from '../ui/AuditionCounter.module.scss'
 
-export const Headphones = () => (
+interface IHeadphones {
+    isAudition: boolean
+}
+
+export const Headphones = ({isAudition}: IHeadphones) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         className={styles.headphonesIcon}
         width="20"
         height="20"
         viewBox="0 0 23 23"
-        strokeWidth="1.5"
-        stroke="#979797"
+        strokeWidth="2"
+        stroke={isAudition ? "#979797" : 'rgba(86,86,86,0.69)'}
         fill="none"
 
         strokeLinecap="round"
