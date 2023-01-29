@@ -1,9 +1,10 @@
 .title {
   color: white;
   text-align: center;
-  font-size: calc((100vw - 480px) / (900 - 480) * (18 - 16) + 6px);
+  font-weight: 400;
+  font-size: calc((100vw - 480px) / (900 - 480) * (17 - 16) + 12px);
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .playlistSideBar {
   display: flex;
