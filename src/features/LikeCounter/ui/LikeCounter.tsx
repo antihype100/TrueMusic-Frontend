@@ -17,7 +17,7 @@ export const LikeCounter = ({usersLiked, trackId, isLiked,}: ILikeCounter) => {
 
     return (
         <div onClick={likeAction} className={styles.likeCounterWrapper}>
-            <span>{usersLiked}</span>
+            <span className={styles.likeCounter}>{usersLiked}</span>
             <LikeIcon isLiked={isLiked === undefined ? false : isLiked}/>
         </div>
     )

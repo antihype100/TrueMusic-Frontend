@@ -8,5 +8,11 @@
 .likeIcon {
   position: absolute;
   width: 20px;
+  bottom: -1px;
   right: -23px;
+  cursor: pointer;
+}
+
+.likeCounter {
+  cursor: default;
 }

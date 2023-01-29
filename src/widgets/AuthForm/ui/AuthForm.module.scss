@@ -3,11 +3,13 @@
 	flex-direction: column;
 	align-items: center;
 	border-radius: 7px;
-	background-color: #fff;
+	background-color: rgba(0, 0, 0, 0.48);
 	padding: 20px 35px 40px 35px;
+
 }
 
 .headerForm {
+	color: white;
 	font-size: 35px;
 	font-style: italic;
 	font-weight: 600;
@@ -24,16 +26,21 @@
 	font-weight: 600;
 	font-size: 14px;
 	letter-spacing: 0.03em;
-	color: #36435c;
+	color: #888888;
 	@media screen and (max-width: 1400px) {
 		font-size: 12px;
 	}
 
 	a {
 		text-decoration: none;
-		color: #699cff;
+		color: #2d77ff;
 		margin-left: 5px;
+		&:hover {
+			color: #8ebeff;
+		}
 	}
+
+
 }
 
 .signUpButton {
@@ -42,7 +49,6 @@
 	font-size: 18px;
 	letter-spacing: 0.03em;
 	color: #ffffff;
-	background: #610084;
 	border-radius: 49px;
 	border: none;
 	padding: 15px 30px;

@@ -1,21 +1,19 @@
 import styles from './NextStepButton.module.scss'
-import React from 'react';
 
 interface INextStepButton {
     text: string,
     isValid?: boolean,
-    action: Function
+    action: Function;
+    width?: boolean
 }
 
-export const NextStepButton = ({isValid = true, text, action}: INextStepButton) => {
-    return (
-        <button
-            type='submit'
-            disabled={!isValid}
-            onClick={() => action()}
-            className={styles.formButton}
-        >
-            {text}
-        </button>
-    )
-}
+export const NextStepButton = ({isValid = true, text, action, width}: INextStepButton) => (
+    <button
+        type='submit'
+        disabled={!isValid}
+        onClick={() => action()}
+        className={width ? `${styles.formButton} ${styles.width}` : styles.formButton}
+    >
+        {text}
+    </button>
+)

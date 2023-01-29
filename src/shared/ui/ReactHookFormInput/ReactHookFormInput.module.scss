@@ -3,10 +3,17 @@
 	align-items: center;
 	position: relative;
 	margin-top: 30px;
+
 }
 
 .inputForm {
+	background-color: rgba(0, 0, 0, 0.48);
 	border: none;
+	font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 7px);
+	color: #ffffff;
+	font-style: italic;
+	font-weight: 600;
+	letter-spacing: 0.03em;
 	width: calc(100vw / 5);
 	border-bottom: 1px solid #979797;
 	padding: 10px 0 10px 50px;
@@ -14,7 +21,6 @@
 		width: calc(100vw / 8);
 		padding-left: 30px;
 	}
-
 	&::placeholder {
 		font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 7px);
 		color: #979797;

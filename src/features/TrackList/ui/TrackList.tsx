@@ -7,7 +7,7 @@ import {ITrackResponse, useGlobalTrackStore} from "../../../widgets/Player/model
 import {playPauseWrapper} from "../../../entities/Track/helpler/playPause";
 import {LikeCounter} from "../../LikeCounter";
 import {getAllTracks} from "../../../shared/api/getAllTracks";
-import {AuditionsCounter} from "../../AuditionCounter";
+import {AuditionCounter} from "../../AuditionCounter";
 
 
 export const TrackList = ({amountTracks}: ITrackListProps) => {
@@ -27,7 +27,7 @@ export const TrackList = ({amountTracks}: ITrackListProps) => {
     return (
         <div className={styles.trackListWrapper}>
             <ul className={styles.trackList}>
-                {trackList.map(({id, trackName, trackPath, authorName, usersLiked, isLiked, usersAuditions}, index) => {
+                {trackList.map(({id, trackName, trackPath, authorName, usersLiked, isLiked, usersAuditions, isAudition}, index) => {
                     const setTrack = setTrackWrapper(id, setTrackInfoGlobal, globalTrackList)
                     const playPause = playPauseWrapper(trackName, globalTrackInfo, authorName, setTrackInfoGlobal, audioRefGlobal)
 
@@ -42,7 +42,7 @@ export const TrackList = ({amountTracks}: ITrackListProps) => {
                                 trackPosition={index + 1}
                                 authorName={authorName}
                                 trackName={trackName}
-                                AuditionsCounter={<AuditionsCounter usersAuditions={usersAuditions}/>}
+                                AuditionsCounter={<AuditionCounter isAudition={isAudition} usersAuditions={usersAuditions}/>}
                                 LikeCounter={<LikeCounter isLiked={isLiked} trackId={id} usersLiked={usersLiked}/>}
                             />
                         </li>

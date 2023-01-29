@@ -17,10 +17,12 @@
     "axios": "^1.2.3",
     "dotenv": "^16.0.3",
     "react": "^18.2.0",
-    "react-audio-player": "^0.17.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.41.5",
     "react-router-dom": "^6.6.1",
+    "react-tsparticles": "^2.8.0",
+    "tsparticles": "^2.8.0",
+    "tsparticles-engine": "^2.8.0",
     "zustand": "^4.2.0"
   },
   "devDependencies": {
