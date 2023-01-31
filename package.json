@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "rimraf ./dist && tsc && vite build",
     "preview": "vite preview",
     "format": "prettier --write \"**/*.{ts,tsx,scss}\"",
     "format:two": "prettier --tab-width 2 --write \"**/*.{ts,tsx,scss}\"",
