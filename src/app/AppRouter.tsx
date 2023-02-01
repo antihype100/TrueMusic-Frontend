@@ -34,7 +34,7 @@ import axios from "../shared/api/axios";
 const AppRouter = () => {
     const { setAuth, setRole, setUserName, auth } = useUserInfoStore((state) => state);
     useEffect(() => {
-        axios.post('http://localhost:5000/user/refresh', { reload: true }, { withCredentials: true }).then((res) => {
+        axios.post('https://truemusic-test.ru/api/user/refresh', { reload: true }, { withCredentials: true }).then((res) => {
             if (res.data.isLogin) {
                 setAuth(true);
                 setRole(res.data.user.role);
