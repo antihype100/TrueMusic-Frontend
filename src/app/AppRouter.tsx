@@ -29,17 +29,18 @@ import { AuthorMainPage } from '../pages/author/authorMainPage';
 import { CreateRelease } from '../processes/release/CreateRelease';
 import { UploadTrack } from '../processes/release/UploadTrack';
 import { useUserInfoStore } from '../entities/User';
+import axios from "../shared/api/axios";
 
 const AppRouter = () => {
     const { setAuth, setRole, setUserName, auth } = useUserInfoStore((state) => state);
     useEffect(() => {
-        // axios.post('http://localhost:5000/user/refresh', { reload: true }, { withCredentials: true }).then((res) => {
-        //     if (res.data.isLogin) {
-        //         setAuth(true);
-        //         setRole(res.data.user.role);
-        //         setUserName(res.data.user.userName);
-        //     }
-        // });
+        axios.post('http://localhost:5000/user/refresh', { reload: true }, { withCredentials: true }).then((res) => {
+            if (res.data.isLogin) {
+                setAuth(true);
+                setRole(res.data.user.role);
+                setUserName(res.data.user.userName);
+            }
+        });
     }, [auth]);
 
     return (

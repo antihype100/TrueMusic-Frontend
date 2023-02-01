@@ -16,9 +16,11 @@ export const TrackList = ({amountTracks}: ITrackListProps) => {
 
     useEffect(() => {
         getAllTracks().then(res => {
-            setTrackList(res.data)
-            setGlobalTrackList(res.data)
-            setTrackInfoGlobal(res.data[0])
+            if (res.data.length > 0) {
+                setTrackList(res.data)
+                setGlobalTrackList(res.data)
+                setTrackInfoGlobal(res.data[0])
+            }
         })
     }, [])
     const coverWidthHeight = (window.screen.width - 480) / (1280 - 480) * (18 - 16) + 50
