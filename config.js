@@ -1,2 +1,1 @@
-export const BASE_URL = 'http://localhost:5000'
-const x = 10
+export const BASE_URL = 'http://truemusic-test.ru/api'
