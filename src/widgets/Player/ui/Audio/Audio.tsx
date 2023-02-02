@@ -1,6 +1,5 @@
 import {memo, useEffect, useRef} from 'react';
 import {useGlobalTrackStore} from '../../model/globalTrackStore';
-import {BASE_URL} from "../../../../../config";
 import {nextTrackWrapper} from "../../helper/trackController";
 import {getPlayingTrackIndex} from "../../helper/getPlayingTrackIndex";
 
@@ -31,6 +30,8 @@ export const Audio = memo(({trackPath}: IAudio) => {
         // @ts-ignore
         setCurrentTime(audioRef.current.currentTime);
     };
+
+    const BASE_URL = import.meta.env.VITE_BASE_URL
 
     return (
         <audio

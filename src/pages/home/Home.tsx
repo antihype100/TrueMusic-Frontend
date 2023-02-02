@@ -5,10 +5,7 @@ import { ProfileButton } from '../../shared/ui/ProfileButton/ProfileButton';
 import { MainPLayList } from '../../widgets/MainPlaylist';
 
 export const Home = () => {
-
     const { auth } = useUserInfoStore((state) => state);
-
-
     return (
         <BaseLayout>
             <MainPLayList/>
