@@ -1,1 +1,1 @@
-https://true-music.vercel.app/
+https://truemusic-test.ru
