@@ -9,9 +9,9 @@ const navList = [
 
 export const NavMenuTrackList = () => (
     <nav className={styles.navBar}>
-        {navList.map((el) => (
-            <Link className={el.active ? styles.navLinkActive : styles.navLink} to="#">
-                {el.title}
+        {navList.map((link, index) => (
+            <Link key={index} className={link.active ? styles.navLinkActive : styles.navLink} to="#">
+                {link.title}
             </Link>
         ))}
     </nav>

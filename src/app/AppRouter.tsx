@@ -29,18 +29,13 @@ import { AuthorMainPage } from '../pages/author/authorMainPage';
 import { CreateRelease } from '../processes/release/CreateRelease';
 import { UploadTrack } from '../processes/release/UploadTrack';
 import { useUserInfoStore } from '../entities/User';
-import axios from "../shared/api/axios";
+import {checkAuth} from "../shared/api/check_auth";
 
 const AppRouter = () => {
     const { setAuth, setRole, setUserName, auth } = useUserInfoStore((state) => state);
+
     useEffect(() => {
-        axios.post('https://truemusic-test.ru/api/user/refresh', { reload: true }, { withCredentials: true }).then((res) => {
-            if (res.data.isLogin) {
-                setAuth(true);
-                setRole(res.data.user.role);
-                setUserName(res.data.user.userName);
-            }
-        });
+        checkAuth(setAuth, setRole, setUserName)
     }, [auth]);
 
     return (

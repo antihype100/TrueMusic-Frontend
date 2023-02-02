@@ -1,7 +1,7 @@
 import styles from './Track.module.scss';
 import type {ITrackProps} from '../../model/types';
 import {TrackInfo} from '../TrackInfo/TrackInfo';
-import {baseUrl} from "../../../../shared/api/baseUrl";
+import {BASE_URL} from "../../../../../config";
 
 
 export const Track = (
@@ -24,7 +24,7 @@ export const Track = (
             width={coverWidthHeight}
             height={coverWidthHeight}
             className={styles.trackCover}
-            src={coverPath || (trackPath ? `${baseUrl}/track/cover${trackPath}` : undefined)}
+            src={coverPath || (trackPath ? `${BASE_URL}/track/cover${trackPath}` : undefined)}
             alt=''
             onClick={() => {
                 if (setTrack) {

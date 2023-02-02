@@ -16,6 +16,7 @@ export const registerPost = (
             setUserName(res.data.user.userName);
             setUserId(res.data.user.id)
             localStorage.setItem('accessToken', res.data.accessToken)
+            window.location.reload()
         }
     });
 }

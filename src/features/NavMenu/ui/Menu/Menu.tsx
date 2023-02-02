@@ -19,8 +19,8 @@ export const Menu = () => {
     return (
         <nav className={styles.navMenu}>
             <ul className={styles.navMenuList}>
-                {navMenuList.map((navLink) => (
-                    <NavMenuLink to={navLink.to} img={navLink.img} linkText={navLink.linkText} />
+                {navMenuList.map((navLink, index) => (
+                    <NavMenuLink key={index} to={navLink.to} img={navLink.img} linkText={navLink.linkText} />
                 ))}
             </ul>
         </nav>

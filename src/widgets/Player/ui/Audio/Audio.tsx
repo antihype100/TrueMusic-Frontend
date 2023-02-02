@@ -1,6 +1,6 @@
 import {memo, useEffect, useRef} from 'react';
 import {useGlobalTrackStore} from '../../model/globalTrackStore';
-import {baseUrl} from '../../../../shared/api/baseUrl';
+import {BASE_URL} from "../../../../../config";
 import {nextTrackWrapper} from "../../helper/trackController";
 import {getPlayingTrackIndex} from "../../helper/getPlayingTrackIndex";
 
@@ -39,7 +39,7 @@ export const Audio = memo(({trackPath}: IAudio) => {
             ref={audioRef}
             src={window.location.href.split('/').pop() === 'upload-track'
                 ? trackPath
-                : `${baseUrl}/track${trackPath}`}
+                : `${BASE_URL}/track${trackPath}`}
             preload='metadata'/>
     );
 });
