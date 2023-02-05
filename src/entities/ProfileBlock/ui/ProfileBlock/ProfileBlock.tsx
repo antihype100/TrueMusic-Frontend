@@ -1,5 +1,5 @@
+import { useUserInfoStore } from '@entities/User/model/UserInfoStore';
 import styles from './ProfileBlock.module.scss';
-import { useUserInfoStore } from '../../../User/model/UserInfoStore';
 import { ProfileDescription } from '../ProfileDescription/ProfileDescription';
 import { Setting } from '../ProfileSetting/ProfileSetting';
 import { ProfileInfo } from '../ProfileInfo/ProfileInfo';
@@ -12,9 +12,9 @@ export const ProfileBlock = () => {
         <section className={styles.wrapper}>
             <h1 className={styles.userName}>{userName}</h1>
             <ProfileInfo />
-            <hr />
+            <hr className={styles.profileHr}/>
             <ProfileDescription />
-            <hr />
+            <hr className={styles.profileHr}/>
             <Setting />
         </section>
     );

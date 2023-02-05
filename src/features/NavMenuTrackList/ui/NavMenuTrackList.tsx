@@ -3,7 +3,7 @@ import styles from './NavMenuTrackList.module.scss'
 
 const navList = [
     {id: 1, title: 'Подборка TrueMusic', path: '№'},
-    {id: 2, title: 'ТОП-чарт', path: '#', active: true},
+    {id: 2, title: 'True-Top', path: '#', active: true},
     {id: 3, title: 'Последнее послушанное', path: '#'},
 ];
 

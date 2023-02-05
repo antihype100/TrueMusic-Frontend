@@ -1,13 +1,13 @@
+import {playPauseGlobalPlayerWrapper} from "@widgets/Player/helper/trackController";
+import {useGlobalTrackStore} from '@widgets/Player/model/globalTrackStore';
+import {Audio} from '@widgets/Player/ui/Audio/Audio';
+import {PlayPauseNextPrevButton} from '@widgets/Player/ui/PlayPauseNextPrevButton/PlayPauseNextPrevButton';
+import {AuditionCounter} from "@features/AuditionCounter";
+import {auditionActionWrapper, LikeCounter} from "@features/LikeCounter";
+import {Track} from '@entities/Track';
+import {changeProgressBarWrapper} from "@entities/Track/helpler/changeProgressBar";
+import {TrackProgressBar} from "@shared/ui/TrackProgressBar/TrackProgressBar";
 import styles from './Player.module.scss';
-import {Track} from '../../../../entities/Track';
-import {PlayPauseNextPrevButton} from '../PlayPauseNextPrevButton/PlayPauseNextPrevButton';
-import {Audio} from '../Audio/Audio';
-import {useGlobalTrackStore} from '../../model/globalTrackStore';
-import {TrackProgressBar} from "../../../../shared/ui/TrackProgressBar/TrackProgressBar";
-import {changeProgressBarWrapper} from "../../../../entities/Track/helpler/changeProgressBar";
-import {playPauseGlobalPlayerWrapper} from "../../helper/trackController";
-import {auditionActionWrapper, LikeCounter} from "../../../../features/LikeCounter";
-import {AuditionCounter} from "../../../../features/AuditionCounter";
 
 
 export const Player = () => {

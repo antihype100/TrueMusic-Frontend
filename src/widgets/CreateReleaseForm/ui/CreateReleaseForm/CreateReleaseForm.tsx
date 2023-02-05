@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { useReleaseStore , getFormatOptions } from '@processes/release/CreateRelease';
+import { useUserInfoStore } from '@entities/User';
+import { NextStepButton } from '@shared/ui/NextStepButton/NextStepButton';
+import { UploadFileButton } from '@shared/ui/UploadFileButton/UploadFileButton';
+import { ReactHookFormInput } from '@shared/ui/ReactHookFormInput/ReactHookFormInput';
+import { ReactHookFormSelectInput } from '@shared/ui/ReactHookFormSelectInput/ReactHookFormSelectInput';
+import { message } from '@shared/helper/importSvg';
 import styles from './CreateReleaseForm.module.scss';
-import { useReleaseStore , getFormatOptions } from '../../../../processes/release/CreateRelease';
-import { useUserInfoStore } from '../../../../entities/User';
-import { NextStepButton } from '../../../../shared/ui/NextStepButton/NextStepButton';
-import { UploadFileButton } from '../../../../shared/ui/UploadFileButton/UploadFileButton';
-import { ReactHookFormInput } from '../../../../shared/ui/ReactHookFormInput/ReactHookFormInput';
-import { ReactHookFormSelectInput } from '../../../../shared/ui/ReactHookFormSelectInput/ReactHookFormSelectInput';
-import { message } from '../../../../shared/helper/importSvg';
 import type{ IFormReleaseAlbum } from '../../model/types';
 import { addCoverFileToFormData } from '../../helper/addCoverFileToFormData';
 

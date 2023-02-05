@@ -1,21 +1,22 @@
 import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import styles from './UploadTrackForm.module.scss';
-import { useReleaseStore } from '../../../../processes/release/CreateRelease';
-import { useUserInfoStore } from '../../../../entities/User';
-import { UploadedTrackList } from '../../../../features/UploadedTrackList';
-import { UploadFileButton } from '../../../../shared/ui/UploadFileButton/UploadFileButton';
-import { ReactHookFormInput } from '../../../../shared/ui/ReactHookFormInput/ReactHookFormInput';
-import { NextStepButton } from '../../../../shared/ui/NextStepButton/NextStepButton';
+import { useReleaseStore } from '@processes/release/CreateRelease';
+import { useUserInfoStore } from '@entities/User';
+import { UploadedTrackList } from '@features/UploadedTrackList';
+import { UploadFileButton } from '@shared/ui/UploadFileButton/UploadFileButton';
+import { ReactHookFormInput } from '@shared/ui/ReactHookFormInput/ReactHookFormInput';
+import { NextStepButton } from '@shared/ui/NextStepButton/NextStepButton';
+import type { ITrackItem } from '@features/UploadedTrackList';
+import { message } from '@shared/helper/importSvg';
+import {useNavigate} from "react-router-dom";
 import { sendRelease } from '../../api/sendRelease';
 import { addDataToFormData } from '../../helper/addDataToFormData';
 import { addTrackDurationToFormData } from '../../helper/addTrackDurationToFormData';
-import { message } from '../../../../shared/helper/importSvg';
 import type { IFormUploadTrack } from '../../model/types';
-import type { ITrackItem } from '../../../../features/UploadedTrackList';
+import styles from './UploadTrackForm.module.scss';
 
 export const UploadTrackForm = () => {
-
+    const navigate = useNavigate()
     const [uploadTrackFile, setUploadTrackFile] = useState<File>({} as File);
     const [uploadTrackList] = useState<ITrackItem[]>([])
     const [trackNumber, setTrackNumber] = useState(1);
@@ -42,7 +43,7 @@ export const UploadTrackForm = () => {
             <UploadedTrackList
                 albumName={release.albumName}
                 trackList={uploadTrackList}
-                sendRelease={() => sendRelease(trackData, release)}
+                sendRelease={() => sendRelease(trackData, release, navigate)}
             />
             <div className={styles.uploadFormInnerWrapper}>
                 <ReactHookFormInput

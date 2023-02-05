@@ -2,8 +2,10 @@
 
 .trackWrapper {
 	display: flex;
-
 	align-items: end;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	width: 99%;
 }
 
@@ -13,6 +15,7 @@
 }
 
 .trackInfoWrapper {
+
 	align-items: start;
 	display: flex;
 	width: 100%;
@@ -26,7 +29,7 @@
 }
 
 .likeAndAuditionsWrapper {
-	margin-right: 15px;
+	margin-right: 23px;
 	display: flex;
 	font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 13px);
 }

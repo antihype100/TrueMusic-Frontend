@@ -4,12 +4,15 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border: 1px solid #979797;
-	border-radius: 6px;
+	border-bottom: 1px solid #979797;
 
 	span {
 		font-style: italic;
 		font-weight: 500;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		margin-right: 10px;
 		font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 9px);
 		color: #979797;
 	}
@@ -20,13 +23,14 @@
 
 	button {
 		cursor: pointer;
-		padding: 10px 8px;
+		padding: 12px 8px;
 		background: #610084;
 		border-radius: 6px;
+		white-space: nowrap;
 		font-style: italic;
 		font-weight: 600;
-		font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 9px);
-		color: #ffffff;
+		font-size: calc((100vw - 480px) / (1280 - 480) * (18 - 16) + 8px);
+		color: #d8d8d8;
 		border: none;
 	}
 }

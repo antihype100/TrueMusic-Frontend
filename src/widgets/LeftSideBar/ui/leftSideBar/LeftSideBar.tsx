@@ -1,13 +1,13 @@
 import {useEffect, useState} from "react";
+import { TrackList } from '@features/TrackListSideBar/ui/TrackList/TrackList';
+import {getAllTracks} from "@shared/api/getAllTracks";
+import { NavMenu } from '@features/NavMenu';
 import styles from './LeftSideBar.module.scss';
 import nLogo from '../../../../assets/png/Frame 7.png'
-import { TrackList } from '../../../../features/TrackListSideBar/ui/TrackList/TrackList';
-import { NavMenu } from '../../../../features/NavMenu';
-import {getAllTracks} from "../../../../shared/api/getAllTracks";
 import {ITrackResponse} from "../../../Player/model/globalTrackStore";
 
 export const LeftSideBar = () => {
-    const amountTracks = window.screen.height > 1100 ? 9 : 7;
+    const amountTracks = (window.screen.height / 50) / 5
     const [trackList, setTrackList] = useState<ITrackResponse[]>([])
 
 
@@ -23,7 +23,7 @@ export const LeftSideBar = () => {
         <aside className={styles.leftSideBar}>
             <img className={styles.logo} src={nLogo} alt='' />
             <NavMenu />
-            <hr className='sideBarHr' />
+            <hr className={styles.leftSidebarHr} />
             <TrackList
                 amountTracks={amountTracks}
                 title='Ваш плейлист'

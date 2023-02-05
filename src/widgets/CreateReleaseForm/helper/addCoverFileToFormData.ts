@@ -1,5 +1,5 @@
+import { IRelease } from '@processes/release/CreateRelease/model/ReleaseStore';
 import { IFormReleaseAlbum } from '../model/types';
-import { IRelease } from '../../../processes/release/CreateRelease/model/ReleaseStore';
 
 export const addCoverFileToFormData = (
     coverFile: File,

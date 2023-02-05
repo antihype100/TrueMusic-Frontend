@@ -1,5 +1,5 @@
+import { useUserInfoStore } from '@entities/User';
 import styles from './Menu.module.scss';
-import { useUserInfoStore } from '../../../../entities/User';
 import { getUserNavMenuList, getAuthorNavMenuList, getNoAuthNavMenuList } from '../../model/navMenuData';
 import { NavMenuLink } from '../MenuLink/MenuLink';
 
@@ -10,7 +10,7 @@ export const Menu = () => {
     const authorNavMenuList = getAuthorNavMenuList(userName);
     const noAuthNavMenuList = getNoAuthNavMenuList();
 
-    let navMenuList = auth && role === 'AUTHOR'
+    const navMenuList = auth && role === 'AUTHOR'
         ? authorNavMenuList
         : auth && role === 'USER'
             ? userNavMenuList

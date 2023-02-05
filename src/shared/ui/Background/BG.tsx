@@ -31,10 +31,6 @@ export const BG = () => {
                 fpsLimit: 120,
                 interactivity: {
                     events: {
-                        onClick: {
-                            enable: true,
-                            mode: 'repulse'
-                        },
                         onHover: {
                             enable: true,
                             mode: "grab",
@@ -46,8 +42,9 @@ export const BG = () => {
                             distance: 500,
                             duration: 0.7,
                         },
+
                         grab: {
-                            distance: 400,
+                            distance: 500,
                             duration: 0.7,
                         }
                     },

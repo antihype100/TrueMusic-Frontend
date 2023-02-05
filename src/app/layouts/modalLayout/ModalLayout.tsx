@@ -1,19 +1,17 @@
 import '../../styles/global.scss';
-import { useNavigate } from 'react-router-dom';
+import { LeftSideBar } from '@widgets/LeftSideBar';
+import { RightSideBar } from '@widgets/RightSideBar';
+import { SearchPanel } from '@features/SearchPanel';
+import {BG} from "@shared/ui/Background/BG";
 import styles from './ModalLayout.module.scss';
-import { LeftSideBar } from '../../../widgets/LeftSideBar';
-import { RightSideBar } from '../../../widgets/RightSideBar';
-import { SearchPanel } from '../../../features/SearchPanel';
-import {BG} from "../../../shared/ui/Background/BG";
 
 interface IBaseLayout {
     children: any;
 }
 
 export const ModalLayout = ({ children }: IBaseLayout) => {
-    const navigate = useNavigate();
 
-    return (
+    return(
         <div className={styles.layoutWrapper}>
             <LeftSideBar />
             <BG/>
@@ -23,8 +21,8 @@ export const ModalLayout = ({ children }: IBaseLayout) => {
                     {children}
                 </div>
             </div>
-            <RightSideBar />
-            <div onClick={() => navigate(-1)} className={styles.bgc}></div>
+             <RightSideBar/>
+            <div className={styles.bgc} />
         </div>
     );
 };

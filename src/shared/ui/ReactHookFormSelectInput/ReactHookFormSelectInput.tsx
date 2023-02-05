@@ -1,5 +1,5 @@
-import styles from './ReactHookFormSelectInput.module.scss'
 import React from 'react';
+import styles from './ReactHookFormSelectInput.module.scss'
 
 interface IControlSelectInput {
     register: Function
@@ -8,8 +8,7 @@ interface IControlSelectInput {
     options: string[]
 }
 
-export const ReactHookFormSelectInput = ({register, inputName, options, placeholder}: IControlSelectInput) => {
-    return (
+export const ReactHookFormSelectInput = ({register, inputName, options, placeholder}: IControlSelectInput) => (
         <div className={styles.selectBlock}>
             <label className={styles.arrowIcon}>
                 <select {...register(inputName)} className={styles.selectInput}>
@@ -23,4 +22,3 @@ export const ReactHookFormSelectInput = ({register, inputName, options, placehol
             </label>
         </div>
     )
-}

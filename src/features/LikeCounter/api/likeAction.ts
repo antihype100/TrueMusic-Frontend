@@ -1,5 +1,5 @@
-import axios from "../../../shared/api/axios";
-import {IGlobalTrackInfo, ITrackResponse} from "../../../widgets/Player/model/globalTrackStore";
+import {IGlobalTrackInfo, ITrackResponse} from "@widgets/Player/model/globalTrackStore";
+import axios from "@shared/api/axios";
 
 export const likeActionWrapper = (
     trackId: number,
@@ -9,9 +9,15 @@ export const likeActionWrapper = (
     globalTrackInfo: IGlobalTrackInfo
 ) => () => {
 
-    axios.post('track/like', {
-        trackId
-    }).then(res => {
+    axios.post(
+        'track/like',
+        {trackId},
+        {
+            headers: {
+                "Authorization" : `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        }
+    ).then(res => {
         const track: ITrackResponse[] = globalTrackList.filter(track => track.id === trackId)
         const idx = globalTrackList.indexOf(track[0])
 

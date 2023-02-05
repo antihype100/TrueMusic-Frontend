@@ -1,9 +1,10 @@
 .wrapper {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 	margin: 50px 20px 0 80px;
-	padding: 25px;
+	padding: 15px 25px;
+	z-index: 10;
+	border: 1px solid rgba(151, 151, 151, 0.27);
 	box-shadow: 10px 10px 10px 7px rgba(0, 0, 0, 0.45);
 	border-radius: 9px;
 	width: calc(100vw / 3.5);
@@ -21,4 +22,9 @@
 	font-size: calc((100vw - 80px) / (900 - 480) * (22 - 16) + 40px);
 	color: #ffffff;
 	text-shadow: 5px 5px 13px rgba(117, 117, 117, 0.64);
+}
+
+.profileHr {
+	width: 100%;
+	color: #979797;
 }

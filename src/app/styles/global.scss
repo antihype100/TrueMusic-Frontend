@@ -1,13 +1,3 @@
-.sideBarHr {
-  width: calc(100vw / 15);
-  border: 1px solid #979797;
-  @media screen and (max-width: 1900px) {
-    width: calc(100vw / 12);
-  }
-  @media screen and (max-width: 1400px) {
-    width: calc(100vw / 10);
-  }
-}
 
 a {
   text-decoration: none;

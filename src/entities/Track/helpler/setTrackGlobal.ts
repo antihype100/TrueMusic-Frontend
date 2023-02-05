@@ -1,4 +1,4 @@
-import {IGlobalTrackInfo, ITrackResponse} from '../../../widgets/Player/model/globalTrackStore';
+import {IGlobalTrackInfo, ITrackResponse} from '@widgets/Player/model/globalTrackStore';
 
 export const setTrackWrapper = (
     id: number,

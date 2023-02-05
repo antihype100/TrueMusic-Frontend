@@ -1,4 +1,4 @@
-import { IRelease } from '../../../processes/release/CreateRelease/model/ReleaseStore';
+import { IRelease } from '@processes/release/CreateRelease/model/ReleaseStore';
 
 export interface ITrackItem {
     trackName: string,

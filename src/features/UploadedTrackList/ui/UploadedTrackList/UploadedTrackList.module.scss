@@ -2,15 +2,18 @@
 	box-sizing: border-box;
 	position: absolute;
 	display: flex;
+	z-index: 1;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
 	padding: 15px 30px;
-	transform: translate(29vw, -20px);
+	transform: translate(35vw, -20px);
+	margin-right: 30px;
 	width: 300px;
 	height: 455px;
 	border-radius: 5px;
-	background-color: #fff;
+	border: 1px solid rgba(151, 151, 151, 0.27);
+	box-shadow: -4px 4px 87px 20px rgba(78, 78, 78, 0.15);
 }
 
 .wrapperForPaddingScroll {
@@ -21,6 +24,7 @@
 }
 
 .uploadedTrackListHeader {
+	color: white;
 	margin-bottom: 20px;
 }
 

@@ -1,44 +1,44 @@
 .searchPanelWrapper {
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin-top: 50px;
-  margin-bottom: 50px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 .searchPanel {
-  width: calc(100vw / 4 + 55px);
-  height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 30px);
-  background: #dcdcdc;
-  border-radius: 31px;
-  border: none;
-  display: flex;
-  align-items: center;
-  padding-left: 55px;
+	width: calc(100vw / 5 + 55px);
+	height: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 30px);
+	background: #dcdcdc;
+	border-radius: 31px;
+	border: none;
+	display: flex;
+	align-items: center;
+	padding-left: 55px;
 
-  &::placeholder {
-    font-style: italic;
-    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 2px);
-    font-weight: 400;
-  }
+	&::placeholder {
+		font-style: italic;
+		font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 2px);
+		font-weight: 400;
+	}
 }
 
 .stickIcon {
-  width: 2px;
-  height: 20px;
-  position: absolute;
-  left: 45px;
+	width: 2px;
+	height: 20px;
+	position: absolute;
+	left: 45px;
 }
 
 .searchIcon {
-  position: absolute;
-  left: 10px;
+	position: absolute;
+	left: 10px;
 }
 
 .searchHistory {
-  font-style: italic;
-  position: absolute;
-  right: 20px;
-  font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 2px);
-  color: #888888;
+	font-style: italic;
+	position: absolute;
+	right: 20px;
+	font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 2px);
+	color: #888888;
 }

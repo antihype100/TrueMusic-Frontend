@@ -15,7 +15,7 @@
 	justify-content: space-between;
 }
 .modalWrapper {
-	transform: translateY(-23vh);
+	transform: translateY(-18vh);
 	width: 732px;
 	height: 600px;
 	z-index: 10;
@@ -24,8 +24,9 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	border: 1px solid rgba(151, 151, 151, 0.27);
 	justify-content: center;
-	box-shadow: -4px 4px 87px 20px rgba(130, 130, 130, 0.15);
+	box-shadow: -4px 4px 87px 20px rgba(78, 78, 78, 0.15);
 	border-radius: 40px;
 	@media screen and (max-width: 1400px) {
 		width: 470px;

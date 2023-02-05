@@ -9,14 +9,19 @@ export const registerPost = (
     setUserName: (userName: string) => void,
     setUserId: (userId: number) => void
 ) => {
-    axios.post('/user/register', data, {withCredentials: true}).then((res) => {
+    axios.post(
+        '/user/register',
+        data,
+        {
+            withCredentials: true,
+        }
+    ).then((res) => {
         if (res.data.isLogin) {
             setAuth(true);
             setRole(res.data.user.role);
             setUserName(res.data.user.userName);
             setUserId(res.data.user.id)
             localStorage.setItem('accessToken', res.data.accessToken)
-            window.location.reload()
         }
     });
 }

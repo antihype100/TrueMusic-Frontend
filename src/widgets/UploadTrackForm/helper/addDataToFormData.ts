@@ -1,6 +1,6 @@
-import { IRelease } from '../../../processes/release/CreateRelease/model/ReleaseStore';
-import type { IFormUploadTrack } from '../../../processes/release/UploadTrack/model/types';
-import { ITrackItem } from '../../../features/UploadedTrackList';
+import { IRelease } from '@processes/release/CreateRelease/model/ReleaseStore';
+import type { IFormUploadTrack } from '@processes/release/UploadTrack/model/types';
+import { ITrackItem } from '@features/UploadedTrackList';
 
 export const addDataToFormData = (
     release: IRelease,

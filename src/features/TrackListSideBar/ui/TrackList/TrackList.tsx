@@ -1,9 +1,8 @@
+import {Track} from "@entities/Track";
+import {setTrackWrapper} from "@entities/Track/helpler/setTrackGlobal";
+import {playPauseWrapper} from "@entities/Track/helpler/playPause";
+import {ITrackResponse, useGlobalTrackStore} from "@widgets/Player/model/globalTrackStore";
 import styles from './TrackList.module.scss';
-import {arrow} from '../../../../shared/helper/importSvg';
-import {Track} from "../../../../entities/Track";
-import {setTrackWrapper} from "../../../../entities/Track/helpler/setTrackGlobal";
-import {playPauseWrapper} from "../../../../entities/Track/helpler/playPause";
-import {ITrackResponse, useGlobalTrackStore} from "../../../../widgets/Player/model/globalTrackStore";
 
 interface IPlaylistSideBar {
     amountTracks: number;
@@ -42,8 +41,6 @@ export const TrackList = ({amountTracks, title, trackList}: IPlaylistSideBar) =>
                 :
                 null
             }
-            <img className={styles.arrow} src={arrow} alt=''/>
-            <hr className='sideBarHr'/>
         </ul>
     )
 }

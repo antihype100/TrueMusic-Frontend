@@ -18,6 +18,7 @@ export const USER_TRACKS = '/user/:name/tracks';
 export const USER_ALBUMS = '/user/:name/albums';
 export const USER_PLAYLISTS = '/user/:name/playlists';
 export const USER_PLAYLIST = '/user/:name/playlists/:playlistName';
+export const USER_SWITCH_TO_AUTHOR = '/user/switch-to-author';
 
 // export const PUBLIC_ROUTES = [
 //   { path: LOGIN, Component: SignIn },

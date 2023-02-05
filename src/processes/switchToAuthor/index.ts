@@ -1,0 +1,1 @@
+export {SwitchToAuthor} from "@processes/switchToAuthor/ui/SwitchToAuthor";

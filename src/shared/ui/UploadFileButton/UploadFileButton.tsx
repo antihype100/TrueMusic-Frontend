@@ -1,5 +1,5 @@
-import styles from './UploadFileButton.module.scss'
 import { useRef } from 'react';
+import styles from './UploadFileButton.module.scss'
 
 interface IUploadFileButton {
     placeholder: string,
@@ -17,13 +17,13 @@ export const UploadFileButton = ({ placeholder, setFile, fileName}: IUploadFileB
 
     return (
         <div className={styles.uploadFile}>
-            <span>{fileName ? fileName : placeholder}</span>
+            <span>{fileName || placeholder}</span>
             <input
                 type='file'
                 ref={buttonRef}
                 onChange={(e: any) => onUploadFile(e)}
             />
-            <button onClick={() => buttonRef.current?.click()} type={'button'}>
+            <button onClick={() => buttonRef.current?.click()} type="button">
                 Выбрать файл
             </button>
         </div>

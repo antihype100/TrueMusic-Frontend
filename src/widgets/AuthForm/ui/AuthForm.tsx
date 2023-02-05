@@ -1,14 +1,14 @@
 import {Link} from 'react-router-dom';
 import {SubmitHandler, useForm} from 'react-hook-form';
-import styles from './AuthForm.module.scss';
-import {useUserInfoStore} from '../../../entities/User';
-import {registerPost} from '../api/register';
-import {loginPost} from '../api/login';
-import {LOGIN, REGISTER} from '../../../shared/helper/routes';
-import {ReactHookFormInput} from '../../../shared/ui/ReactHookFormInput/ReactHookFormInput';
-import {NextStepButton} from '../../../shared/ui/NextStepButton/NextStepButton';
+import {useUserInfoStore} from '@entities/User';
+import {LOGIN, REGISTER} from '@shared/helper/routes';
+import {ReactHookFormInput} from '@shared/ui/ReactHookFormInput/ReactHookFormInput';
+import {NextStepButton} from '@shared/ui/NextStepButton/NextStepButton';
+import {message} from '@shared/helper/importSvg';
 import type {IAuthFormProps, IAuthFormValues} from '../model/types';
-import {message} from '../../../shared/helper/importSvg';
+import {loginPost} from '../api/login';
+import {registerPost} from '../api/register';
+import styles from './AuthForm.module.scss';
 
 
 export const AuthForm = ({title}: IAuthFormProps) => {
@@ -25,7 +25,7 @@ export const AuthForm = ({title}: IAuthFormProps) => {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className={styles.authForm}>
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.authForm} autoComplete='off'>
             <h1 className={styles.headerForm}>{title}</h1>
             {title === 'Регистрация' && (
                 <ReactHookFormInput

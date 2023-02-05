@@ -1,21 +1,21 @@
 import {RefObject} from 'react';
-import {IGlobalTrackInfo} from '../../../widgets/Player/model/globalTrackStore';
+import {IGlobalTrackInfo} from '@widgets/Player/model/globalTrackStore';
 
 export const playPauseWrapper = (
     trackName: string,
-    trackInfoGlobal: IGlobalTrackInfo,
+    globalTrackInfo: IGlobalTrackInfo,
     authorName: string,
     setTrackInfoGlobal: (trackInfo: IGlobalTrackInfo) => void,
     audioRefGlobal: RefObject<HTMLAudioElement> | null,
 ) => () => {
-    if (authorName === trackInfoGlobal.authorName && trackName === trackInfoGlobal.trackName) {
+    if (authorName === globalTrackInfo.authorName && trackName === globalTrackInfo.trackName) {
         if (audioRefGlobal !== null && audioRefGlobal.current) {
-            if (!trackInfoGlobal.isPlay) {
+            if (!globalTrackInfo.isPlay) {
                 audioRefGlobal.current.play();
-                setTrackInfoGlobal({...trackInfoGlobal, isPlay: true});
+                setTrackInfoGlobal({...globalTrackInfo, isPlay: true});
             } else {
                 audioRefGlobal.current.pause();
-                setTrackInfoGlobal({...trackInfoGlobal, isPlay: false});
+                setTrackInfoGlobal({...globalTrackInfo, isPlay: false});
             }
         }
     }
