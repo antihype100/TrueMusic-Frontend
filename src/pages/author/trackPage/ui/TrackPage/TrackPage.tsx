@@ -1,10 +1,10 @@
 import {useParams} from 'react-router-dom';
+import {BaseLayout} from '@app/layouts/baseLayout/BaseLayout';
+import {AuthorLayout} from '@app/layouts/authorLayout/AuthorLayout';
+import TrackAlbumPlaylistCover from '@entities/TrackAlbumPlaylistCover/TrackAlbumPlaylistCover';
+import Comments from '@features/Comments/Comments';
+import {TrackText} from '@shared/ui/TrackText';
 import styles from './TrackPage.module.scss';
-import {BaseLayout} from '../../../../../app/layouts/baseLayout/BaseLayout';
-import {AuthorLayout} from '../../../../../app/layouts/authorLayout/AuthorLayout';
-import TrackAlbumPlaylistCover from '../../../../../entities/TrackAlbumPlaylistCover/TrackAlbumPlaylistCover';
-import Comments from '../../../../../features/Comments/Comments';
-import {TrackText} from '../../../../../shared/ui/TrackText';
 import img from '../../../../../assets/sidebar/playlist/cover7.png';
 
 export const TrackPage = () => {

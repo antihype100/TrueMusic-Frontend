@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { AuthorLayout } from '@app/layouts/authorLayout/AuthorLayout';
+import { BaseLayout } from '@app/layouts/baseLayout/BaseLayout';
+import { TrackList } from '@features/TrackList';
+import { getAllTracks } from '@shared/api/getAllTracks';
 import styles from './AuthorMainPage.module.scss';
-import { AuthorLayout } from '../../../../../app/layouts/authorLayout/AuthorLayout';
-import { BaseLayout } from '../../../../../app/layouts/baseLayout/BaseLayout';
-import { TrackList } from '../../../../../features/TrackList';
-import { getAllTracks } from '../../../../../shared/api/getAllTracks';
 import { getNavList } from '../../model/getNavList';
 
 
@@ -34,7 +34,7 @@ export const AuthorMainPage = () => {
                             {navList[2].title}
                         </Link>
                     </nav>
-                    <TrackList amountTracks={5} />
+                    <TrackList/>
                 </div>
             </AuthorLayout>
         </BaseLayout>
