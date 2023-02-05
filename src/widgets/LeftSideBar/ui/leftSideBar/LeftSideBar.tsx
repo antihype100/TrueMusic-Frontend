@@ -7,9 +7,7 @@ import nLogo from '../../../../assets/png/Frame 7.png'
 import {ITrackResponse} from "../../../Player/model/globalTrackStore";
 
 export const LeftSideBar = () => {
-    const amountTracks = (window.screen.height / 50) / 5
     const [trackList, setTrackList] = useState<ITrackResponse[]>([])
-
 
     useEffect(() => {
         getAllTracks().then(res => {
@@ -25,7 +23,6 @@ export const LeftSideBar = () => {
             <NavMenu />
             <hr className={styles.leftSidebarHr} />
             <TrackList
-                amountTracks={amountTracks}
                 title='Ваш плейлист'
                 trackList={trackList}
             />

@@ -1,16 +1,15 @@
 import {useEffect, useState} from "react";
-import {Track} from '../../../entities/Track';
-import styles from './TrackList.module.scss';
-import {ITrackListProps} from '../model/types';
-import {setTrackWrapper} from "../../../entities/Track/helpler/setTrackGlobal";
-import {ITrackResponse, useGlobalTrackStore} from "../../../widgets/Player/model/globalTrackStore";
-import {playPauseWrapper} from "../../../entities/Track/helpler/playPause";
+import {Track} from '@entities/Track';
+import {setTrackWrapper} from "@entities/Track/helpler/setTrackGlobal";
+import {ITrackResponse, useGlobalTrackStore} from "@widgets/Player/model/globalTrackStore";
+import {playPauseWrapper} from "@entities/Track/helpler/playPause";
+import {getAllTracks} from "@shared/api/getAllTracks";
 import {LikeCounter} from "../../LikeCounter";
-import {getAllTracks} from "../../../shared/api/getAllTracks";
+import styles from './TrackList.module.scss';
 import {AuditionCounter} from "../../AuditionCounter";
 
 
-export const TrackList = ({amountTracks}: ITrackListProps) => {
+export const TrackList = () => {
     const {globalTrackInfo, audioRefGlobal, setTrackInfoGlobal, globalTrackList, setGlobalTrackList} = useGlobalTrackStore(state => state);
     const [trackList, setTrackList] = useState<ITrackResponse[]>([])
 
@@ -49,7 +48,7 @@ export const TrackList = ({amountTracks}: ITrackListProps) => {
                             />
                         </li>
                     );
-                }).slice(0, amountTracks)}
+                })}
             </ul>
         </div>
     );

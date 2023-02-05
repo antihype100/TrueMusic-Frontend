@@ -6,10 +6,6 @@ a {
 
 /* W3C standard
    сейчас только для Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: blue orange;
-}
 
 /* для Chrome/Edge/Safari */
 *::-webkit-scrollbar {
@@ -20,6 +16,5 @@ a {
   background: #8a4ea7;
 }
 *::-webkit-scrollbar-thumb {
-  background-color: blue;
-  border: 3px solid white;
+  background-color: #b6b6b6;
 }

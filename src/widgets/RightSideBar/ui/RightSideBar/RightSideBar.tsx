@@ -7,7 +7,6 @@ import styles from './RightSideBar.module.scss';
 export const RightSideBar = () => {
 
     const [trackList, setTrackList] = useState<ITrackResponse[]>([])
-    const amountTracks = (window.screen.height / 50) / 4
 
     useEffect(() => {
         getAllTracks().then(res => {
@@ -21,8 +20,8 @@ export const RightSideBar = () => {
             ? styles.displayNone
                 : styles.rightSideBar
         }>
-            <TrackList amountTracks={amountTracks} title='Уходящая неделя' trackList={trackList}/>
-            <TrackList amountTracks={amountTracks} title='Уходящий месяц' trackList={trackList}/>
+            <TrackList title='Уходящая неделя' trackList={trackList}/>
+            <TrackList title='Уходящий месяц' trackList={trackList}/>
         </aside>
     );
 };
