@@ -18,7 +18,7 @@ export const Playlist = () => {
         <BaseLayout>
             <AuthorLayout>
                 <TrackAlbumPlaylistCover img={img} likes="241" listening="124001" title="Relax" />
-                <TrackList apiPath={''}/>
+                <TrackList/>
             </AuthorLayout>
         </BaseLayout>
     );

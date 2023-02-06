@@ -25,7 +25,7 @@ export const AlbumPage = () => {
             <AuthorLayout author={name}>
                 <div className={styles.albumPageContentWrapper}>
                     <TrackAlbumPlaylistCover img={img} likes="241" listening="124001" title={albumName}/>
-                    <TrackList apiPath={''}/>
+                    <TrackList/>
                     <Comments/>
                 </div>
             </AuthorLayout>
