@@ -10,7 +10,7 @@ export const Menu = () => {
     const authorNavMenuList = getAuthorNavMenuList(userName);
     const noAuthNavMenuList = getNoAuthNavMenuList();
 
-    const navMenuList = auth && role === 'AUTHOR'
+    const navMenuList = auth && (role === 'AUTHOR')
         ? authorNavMenuList
         : auth && role === 'USER'
             ? userNavMenuList

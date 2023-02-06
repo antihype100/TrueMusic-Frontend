@@ -1,8 +1,8 @@
 import {BaseLayout} from '@app/layouts/baseLayout/BaseLayout';
 import {MainPLayList} from '@widgets/MainPlaylist';
 
-export const Home = () => (
+export const Favorites = () => (
     <BaseLayout>
-        <MainPLayList target='HOME'/>
+        <MainPLayList target='FAVORITES'/>
     </BaseLayout>
 );

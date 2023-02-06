@@ -10,13 +10,11 @@ export const AUTHOR_TRACK = '/author/:name/tracks/:trackName';
 export const AUTHOR_ALBUM = '/author/:name/albums/:albumName';
 export const AUTHOR_CABINET = '/:name';
 
-export const RELEASE = '/:name/release-design/';
-export const RELEASE_UPLOAD_TRACK = '/:name/upload-Track';
+export const RELEASE = '/release-design/';
+export const RELEASE_UPLOAD_TRACK = '/upload-Track';
 
-export const USER_SETTING = '/user/:name';
-export const USER_TRACKS = '/user/:name/tracks';
-export const USER_ALBUMS = '/user/:name/albums';
-export const USER_PLAYLISTS = '/user/:name/playlists';
+export const USER_SETTING = '/my-profile';
+export const USER_FAVORITES = '/user/favorites';
 export const USER_PLAYLIST = '/user/:name/playlists/:playlistName';
 export const USER_SWITCH_TO_AUTHOR = '/user/switch-to-author';
 

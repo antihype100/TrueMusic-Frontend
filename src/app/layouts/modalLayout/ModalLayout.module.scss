@@ -8,6 +8,7 @@
 	align-items: center;
 }
 .widgetsWrapper {
+
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -30,7 +31,9 @@
 	border-radius: 40px;
 	@media screen and (max-width: 1400px) {
 		width: 470px;
-		background-position: center;
+	}
+	@media screen and (min-height: 1050px) {
+		transform: translateY(-22vh);
 	}
 }
 

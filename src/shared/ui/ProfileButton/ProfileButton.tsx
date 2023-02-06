@@ -1,17 +1,17 @@
-import { useUserInfoStore} from "@entities/User";
+import { Link } from "react-router-dom";
 import styles from './ProfileButton.module.scss';
-import profileLogo from '../../../assets/png/profileLogo.png';
-import { burger } from '../../helper/importSvg';
 
-const ProfileButton = () => {
-    const { userName } = useUserInfoStore((state) => state);
-    return (
-        <div className={styles.profileWrapper}>
-            <img src={burger} alt='' />
+interface IProfileButton {
+    userName: string;
+    logoPath: string;
+    to: string
+}
+
+const ProfileButton = ({userName, logoPath, to}: IProfileButton) => (
+        <Link to={to} className={styles.profileWrapper}>
+            <img className={styles.profileAvatar} src={logoPath} alt='' />
             <span className={styles.profileUsername}>{userName}</span>
-            <img className={styles.profileAvatar} src={profileLogo} alt='' />
-        </div>
+        </Link>
     );
-};
 
 export { ProfileButton };
