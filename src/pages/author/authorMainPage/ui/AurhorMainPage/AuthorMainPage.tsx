@@ -34,7 +34,7 @@ export const AuthorMainPage = () => {
                             {navList[2].title}
                         </Link>
                     </nav>
-                    <TrackList/>
+                    <TrackList apiPath={''}/>
                 </div>
             </AuthorLayout>
         </BaseLayout>
