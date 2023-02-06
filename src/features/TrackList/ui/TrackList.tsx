@@ -1,29 +1,16 @@
-import {useEffect, useState} from "react";
 import {Track} from '@entities/Track';
 import {setTrackWrapper} from "@entities/Track/helpler/setTrackGlobal";
 import {ITrackResponse, useGlobalTrackStore} from "@widgets/Player/model/globalTrackStore";
 import {playPauseWrapper} from "@entities/Track/helpler/playPause";
-import axios from "@shared/api/axios";
+import {useState} from "react";
 import {LikeCounter} from "../../LikeCounter";
 import styles from './TrackList.module.scss';
 import {AuditionCounter} from "../../AuditionCounter";
 
-interface ITrackList {
-    apiPath: string
-}
-
-export const TrackList = ({apiPath}: ITrackList) => {
-    const {globalTrackInfo, audioRefGlobal, setTrackInfoGlobal, globalTrackList, setGlobalTrackList} = useGlobalTrackStore(state => state);
+export const TrackList = () => {
+    const {globalTrackInfo, audioRefGlobal, setTrackInfoGlobal, globalTrackList} = useGlobalTrackStore(state => state);
     const [trackList, setTrackList] = useState<ITrackResponse[]>([])
-
-    useEffect(() => {
-        axios.get(apiPath).then(res => {
-            if (res.data.length > 0) {
-                setTrackList(res.data)
-                setGlobalTrackList(res.data)
-            }
-        })
-    }, [apiPath])
+    
 
     const coverWidthHeight = (window.screen.width - 480) / (1280 - 480) * (18 - 16) + 50
     const fontSize = (window.screen.width - 480) / (1280 - 480) * (16 - 16) + 12
