@@ -4,7 +4,6 @@ import { TrackList } from '@features/TrackList';
 import { BaseLayout } from '@app/layouts/baseLayout/BaseLayout';
 import { AuthorLayout } from '@app/layouts/authorLayout/AuthorLayout';
 import { getAllTracks } from '@shared/api/getAllTracks';
-import img from '../../../../assets/sidebar/playlist/cover7.png';
 
 export const Playlist = () => {
 
@@ -17,7 +16,15 @@ export const Playlist = () => {
     return (
         <BaseLayout>
             <AuthorLayout>
-                <TrackAlbumPlaylistCover img={img} likes="241" listening="124001" title="Relax" />
+                <TrackAlbumPlaylistCover
+                    likes={23}
+                    auditions={21}
+                    title="Relax"
+                    img="/track/cover/kizaru/ewrew/dwwd"
+                    isLiked
+                    isAudition
+
+                />
                 <TrackList/>
             </AuthorLayout>
         </BaseLayout>
