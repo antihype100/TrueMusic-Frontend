@@ -1,5 +1,5 @@
 import {RefObject} from 'react';
-import {IGlobalTrackInfo} from '@widgets/Player/model/globalTrackStore';
+import {IGlobalTrackInfo} from '@widgets/Player/model/playerStore';
 
 export const playPauseWrapper = (
     trackName: string,

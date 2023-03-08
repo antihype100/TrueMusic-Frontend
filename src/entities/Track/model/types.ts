@@ -14,7 +14,9 @@ export interface ITrackProps {
     setTrack?: () => void;
     ProgressBar?: ReactNode;
     LikeCounter?: ReactNode;
-    AuditionsCounter?: ReactNode
+    AuditionsCounter?: ReactNode,
+    toAlbum?: boolean
+    albumName?: string
 
 }
 

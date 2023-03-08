@@ -1,5 +1,5 @@
 import {RefObject} from 'react';
-import {IGlobalTrackInfo, ITrackResponse} from '../model/globalTrackStore';
+import {IGlobalTrackInfo, ITrackResponse} from '../model/playerStore';
 
 export const playPauseGlobalPlayerWrapper = (
     audioRefGlobal: RefObject<HTMLAudioElement> | null,

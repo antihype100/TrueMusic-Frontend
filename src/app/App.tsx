@@ -1,6 +1,6 @@
 import React from 'react';
+import { Player } from '@widgets/Player';
 import AppRouter from './AppRouter';
-import { Player } from '../widgets/Player';
 
 const App = () => (
         <>

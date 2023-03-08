@@ -1,7 +1,7 @@
 import { TrackList } from '@features/TrackListSideBar/ui/TrackList/TrackList';
 import {useEffect, useState} from "react";
 import {getAllTracks} from "@shared/api/getAllTracks";
-import {ITrackResponse} from "@widgets/Player/model/globalTrackStore";
+import {ITrackResponse} from "@widgets/Player/model/playerStore";
 import styles from './RightSideBar.module.scss';
 
 export const RightSideBar = () => {

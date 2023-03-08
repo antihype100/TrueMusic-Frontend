@@ -7,16 +7,14 @@ interface INavLinkState {
     active: boolean
 }
 
-interface IPlaylistStore {
+interface INavMenuTrackListStore {
     navLinkState: INavLinkState,
-
     setNavLinkState: (navLinkState: INavLinkState) => void
 }
 
-const useGlobalPlaylistStore = create<IPlaylistStore>((set) => ({
+const useNavMenuTrackListStore = create<INavMenuTrackListStore>((set) => ({
     navLinkState: {id: 2, title: 'True-Top', apiPath: 'track/all', active: true},
-
     setNavLinkState: (navLinkState) => set(() => ({ navLinkState })),
 }));
 
-export {useGlobalPlaylistStore};
+export {useNavMenuTrackListStore};

@@ -64,7 +64,7 @@ export const CreateReleaseForm = () => {
                 />
                 <NextStepButton
                     text="Далее"
-                    action={() => setTimeout(() => navigate(`/${userName}/upload-track`), 50)}
+                    action={() => setTimeout(() => navigate(`/upload-track`), 50)}
                     isValid={isValid && Boolean(coverFile.name)}
                 />
             </div>

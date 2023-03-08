@@ -1,7 +1,7 @@
 import styles from '../ui/LikeCounter.module.scss'
 
 interface ILikeIcon {
-    isLiked: boolean
+    isLiked: boolean,
 }
 
 export const LikeIcon = ({isLiked}: ILikeIcon) => (

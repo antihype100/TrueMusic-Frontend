@@ -1,6 +1,6 @@
 import {useUserInfoStore} from '@entities/User';
 import {useReleaseStore} from "@processes/release/CreateRelease";
-import {useGlobalTrackStore} from "@widgets/Player/model/globalTrackStore";
+import {usePlayerStore} from "@widgets/Player/model/playerStore";
 import {Track} from '@entities/Track';
 import {NextStepButton} from '@shared/ui/NextStepButton/NextStepButton';
 import {setTrackWrapper} from "@features/UploadedTrackList/helper/setTrack";
@@ -10,7 +10,7 @@ import type {IUploadedTrackListProps} from '../../model/types';
 
 export const UploadedTrackList = ({albumName, trackList, sendRelease}: IUploadedTrackListProps) => {
 
-    const {setTrackInfoGlobal, globalTrackInfo, audioRefGlobal} = useGlobalTrackStore(state => state)
+    const {setTrackInfoGlobal, globalTrackInfo, audioRefGlobal} = usePlayerStore(state => state)
     const {coverPath} = useReleaseStore(state => state.release)
     const {userName} = useUserInfoStore()
     const coverWidthHeight = (window.screen.width - 480) / (1280 - 480) * (18 - 16) + 45

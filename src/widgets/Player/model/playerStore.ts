@@ -18,6 +18,7 @@ export interface ITrackResponse {
     trackPath: string,
     trackText: string,
     updatedAt: string,
+    albumName: string,
 }
 
 export interface IGlobalTrackInfo extends ITrackResponse{
@@ -39,26 +40,9 @@ export interface IGlobalTrackStore {
     setGlobalTrackList: (trackList: ITrackResponse[]) => void,
 }
 
-export const useGlobalTrackStore = create<IGlobalTrackStore>()(
+export const usePlayerStore = create<IGlobalTrackStore>()(
     (set) => ({
-        globalTrackInfo: {
-            trackName: 'Track',
-            trackPath: '',
-            usersLiked: 0,
-            authorName: 'Author',
-            trackDuration: 0,
-            id: 0,
-            isLiked: undefined,
-            isAudition: undefined,
-            isPlay: false,
-            albumId: 0,
-            createdAt: '',
-            trackText: '',
-            trackDescription: '',
-            usersAuditions: 0,
-            trackProduction: '',
-            updatedAt: '',
-        },
+        globalTrackInfo: {} as IGlobalTrackInfo,
         audioRefGlobal: null,
         trackCurrentTime: 0,
         globalTrackList: [],
@@ -68,6 +52,5 @@ export const useGlobalTrackStore = create<IGlobalTrackStore>()(
         setAudioRefGlobal: (ref) => set(() => ({ audioRefGlobal: ref })),
         setCurrentTime: (trackCurrentTime) => set(() => ({ trackCurrentTime })),
         setGlobalTrackList: (trackList) => set(() => ({ globalTrackList: trackList })),
-
     }),
 );

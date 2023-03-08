@@ -1,4 +1,4 @@
-import {IGlobalTrackInfo} from "@widgets/Player/model/globalTrackStore";
+import {IGlobalTrackInfo} from "@widgets/Player/model/playerStore";
 
 export const setTrackWrapper = (
     setTrackInfoGlobal: (trackInfo: IGlobalTrackInfo) => void,

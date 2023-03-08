@@ -1,5 +1,5 @@
 import { main, message, profile, sound } from '@shared/helper/importSvg';
-import {HOME, REGISTER, USER_FAVORITES} from '@shared/helper/routes';
+import {HOME, LOGIN, REGISTER, USER_FAVORITES} from '@shared/helper/routes';
 import nft from '../../../assets/sidebar/navmenu/nft.png';
 
 
@@ -26,7 +26,7 @@ export const getAuthorNavMenuList = (userName: string) => [
     ];
 export const getNoAuthNavMenuList = () => [
         { linkText: 'Главная', img: main, to: HOME },
-        { linkText: 'Войти', img: profile, to: REGISTER },
+        { linkText: 'Войти', img: profile, to: LOGIN },
         { linkText: 'Поиск', img: profile, to: REGISTER },
         { linkText: 'True-Top', img: sound, to: '#' },
         { linkText: 'NFT-Music', img: nft, to: '#' },

@@ -1,5 +1,4 @@
-import {playPauseGlobalPlayerWrapper} from "@widgets/Player/helper/trackController";
-import {useGlobalTrackStore} from '@widgets/Player/model/globalTrackStore';
+import {usePlayerStore} from '@widgets/Player/model/playerStore';
 import {Audio} from '@widgets/Player/ui/Audio/Audio';
 import {PlayPauseNextPrevButton} from '@widgets/Player/ui/PlayPauseNextPrevButton/PlayPauseNextPrevButton';
 import {AuditionCounter} from "@features/AuditionCounter";
@@ -19,7 +18,8 @@ export const Player = () => {
         setTrackInfoGlobal,
         setGlobalTrackList,
         globalTrackList
-    } = useGlobalTrackStore(state => state);
+    } = usePlayerStore(state => state)
+
     const {
         authorName,
         trackName,
@@ -29,6 +29,7 @@ export const Player = () => {
         id,
         usersLiked,
         isLiked,
+        albumName,
         usersAuditions,
         isAudition
     } = globalTrackInfo
@@ -36,7 +37,6 @@ export const Player = () => {
     const coverWidthHeight = (window.screen.width - 480) / (1280 - 480) * (18 - 16) + 75
     const fontSize = (window.screen.width - 480) / (1280 - 480) * (17 - 16) + 10
 
-    const playPause = playPauseGlobalPlayerWrapper(audioRefGlobal, globalTrackInfo, setTrackInfoGlobal)
     const handleChange = changeProgressBarWrapper(authorName, globalTrackInfo, trackName, audioRefGlobal)
     const auditionAction = auditionActionWrapper(id, globalTrackList, setGlobalTrackList, setTrackInfoGlobal, globalTrackInfo)
 
@@ -59,13 +59,28 @@ export const Player = () => {
                     trackPath={trackPath}
                     authorName={authorName}
                     trackName={trackName}
-                    playPause={playPause}
+                    albumName={albumName}
+                    toAlbum
                     ProgressBar={<TrackProgressBar
                         handleChange={handleChange}
                         trackCurrentTime={trackCurrentTime}
                         trackDuration={trackDuration}
-                        LikeCounter={<LikeCounter isLiked={isLiked} trackId={id} usersLiked={usersLiked}/>}
-                        AuditionsCounter={<AuditionCounter isAudition={isAudition} usersAuditions={usersAuditions}/>}
+                        LikeCounter={
+                            <LikeCounter
+                                isLiked={isLiked}
+                                trackId={id}
+                                usersLiked={usersLiked}
+                                isPlayer
+                                trackList={globalTrackList}
+                                setTrackList={setGlobalTrackList}
+                            />
+                        }
+                        AuditionsCounter={
+                            <AuditionCounter
+                                isAudition={isAudition}
+                                usersAuditions={usersAuditions}
+                            />
+                        }
                     />}
                 />
                 <PlayPauseNextPrevButton/>

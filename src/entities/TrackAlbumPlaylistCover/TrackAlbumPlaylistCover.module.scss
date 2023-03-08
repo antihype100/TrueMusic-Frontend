@@ -1,39 +1,27 @@
 .coverWrapper {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .nameAlbum {
-  position: absolute;
-  font-weight: 700;
-  top: -40px;
-  font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 20px);
-  color: #ffffff;
-  letter-spacing: 0.03em;
+    position: absolute;
+    font-weight: 700;
+    top: -40px;
+    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 20px);
+    color: #ffffff;
+    letter-spacing: 0.03em;
 }
 
 .imgAlbum {
-  width: calc(100vw / 10);
-  max-width: 220px;
+    width: calc(100vw / 10);
+    max-width: 220px;
 }
 
 .stats {
-  display: flex;
-  align-self: end;
-  margin-top: 10px;
-
-  div {
-    margin-left: 10px;
     display: flex;
-    align-items: center;
-  }
-
-  span {
-    margin-right: 4px;
-    font-style: italic;
-    font-weight: 400;
-    font-size: calc((100vw - 80px) / (900 - 480) * (18 - 16) + 3px);
-    letter-spacing: 0.03em;
-    color: #979797;
-  }
+    align-self: end;
+    margin-top: 10px;
+    div {
+        margin-right: 10px;
+    }
 }

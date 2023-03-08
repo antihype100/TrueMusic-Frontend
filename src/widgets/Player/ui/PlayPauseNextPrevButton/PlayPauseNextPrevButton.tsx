@@ -1,5 +1,5 @@
 import styles from './PlayPauseNextPrevButton.module.scss'
-import { useGlobalTrackStore } from '../../model/globalTrackStore';
+import { usePlayerStore } from '../../model/playerStore';
 import { getPlayingTrackIndex } from '../../helper/getPlayingTrackIndex';
 import { nextTrackWrapper, playPauseGlobalPlayerWrapper, prevTrackWrapper } from '../../helper/trackController';
 import { Pause } from '../../assets/Pause';
@@ -8,7 +8,7 @@ import { Next } from '../../assets/Next';
 import { Play } from '../../assets/Play';
 
 export const PlayPauseNextPrevButton = () => {
-    const { audioRefGlobal, globalTrackInfo, setTrackInfoGlobal, globalTrackList, setCurrentTime } = useGlobalTrackStore(state => state)
+    const { audioRefGlobal, globalTrackInfo, setTrackInfoGlobal, globalTrackList, setCurrentTime } = usePlayerStore(state => state)
 
     const playingTrackIdx = getPlayingTrackIndex(globalTrackList, globalTrackInfo)
 

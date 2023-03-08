@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import styles from './Comments.module.scss';
 import Comment from './Comment';
-import { useState } from 'react';
 
 const Comments = () => {
     const [value, setValue] = useState<string>();

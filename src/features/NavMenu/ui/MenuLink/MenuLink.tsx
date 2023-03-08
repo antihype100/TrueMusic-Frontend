@@ -1,5 +1,5 @@
-import styles from '../MenuLink/MenuLink.module.scss';
 import { Link } from 'react-router-dom';
+import styles from "./MenuLink.module.scss";
 
 interface INavMenuLink {
     img: any;

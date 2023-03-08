@@ -1,5 +1,6 @@
+import type {ITrackProps} from '@entities/Track';
+import {useNavigate} from "react-router-dom";
 import styles from './Track.module.scss';
-import type {ITrackProps} from '../../model/types';
 import {TrackInfo} from '../TrackInfo/TrackInfo';
 
 
@@ -16,9 +17,12 @@ export const Track = (
         fontSize,
         ProgressBar,
         LikeCounter,
-        AuditionsCounter
+        AuditionsCounter,
+        toAlbum,
+        albumName
     }: ITrackProps) => {
     const BASE_URL = import.meta.env.VITE_BASE_URL
+    const navigate = useNavigate()
     return (
         <div className={styles.trackWrapper}>
             <img
@@ -28,6 +32,9 @@ export const Track = (
                 src={coverPath || (trackPath ? `${BASE_URL}/track/cover${trackPath}` : undefined)}
                 alt=''
                 onClick={() => {
+                    if (toAlbum) {
+                        navigate(`/author/${authorName}/albums/${albumName}`)
+                    }
                     if (setTrack) {
                         setTrack();
                     }

@@ -1,5 +1,5 @@
 import {memo, useEffect, useRef} from 'react';
-import {useGlobalTrackStore} from '../../model/globalTrackStore';
+import {usePlayerStore} from '../../model/playerStore';
 import {nextTrackWrapper} from "../../helper/trackController";
 import {getPlayingTrackIndex} from "../../helper/getPlayingTrackIndex";
 
@@ -9,11 +9,11 @@ interface IAudio {
 
 export const Audio = memo(({trackPath}: IAudio) => {
     const audioRef = useRef(null);
-    const setRef = useGlobalTrackStore(state => state.setAudioRefGlobal);
-    const setCurrentTime = useGlobalTrackStore(state => state.setCurrentTime);
-    const globalTrackInfo = useGlobalTrackStore(state => state.globalTrackInfo)
-    const globalTrackList = useGlobalTrackStore(state => state.globalTrackList)
-    const setTrackInfoGlobal = useGlobalTrackStore(state => state.setTrackInfoGlobal)
+    const setRef = usePlayerStore(state => state.setAudioRefGlobal);
+    const setCurrentTime = usePlayerStore(state => state.setCurrentTime);
+    const globalTrackInfo = usePlayerStore(state => state.globalTrackInfo)
+    const globalTrackList = usePlayerStore(state => state.globalTrackList)
+    const setTrackInfoGlobal = usePlayerStore(state => state.setTrackInfoGlobal)
 
     const playingTrackIdx = getPlayingTrackIndex(globalTrackList, globalTrackInfo)
     const nextTrack = nextTrackWrapper(setCurrentTime, playingTrackIdx, globalTrackList, setTrackInfoGlobal)

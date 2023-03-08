@@ -1,18 +1,41 @@
+import {ITrackResponse, usePlayerStore} from "@widgets/Player/model/playerStore";
 import {LikeIcon} from "../assets/LikeIcon";
 import styles from './LikeCounter.module.scss'
 import {likeActionWrapper} from "../api/likeAction";
-import {useGlobalTrackStore} from "../../../widgets/Player/model/globalTrackStore";
 
 interface ILikeCounter {
     usersLiked: number,
-    trackId: number;
+    trackId: number | undefined;
     isLiked: boolean | undefined,
+    trackList?: ITrackResponse[],
+    setTrackList?: (trackList: ITrackResponse[]) => void,
+    isPlayer?: boolean;
+
+
 }
 
-export const LikeCounter = ({usersLiked, trackId, isLiked,}: ILikeCounter) => {
+export const LikeCounter = (
+    {
+        usersLiked,
+        trackId,
+        isLiked,
+        trackList,
+        setTrackList,
+        isPlayer
+    }: ILikeCounter) => {
 
-    const {globalTrackList, setGlobalTrackList, setTrackInfoGlobal, globalTrackInfo} = useGlobalTrackStore(state => state)
-    const likeAction = likeActionWrapper(trackId, globalTrackList, setGlobalTrackList, setTrackInfoGlobal, globalTrackInfo)
+    const {globalTrackList, setGlobalTrackList, setTrackInfoGlobal, globalTrackInfo} = usePlayerStore(state => state)
+    const likeAction = likeActionWrapper(
+        trackId,
+        globalTrackList,
+        setGlobalTrackList,
+        setTrackInfoGlobal,
+        globalTrackInfo,
+        trackList,
+        setTrackList,
+        isPlayer,
+    )
+
 
 
     return (

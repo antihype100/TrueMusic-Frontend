@@ -1,11 +1,16 @@
-import {IGlobalTrackInfo, ITrackResponse} from '@widgets/Player/model/globalTrackStore';
+import {IGlobalTrackInfo, ITrackResponse} from '@widgets/Player/model/playerStore';
 
 export const setTrackWrapper = (
-    id: number,
+    id: number | undefined,
     setTrackInfoGlobal: (trackInfo: IGlobalTrackInfo) => void,
-    globalTrackList: ITrackResponse[],
+    trackList: IGlobalTrackInfo[] | undefined,
+    setGlobalTrackList: (trackList: ITrackResponse[]) => void
 ) => () => {
-    const track = globalTrackList.filter(track => track.id === id)
-    const idx = globalTrackList.indexOf(track[0])
-    setTrackInfoGlobal({...globalTrackList[idx], isPlay: true});
+        if (trackList) {
+                const track = trackList.filter(track => track.id === id)
+                const idx = trackList.indexOf(track[0])
+                setTrackInfoGlobal({...trackList[idx], isPlay: true})
+                setGlobalTrackList(trackList)
+        }
+
 }
